@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+
+            <ImageButton
+                android:id="@+id/btnIdioma"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/titulo_idioma"
+                android:src="@android:drawable/ic_menu_sort_alphabetically" />
+
+            <ImageButton
+                android:id="@+id/btnTema"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/titulo_temas"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <ImageButton
+                android:id="@+id/btnWifiConfig"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/titulo_wifi"
+                android:src="@android:drawable/ic_menu_preferences" />
+
+            <ImageButton
+                android:id="@+id/btnHistorico"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/btn_historico"
+                android:src="@android:drawable/ic_menu_recent_history" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtRelogio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:textColor="@color/text_primary"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            tools:text="14:32" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEntrada"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/entrada_green"
+            android:text="@string/btn_entrada"
+            android:textSize="24sp"
+            app:cornerRadius="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSaida"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/saida_red"
+            android:text="@string/btn_saida"
+            android:textSize="24sp"
+            app:cornerRadius="16dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutNota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:hint="@string/hint_nota">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editNota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/txtTituloHoje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/titulo_hoje"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtRegistosHoje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp"
+            tools:text="Entrada: 09:03\nSaída: 18:12" />
+
+        <TextView
+            android:id="@+id/txtTotalHoje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Total: 9h 09min" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEnviarHoje"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/btn_enviar_hoje" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEscolherDia"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/btn_escolher_dia" />
+
+    </LinearLayout>
+</ScrollView>

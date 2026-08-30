@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">KOMMEN</string>
+    <string name="btn_saida">GEHEN</string>
+    <string name="hint_nota">Notiz (optional) — z. B. früher gegangen, Zahnarzt</string>
+    <string name="btn_enviar_hoje">Heute an den Chef senden</string>
+    <string name="btn_escolher_dia">Anderen Tag ansehen</string>
+    <string name="btn_historico">Verlauf</string>
+    <string name="titulo_hoje">Heute</string>
+    <string name="sem_registos">Heute noch keine Einträge</string>
+    <string name="em_curso">(läuft)</string>
+
+    <string name="titulo_historico">Verlauf</string>
+    <string name="sem_historico">Noch keine Tage erfasst</string>
+    <string name="btn_exportar_resumo">Übersicht exportieren (Bild)</string>
+
+    <string name="titulo_horario">Normale Arbeitszeit</string>
+    <string name="explicacao_horario">Lege fest, wie viele Stunden du normalerweise an jedem Wochentag arbeitest. Dies wird verwendet, um die Differenz (mehr/weniger) in der exportierten Übersicht zu berechnen.</string>
+    <string name="horario_guardado">Arbeitszeit gespeichert</string>
+    <string name="btn_guardar">Speichern</string>
+
+    <string name="btn_enviar_dia">Diesen Tag senden</string>
+    <string name="enviar_via">Senden über</string>
+    <string name="erro_partilha">Teilen nicht möglich</string>
+
+    <string name="titulo_wifi">Automatische Erkennung (WLAN)</string>
+    <string name="explicacao_wifi">Wenn sich das Handy mit diesem WLAN verbindet, wird automatisch \"Kommen\" erfasst; bei der Trennung wird \"Gehen\" erfasst. Das ist nur eine Hilfe — du kannst jederzeit weiterhin manuell stempeln, auch wenn diese Funktion aktiv ist. Die automatischen Zeiten können um einige Minuten abweichen (die Zeit, bis sich das Handy nach der Ankunft mit dem Netzwerk verbindet, Umziehen usw., oder bis es sich nach dem Verlassen trennt), und sie werden in den Einträgen immer als \"Automatisch (WLAN)\" markiert, damit sie nie mit manuellen Einträgen verwechselt werden.</string>
+    <string name="switch_ativar_wifi">Automatische Erkennung aktivieren</string>
+    <string name="hint_ssid">WLAN-Netzwerkname (SSID)</string>
+    <string name="btn_usar_rede_atual">Aktuell verbundenes Netzwerk verwenden</string>
+    <string name="erro_sem_rede_atual">Du bist gerade mit keinem WLAN verbunden, oder der Netzwerkname fehlt</string>
+    <string name="erro_permissao_localizacao">Android verlangt die Standortberechtigung, um den Namen des verbundenen WLAN-Netzwerks zu lesen</string>
+    <string name="nota_auto_wifi">Automatisch (WLAN) — kann um einige Minuten abweichen</string>
+    <string name="notif_canal_nome">Erkennung des Arbeits-WLANs</string>
+    <string name="notif_titulo">Horas — überwacht Arbeitsnetzwerk</string>
+    <string name="notif_texto">Erfasst automatisch Kommen/Gehen beim Verbinden/Trennen dieses Netzwerks</string>
+    <string name="aviso_bateria">Auf manchen Handys (Xiaomi/POCO, Huawei usw.) schließt das System Hintergrund-Apps, um Akku zu sparen. Falls die Erkennung von selbst aufhört zu funktionieren, gehe zu Telefoneinstellungen → Akku → wähle Horas → deaktiviere den Akkusparmodus für diese App und aktiviere \"Autostart\", falls diese Option vorhanden ist.</string>
+
+    <string name="titulo_temas">Designs</string>
+    <string name="tema_automatico">Automatisch (System hell/dunkel)</string>
+
+    <string name="titulo_idioma">Sprache</string>
+    <string name="idioma_automatico">Automatisch (Systemsprache)</string>
+
+    <string-array name="dias_semana">
+        <item>Montag</item>
+        <item>Dienstag</item>
+        <item>Mittwoch</item>
+        <item>Donnerstag</item>
+        <item>Freitag</item>
+        <item>Samstag</item>
+        <item>Sonntag</item>
+    </string-array>
+</resources>

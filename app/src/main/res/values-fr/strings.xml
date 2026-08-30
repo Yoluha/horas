@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">ARRIVÉE</string>
+    <string name="btn_saida">DÉPART</string>
+    <string name="hint_nota">Note (facultatif) — ex : parti plus tôt, dentiste</string>
+    <string name="btn_enviar_hoje">Envoyer la journée au patron</string>
+    <string name="btn_escolher_dia">Voir un autre jour</string>
+    <string name="btn_historico">Historique</string>
+    <string name="titulo_hoje">Aujourd\'hui</string>
+    <string name="sem_registos">Aucun pointage aujourd\'hui</string>
+    <string name="em_curso">(en cours)</string>
+
+    <string name="titulo_historico">Historique</string>
+    <string name="sem_historico">Aucun jour enregistré pour le moment</string>
+    <string name="btn_exportar_resumo">Exporter le résumé (image)</string>
+
+    <string name="titulo_horario">Horaire Normal</string>
+    <string name="explicacao_horario">Définissez le nombre d\'heures que vous travaillez normalement chaque jour de la semaine. Cela sert à calculer l\'écart (en plus/en moins) dans le résumé exporté.</string>
+    <string name="horario_guardado">Horaire enregistré</string>
+    <string name="btn_guardar">Enregistrer</string>
+
+    <string name="btn_enviar_dia">Envoyer ce jour</string>
+    <string name="enviar_via">Envoyer via</string>
+    <string name="erro_partilha">Impossible de partager</string>
+
+    <string name="titulo_wifi">Détection Automatique (WiFi)</string>
+    <string name="explicacao_wifi">Quand le téléphone se connecte à ce réseau WiFi, il pointe l\'arrivée automatiquement ; à la déconnexion, il pointe le départ. C\'est juste une aide — vous pouvez toujours pointer manuellement à tout moment, même avec cette option activée. Les horaires automatiques peuvent varier de quelques minutes (le temps que le téléphone se connecte au réseau après votre arrivée, se changer, etc., ou se déconnecter après votre départ), et sont toujours marqués \"Automatique (WiFi)\" dans les registres, pour ne jamais être confondus avec les pointages manuels.</string>
+    <string name="switch_ativar_wifi">Activer la détection automatique</string>
+    <string name="hint_ssid">Nom du réseau WiFi (SSID)</string>
+    <string name="btn_usar_rede_atual">Utiliser le réseau auquel je suis connecté maintenant</string>
+    <string name="erro_sem_rede_atual">Vous n\'êtes connecté à aucun réseau WiFi actuellement, ou le nom du réseau est manquant</string>
+    <string name="erro_permissao_localizacao">Android exige l\'autorisation de localisation pour lire le nom du réseau WiFi connecté</string>
+    <string name="nota_auto_wifi">Automatique (WiFi) — peut varier de quelques minutes</string>
+    <string name="notif_canal_nome">Détection du WiFi du travail</string>
+    <string name="notif_titulo">Horas — surveillance du réseau du travail</string>
+    <string name="notif_texto">Pointe l\'arrivée/le départ automatiquement à la connexion/déconnexion de ce réseau</string>
+    <string name="aviso_bateria">Sur certains téléphones (Xiaomi/POCO, Huawei, etc.), le système ferme les applications en arrière-plan pour économiser la batterie. Si la détection s\'arrête toute seule, allez dans Paramètres du téléphone → Batterie → sélectionnez Horas → désactivez l\'économie de batterie pour cette application, et activez \"Démarrage automatique\" si cette option existe.</string>
+
+    <string name="titulo_temas">Thèmes</string>
+    <string name="tema_automatico">Automatique (clair/sombre du système)</string>
+
+    <string name="titulo_idioma">Langue</string>
+    <string name="idioma_automatico">Automatique (langue du système)</string>
+
+    <string-array name="dias_semana">
+        <item>Lundi</item>
+        <item>Mardi</item>
+        <item>Mercredi</item>
+        <item>Jeudi</item>
+        <item>Vendredi</item>
+        <item>Samedi</item>
+        <item>Dimanche</item>
+    </string-array>
+</resources>

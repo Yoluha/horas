@@ -1,0 +1,7 @@
+<resources>
+    <color name="entrada_green">#4CAF50</color>
+    <color name="saida_red">#EF5350</color>
+    <color name="background">#121212</color>
+    <color name="text_primary">#F0F0F0</color>
+    <color name="text_secondary">#B0B0B0</color>
+</resources>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:title="@string/titulo_horario"
+            app:titleTextColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/txtExplicacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="@string/explicacao_horario"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/layoutDias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuardarHorario"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_margin="20dp"
+            android:text="@string/btn_guardar" />
+
+    </LinearLayout>
+</ScrollView>

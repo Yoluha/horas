@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="@string/titulo_historico"
+        app:titleTextColor="@color/text_primary">
+
+        <ImageButton
+            android:id="@+id/btnHorario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/titulo_horario"
+            android:src="@android:drawable/ic_menu_edit" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/txtVazio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/sem_historico"
+        android:textColor="@color/text_secondary"
+        android:visibility="gone" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerDias"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnExportarResumo"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_margin="20dp"
+        android:text="@string/btn_exportar_resumo" />
+
+</LinearLayout>

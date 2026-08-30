@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">ENTRATA</string>
+    <string name="btn_saida">USCITA</string>
+    <string name="hint_nota">Nota (facoltativo) — es: uscito prima, dentista</string>
+    <string name="btn_enviar_hoje">Invia oggi al capo</string>
+    <string name="btn_escolher_dia">Vedi un altro giorno</string>
+    <string name="btn_historico">Cronologia</string>
+    <string name="titulo_hoje">Oggi</string>
+    <string name="sem_registos">Ancora nessuna timbratura oggi</string>
+    <string name="em_curso">(in corso)</string>
+
+    <string name="titulo_historico">Cronologia</string>
+    <string name="sem_historico">Ancora nessun giorno registrato</string>
+    <string name="btn_exportar_resumo">Esporta riepilogo (immagine)</string>
+
+    <string name="titulo_horario">Orario Normale</string>
+    <string name="explicacao_horario">Imposta quante ore lavori normalmente ogni giorno della settimana. Questo serve a calcolare la differenza (in più/in meno) nel riepilogo esportato.</string>
+    <string name="horario_guardado">Orario salvato</string>
+    <string name="btn_guardar">Salva</string>
+
+    <string name="btn_enviar_dia">Invia questo giorno</string>
+    <string name="enviar_via">Invia tramite</string>
+    <string name="erro_partilha">Impossibile condividere</string>
+
+    <string name="titulo_wifi">Rilevamento Automatico (WiFi)</string>
+    <string name="explicacao_wifi">Quando il telefono si connette a questa rete WiFi, registra l\'entrata automaticamente; quando si disconnette, registra l\'uscita. Questo è solo un supporto — puoi sempre timbrare manualmente in qualsiasi momento, anche con questa funzione attiva. Gli orari automatici possono variare di alcuni minuti (il tempo prima che il telefono si connetta alla rete dopo il tuo arrivo, cambiarsi, ecc., o prima che si disconnetta dopo che sei uscito), e sono sempre contrassegnati come \"Automatico (WiFi)\" nei registri, per non essere mai confusi con quelli manuali.</string>
+    <string name="switch_ativar_wifi">Attiva rilevamento automatico</string>
+    <string name="hint_ssid">Nome della rete WiFi (SSID)</string>
+    <string name="btn_usar_rede_atual">Usa la rete a cui sono connesso ora</string>
+    <string name="erro_sem_rede_atual">Non sei connesso a nessuna rete WiFi in questo momento, o manca il nome della rete</string>
+    <string name="erro_permissao_localizacao">Android richiede l\'autorizzazione alla posizione per leggere il nome della rete WiFi connessa</string>
+    <string name="nota_auto_wifi">Automatico (WiFi) — può variare di alcuni minuti</string>
+    <string name="notif_canal_nome">Rilevamento WiFi del lavoro</string>
+    <string name="notif_titulo">Horas — monitoraggio rete di lavoro</string>
+    <string name="notif_texto">Registra entrata/uscita automaticamente alla connessione/disconnessione da questa rete</string>
+    <string name="aviso_bateria">Su alcuni telefoni (Xiaomi/POCO, Huawei, ecc.) il sistema chiude le app in background per risparmiare batteria. Se il rilevamento smette di funzionare da solo, vai su Impostazioni del telefono → Batteria → seleziona Horas → disattiva il risparmio energetico per questa app, e attiva \"Avvio automatico\" se questa opzione esiste.</string>
+
+    <string name="titulo_temas">Temi</string>
+    <string name="tema_automatico">Automatico (chiaro/scuro di sistema)</string>
+
+    <string name="titulo_idioma">Lingua</string>
+    <string name="idioma_automatico">Automatico (lingua di sistema)</string>
+
+    <string-array name="dias_semana">
+        <item>Lunedì</item>
+        <item>Martedì</item>
+        <item>Mercoledì</item>
+        <item>Giovedì</item>
+        <item>Venerdì</item>
+        <item>Sabato</item>
+        <item>Domenica</item>
+    </string-array>
+</resources>

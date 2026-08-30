@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">CLOCK IN</string>
+    <string name="btn_saida">CLOCK OUT</string>
+    <string name="hint_nota">Note (optional) — e.g. left early, dentist</string>
+    <string name="btn_enviar_hoje">Send today to my boss</string>
+    <string name="btn_escolher_dia">View another day</string>
+    <string name="btn_historico">History</string>
+    <string name="titulo_hoje">Today</string>
+    <string name="sem_registos">No entries yet today</string>
+    <string name="em_curso">(in progress)</string>
+
+    <string name="titulo_historico">History</string>
+    <string name="sem_historico">No days recorded yet</string>
+    <string name="btn_exportar_resumo">Export summary (image)</string>
+
+    <string name="titulo_horario">Normal Schedule</string>
+    <string name="explicacao_horario">Set how many hours you normally work on each day of the week. This is used to calculate the difference (over/under) in the exported summary.</string>
+    <string name="horario_guardado">Schedule saved</string>
+    <string name="btn_guardar">Save</string>
+
+    <string name="btn_enviar_dia">Send this day</string>
+    <string name="enviar_via">Send via</string>
+    <string name="erro_partilha">Couldn\'t share</string>
+
+    <string name="titulo_wifi">Automatic Detection (WiFi)</string>
+    <string name="explicacao_wifi">When your phone connects to this WiFi network, it clocks you in automatically; when it disconnects, it clocks you out. This is just a backup — you can still clock in/out manually at any time, even with this on. Automatic times can be off by a few minutes (the time it takes your phone to join the network after you arrive, changing clothes, etc., or to disconnect after you leave), and they\'re always tagged as \"Automatic (WiFi)\" in the records, so they\'re never confused with manual ones.</string>
+    <string name="switch_ativar_wifi">Enable automatic detection</string>
+    <string name="hint_ssid">WiFi network name (SSID)</string>
+    <string name="btn_usar_rede_atual">Use the network I\'m connected to now</string>
+    <string name="erro_sem_rede_atual">You\'re not connected to any WiFi network right now, or the network name is missing</string>
+    <string name="erro_permissao_localizacao">Android requires location permission to read the connected WiFi network\'s name</string>
+    <string name="nota_auto_wifi">Automatic (WiFi) — may be off by a few minutes</string>
+    <string name="notif_canal_nome">Work WiFi detection</string>
+    <string name="notif_titulo">Horas — monitoring work network</string>
+    <string name="notif_texto">Clocks you in/out automatically when you join/leave this network</string>
+    <string name="aviso_bateria">On some phones (Xiaomi/POCO, Huawei, etc.) the system closes background apps to save battery. If automatic detection stops working on its own, go to Phone Settings → Battery → select Horas → turn off battery saving for this app, and enable \"Autostart\" if that option exists.</string>
+
+    <string name="titulo_temas">Themes</string>
+    <string name="tema_automatico">Automatic (system light/dark)</string>
+
+    <string name="titulo_idioma">Language</string>
+    <string name="idioma_automatico">Automatic (system language)</string>
+
+    <string-array name="dias_semana">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+</resources>

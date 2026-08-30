@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">ENTRADA</string>
+    <string name="btn_saida">SAÍDA</string>
+    <string name="hint_nota">Nota (opcional) — ex: saí mais cedo, dentista</string>
+    <string name="btn_enviar_hoje">Enviar hoje ao patrão</string>
+    <string name="btn_escolher_dia">Ver outro dia</string>
+    <string name="btn_historico">Histórico</string>
+    <string name="titulo_hoje">Hoje</string>
+    <string name="sem_registos">Ainda sem registos hoje</string>
+    <string name="em_curso">(em curso)</string>
+
+    <string name="titulo_historico">Histórico</string>
+    <string name="sem_historico">Ainda não há dias registados</string>
+    <string name="btn_exportar_resumo">Exportar resumo (imagem)</string>
+
+    <string name="titulo_horario">Horário Normal</string>
+    <string name="explicacao_horario">Define quantas horas trabalhas normalmente em cada dia da semana. Isto é usado para calcular a diferença (a mais/a menos) no resumo exportado.</string>
+    <string name="horario_guardado">Horário guardado</string>
+    <string name="btn_guardar">Guardar</string>
+
+    <string name="btn_enviar_dia">Enviar este dia</string>
+    <string name="enviar_via">Enviar via</string>
+    <string name="erro_partilha">Não foi possível partilhar</string>
+
+    <string name="titulo_wifi">Deteção Automática (WiFi)</string>
+    <string name="explicacao_wifi">Quando o telemóvel se ligar a esta rede WiFi, regista Entrada sozinho; quando desligar, regista Saída. Isto é só um apoio — podes sempre picar manualmente a qualquer momento, mesmo com isto ativo. As horas automáticas podem variar alguns minutos (o tempo até o telemóvel ligar à rede depois de chegares, trocar de roupa, etc., ou até desligar depois de saíres) e ficam sempre marcadas como \"Automático (WiFi)\" nos registos, para nunca se confundirem com os manuais.</string>
+    <string name="switch_ativar_wifi">Ativar deteção automática</string>
+    <string name="hint_ssid">Nome da rede WiFi (SSID)</string>
+    <string name="btn_usar_rede_atual">Usar a rede a que estou ligado agora</string>
+    <string name="erro_sem_rede_atual">Não estás ligado a nenhuma rede WiFi agora, ou falta o nome da rede</string>
+    <string name="erro_permissao_localizacao">O Android exige permissão de localização para ler o nome da rede WiFi ligada</string>
+    <string name="nota_auto_wifi">Automático (WiFi) — pode variar alguns minutos</string>
+    <string name="notif_canal_nome">Deteção de WiFi do trabalho</string>
+    <string name="notif_titulo">Horas — a monitorizar rede do trabalho</string>
+    <string name="notif_texto">Regista entrada/saída sozinho quando ligares/desligares desta rede</string>
+    <string name="aviso_bateria">Em alguns telemóveis (Xiaomi/POCO, Huawei, etc.) o sistema fecha apps em segundo plano para poupar bateria. Se a deteção parar de funcionar sozinha, vai a Definições do telemóvel → Bateria → escolhe o Horas → desativa a poupança de bateria para este app, e ativa \"Arranque automático\" se existir essa opção.</string>
+
+    <string name="titulo_temas">Temas</string>
+    <string name="tema_automatico">Automático (claro/escuro do sistema)</string>
+
+    <string name="titulo_idioma">Idioma</string>
+    <string name="idioma_automatico">Automático (idioma do sistema)</string>
+
+    <string-array name="dias_semana">
+        <item>Segunda-feira</item>
+        <item>Terça-feira</item>
+        <item>Quarta-feira</item>
+        <item>Quinta-feira</item>
+        <item>Sexta-feira</item>
+        <item>Sábado</item>
+        <item>Domingo</item>
+    </string-array>
+</resources>

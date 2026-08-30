@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:title="@string/titulo_wifi"
+            app:titleTextColor="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/txtExplicacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="@string/explicacao_wifi"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchAtivar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:text="@string/switch_ativar_wifi"
+            android:textColor="@color/text_primary" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layoutSsid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="@string/hint_ssid">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editSsid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUsarRedeAtual"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:text="@string/btn_usar_rede_atual" />
+
+        <TextView
+            android:id="@+id/txtAvisoBateria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/aviso_bateria"
+            android:textColor="@color/text_secondary"
+            android:textSize="13sp"
+            android:textStyle="italic" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGuardarWifi"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_margin="20dp"
+            android:text="@string/btn_guardar" />
+
+    </LinearLayout>
+</ScrollView>
