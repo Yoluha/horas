@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Horas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Karla:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #eef2f6;
+    --ink-soft:   #a9b6c5;
+    --paper:      #10151d;
+    --paper-alt:  #182029;
+    --line:       rgba(255,255,255,0.10);
+    --card:       #1a222c;
+    --green:      #2e7d32;
+    --green-lt:   #4caf50;
+    --red:        #c62828;
+    --red-lt:     #ef5350;
+    --accent:     #38bdf8;
+    --font-display: "Baloo 2", ui-rounded, "Segoe UI", sans-serif;
+    --font-body:    "Karla", "Segoe UI", Arial, sans-serif;
+    --font-mono:    "Space Mono", ui-monospace, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
+  body { overflow-x: hidden; }
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0 0 0.35em 0; color: var(--ink); }
+  p { margin: 0 0 0.9em 0; max-width: 62ch; color: var(--ink-soft); }
+  a { color: inherit; }
+
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.13em; text-transform: uppercase;
+    font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.6em;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 56px 0; }
+  section + section { border-top: 1px solid var(--line); }
+
+  /* LANG BAR */
+  .langbar { position: sticky; top: 0; z-index: 20; background: rgba(16,21,29,0.88); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  .langbar-inner { max-width: 860px; margin: 0 auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
+  .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green-lt); box-shadow: 0 0 0 3px rgba(76,175,80,0.2); }
+  .langswitch { display: flex; gap: 4px; font-family: var(--font-mono); font-size: 0.78rem; }
+  .langswitch button { background: none; border: 1px solid transparent; cursor: pointer; padding: 5px 10px; border-radius: 7px; color: var(--ink-soft); font-family: inherit; font-size: inherit; }
+  .langswitch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+  /* HERO */
+  .hero { padding-top: 60px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 44px; align-items: center; }
+  .hero h1 { font-size: clamp(2.1rem, 4.6vw, 3rem); font-weight: 800; line-height: 1.05; }
+  .hero .tagline { font-size: 1.08rem; }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+  .btn { font-family: var(--font-display); font-weight: 700; font-size: 0.98rem; padding: 13px 22px; border-radius: 10px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; border: 2px solid transparent; transition: transform 0.12s ease; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--green-lt); color: #06210a; box-shadow: 0 4px 0 var(--green); }
+  .btn-primary:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--green); }
+  .btn-ghost { border-color: var(--ink); color: var(--ink); }
+  .apk-note { font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-soft); margin-top: 10px; }
+
+  /* PHONE MOCKUP */
+  .phone { background: #05070a; border-radius: 30px; padding: 12px; box-shadow: 0 20px 44px -18px rgba(0,0,0,0.7); max-width: 260px; margin: 0 auto; border: 1px solid var(--line); }
+  .phone-screen { background: #f5f5f5; border-radius: 20px; overflow: hidden; padding: 18px 14px; font-family: var(--font-body); }
+  .phone-icons { display: flex; justify-content: flex-end; gap: 8px; margin-bottom: 10px; }
+  .phone-icons span { width: 18px; height: 18px; border-radius: 5px; background: #ddd; }
+  .phone-clock { text-align: center; font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; color: #1b1b1b; margin-bottom: 14px; }
+  .phone-btn { border-radius: 12px; padding: 16px; text-align: center; font-family: var(--font-display); font-weight: 700; color: #fff; margin-bottom: 8px; font-size: 0.85rem; letter-spacing: 0.04em; }
+  .phone-btn.in { background: var(--green); }
+  .phone-btn.out { background: var(--red); }
+  .phone-note { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 8px 10px; font-size: 0.72rem; color: #888; margin-top: 10px; }
+  .phone-today { margin-top: 12px; font-size: 0.72rem; color: #555; }
+  .phone-today b { color: #1b1b1b; }
+
+  /* FEATURES */
+  .section-head { margin-bottom: 30px; }
+  .section-head h2 { font-size: clamp(1.5rem, 3.4vw, 1.9rem); }
+  .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 4px 28px; }
+  .feat { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .feat h3 { font-size: 1rem; margin-bottom: 0.25em; display: flex; align-items: center; gap: 8px; }
+  .feat .emoji { font-size: 1.15rem; }
+  .feat p { font-size: 0.92rem; margin-bottom: 0; }
+
+  /* STEPS */
+  .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 16px; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: start; }
+  .steps li::before {
+    content: counter(step); font-family: var(--font-display); font-weight: 700; font-size: 0.95rem;
+    width: 32px; height: 32px; border-radius: 9px; background: var(--paper-alt); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; color: var(--ink); flex-shrink: 0;
+  }
+  .steps li p { margin: 2px 0 0 0; font-size: 0.94rem; }
+  .steps li strong { font-family: var(--font-display); font-size: 0.98rem; }
+
+  /* THEME STRIP */
+  .theme-strip { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+  .swatch { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); flex-shrink: 0; }
+
+  /* LANG PILLS */
+  .lang-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .lang-pill { font-family: var(--font-mono); font-size: 0.82rem; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 7px 16px; }
+
+  details.legal { border: 1px solid var(--line); border-radius: 10px; padding: 4px 18px; background: var(--card); margin-bottom: 10px; }
+  details.legal summary { cursor: pointer; font-family: var(--font-display); font-weight: 600; padding: 12px 0; }
+  details.legal p { font-size: 0.88rem; padding-bottom: 14px; max-width: none; }
+
+  footer { background: #080b10; color: #dfe6f5; padding: 52px 0 34px 0; }
+  footer .container { display: flex; flex-direction: column; gap: 20px; align-items: center; text-align: center; }
+  footer h2 { color: #fff8ec; }
+  footer .meta { font-family: var(--font-mono); font-size: 0.8rem; color: #9aa7c2; }
+  footer a.gh { color: var(--green-lt); font-weight: 700; text-decoration: none; }
+
+  [data-lang] { display: none; }
+  html[data-active="pt"] [data-lang="pt"] { display: revert; }
+  html[data-active="en"] [data-lang="en"] { display: revert; }
+  span[data-lang] { display: inline; }
+  html[data-active="pt"] span[data-lang="en"], html[data-active="en"] span[data-lang="pt"] { display: none; }
+
+  @media (max-width: 720px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .phone { order: -1; }
+  }
+</style>
+</head>
+<body>
+
+<div class="langbar">
+  <div class="langbar-inner">
+    <div class="brand"><span class="dot"></span> Horas</div>
+    <div class="langswitch" role="group" aria-label="Language">
+      <button id="btn-pt" aria-pressed="true" onclick="setLang('pt')">PT</button>
+      <button id="btn-en" aria-pressed="false" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow" data-lang="pt">App Android · Registo de ponto</span>
+      <span class="eyebrow" data-lang="en">Android app · Time clock</span>
+
+      <h1 data-lang="pt">Pica o ponto sem complicação.</h1>
+      <h1 data-lang="en">Clock in and out, no fuss.</h1>
+
+      <p class="tagline" data-lang="pt">Entrada e saída com um toque, nota opcional, e um botão para enviar o dia ao patrão pelo WhatsApp. Se te esqueceres, a rede WiFi do trabalho pode registar por ti.</p>
+      <p class="tagline" data-lang="en">Clock in and out with one tap, an optional note, and a button to send the day to your boss on WhatsApp. If you forget, your work WiFi can log it for you.</p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/Yoluha/horas/releases/latest" data-lang="pt">⬇ Descarregar APK</a>
+        <a class="btn btn-primary" href="https://github.com/Yoluha/horas/releases/latest" data-lang="en">⬇ Download APK</a>
+        <a class="btn btn-ghost" href="https://github.com/Yoluha/horas">GitHub ↗</a>
+      </div>
+      <div class="apk-note" data-lang="pt">Android · não está na Play Store · instala diretamente o ficheiro .apk</div>
+      <div class="apk-note" data-lang="en">Android · not on the Play Store · install the .apk file directly</div>
+    </div>
+
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="phone-icons"><span></span><span></span><span></span></div>
+        <div class="phone-clock">14:32</div>
+        <div class="phone-btn in">ENTRADA</div>
+        <div class="phone-btn out">SAÍDA</div>
+        <div class="phone-note">Nota (opcional) — ex: saí mais cedo</div>
+        <div class="phone-today">Hoje <b>09:03 → 18:12</b> · 9h 09min</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-lang="pt">O que faz</span>
+      <span class="eyebrow" data-lang="en">What it does</span>
+      <h2 data-lang="pt">Feito para resolver um problema muito específico</h2>
+      <h2 data-lang="en">Built to solve one very specific problem</h2>
+    </div>
+
+    <div class="feat-grid">
+      <div class="feat">
+        <h3><span class="emoji">✅</span> <span data-lang="pt">Ponto manual</span><span data-lang="en">Manual clock</span></h3>
+        <p data-lang="pt">Um toque para entrada, um toque para saída. Nota opcional em cada registo.</p>
+        <p data-lang="en">One tap to clock in, one to clock out. Optional note on each entry.</p>
+      </div>
+      <div class="feat">
+        <h3><span class="emoji">📶</span> <span data-lang="pt">Deteção por WiFi</span><span data-lang="en">WiFi detection</span></h3>
+        <p data-lang="pt">Liga/desliga da rede do trabalho? Regista sozinho — o manual continua sempre disponível.</p>
+        <p data-lang="en">Connect/disconnect from your work network? It logs itself — manual clocking still always works.</p>
+      </div>
+      <div class="feat">
+        <h3><span class="emoji">💬</span> <span data-lang="pt">Envio por WhatsApp</span><span data-lang="en">WhatsApp export</span></h3>
+        <p data-lang="pt">Um dia, ou o histórico todo — envia como texto ou como imagem, escolhes o contacto na hora.</p>
+        <p data-lang="en">One day, or the whole history — send as text or image, pick the contact on the spot.</p>
+      </div>
+      <div class="feat">
+        <h3><span class="emoji">📊</span> <span data-lang="pt">Resumo com diferença</span><span data-lang="en">Summary with over/under</span></h3>
+        <p data-lang="pt">Define o teu horário normal e exporta um resumo em imagem com horas a mais/a menos por dia.</p>
+        <p data-lang="en">Set your normal schedule and export an image summary with over/under hours per day.</p>
+      </div>
+      <div class="feat">
+        <h3><span class="emoji">🎨</span> <span data-lang="pt">97 temas</span><span data-lang="en">97 themes</span></h3>
+        <p data-lang="pt">Os mesmos temas do 3D Manager — de Dracula e Nord a One Piece e Cyberpunk.</p>
+        <p data-lang="en">The same themes from 3D Manager — from Dracula and Nord to One Piece and Cyberpunk.</p>
+      </div>
+      <div class="feat">
+        <h3><span class="emoji">🌍</span> <span data-lang="pt">6 idiomas</span><span data-lang="en">6 languages</span></h3>
+        <p data-lang="pt">Português, English, Español, Français, Deutsch, Italiano.</p>
+        <p data-lang="en">Portuguese, English, Spanish, French, German, Italian.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" data-lang="pt">Como instalar</span>
+      <span class="eyebrow" data-lang="en">How to install</span>
+      <h2 data-lang="pt">3 passos</h2>
+      <h2 data-lang="en">3 steps</h2>
+    </div>
+    <ol class="steps">
+      <li>
+        <div>
+          <strong data-lang="pt">Descarrega o .apk</strong><strong data-lang="en">Download the .apk</strong>
+          <p data-lang="pt">No botão em cima, ou na página de <a href="https://github.com/Yoluha/horas/releases/latest">releases</a>.</p>
+          <p data-lang="en">Using the button above, or from the <a href="https://github.com/Yoluha/horas/releases/latest">releases page</a>.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong data-lang="pt">Permite fontes desconhecidas</strong><strong data-lang="en">Allow unknown sources</strong>
+          <p data-lang="pt">O Android vai pedir para confirmares — é normal para apps fora da Play Store.</p>
+          <p data-lang="en">Android will ask you to confirm — normal for apps outside the Play Store.</p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong data-lang="pt">Abre o ficheiro e instala</strong><strong data-lang="en">Open the file and install</strong>
+          <p data-lang="pt">Pronto. Define o teu horário normal e, se quiseres, a rede WiFi do trabalho.</p>
+          <p data-lang="en">Done. Set your normal schedule and, if you want, your work WiFi network.</p>
+        </div>
+      </li>
+    </ol>
+
+    <details class="legal">
+      <summary data-lang="pt">Isto é seguro?</summary>
+      <summary data-lang="en">Is this safe?</summary>
+      <p data-lang="pt">É um projeto pessoal de código aberto — todo o código Kotlin está neste repositório para inspecionares. O APK usa uma assinatura de desenvolvimento (debug), por isso o Android avisa que a origem é desconhecida; isso é esperado para qualquer app instalada fora da Play Store, não um sinal de problema.</p>
+      <p data-lang="en">This is a personal open-source project — all the Kotlin code is in this repository for you to inspect. The APK uses a debug signature, so Android will warn the source is unknown; that's expected for any app installed outside the Play Store, not a red flag.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <h2 data-lang="pt">Feito para uso pessoal, partilhado por se for útil a mais alguém.</h2>
+    <h2 data-lang="en">Made for personal use, shared in case it's useful to someone else.</h2>
+    <p class="meta">
+      <a class="gh" href="https://github.com/Yoluha/horas">github.com/Yoluha/horas</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.documentElement.setAttribute('data-active', lang);
+    document.getElementById('btn-pt').setAttribute('aria-pressed', lang === 'pt');
+    document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en');
+    try { localStorage.setItem('horas-lang', lang); } catch (e) {}
+  }
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('horas-lang'); } catch (e) {}
+    var browserLang = (navigator.language || 'pt').slice(0, 2);
+    setLang(saved || (browserLang === 'en' ? 'en' : 'pt'));
+  })();
+</script>
+
+</body>
+</html>
