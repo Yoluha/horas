@@ -4,7 +4,7 @@
     <string name="btn_entrada">ENTRADA</string>
     <string name="btn_saida">SAÍDA</string>
     <string name="hint_nota">Nota (opcional) — ex: saí mais cedo, dentista</string>
-    <string name="btn_enviar_hoje">Enviar hoje ao patrão</string>
+    <string name="btn_enviar_hoje">Enviar o de hoje</string>
     <string name="btn_escolher_dia">Ver outro dia</string>
     <string name="btn_historico">Histórico</string>
     <string name="titulo_hoje">Hoje</string>

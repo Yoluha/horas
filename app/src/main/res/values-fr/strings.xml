@@ -4,7 +4,7 @@
     <string name="btn_entrada">ARRIVÉE</string>
     <string name="btn_saida">DÉPART</string>
     <string name="hint_nota">Note (facultatif) — ex : parti plus tôt, dentiste</string>
-    <string name="btn_enviar_hoje">Envoyer la journée au patron</string>
+    <string name="btn_enviar_hoje">Envoyer celui d\'aujourd\'hui</string>
     <string name="btn_escolher_dia">Voir un autre jour</string>
     <string name="btn_historico">Historique</string>
     <string name="titulo_hoje">Aujourd\'hui</string>

@@ -4,7 +4,7 @@
     <string name="btn_entrada">CLOCK IN</string>
     <string name="btn_saida">CLOCK OUT</string>
     <string name="hint_nota">Note (optional) — e.g. left early, dentist</string>
-    <string name="btn_enviar_hoje">Send today to my boss</string>
+    <string name="btn_enviar_hoje">Send today\'s</string>
     <string name="btn_escolher_dia">View another day</string>
     <string name="btn_historico">History</string>
     <string name="titulo_hoje">Today</string>

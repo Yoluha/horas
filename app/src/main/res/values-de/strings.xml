@@ -4,7 +4,7 @@
     <string name="btn_entrada">KOMMEN</string>
     <string name="btn_saida">GEHEN</string>
     <string name="hint_nota">Notiz (optional) — z. B. früher gegangen, Zahnarzt</string>
-    <string name="btn_enviar_hoje">Heute an den Chef senden</string>
+    <string name="btn_enviar_hoje">Heutiges senden</string>
     <string name="btn_escolher_dia">Anderen Tag ansehen</string>
     <string name="btn_historico">Verlauf</string>
     <string name="titulo_hoje">Heute</string>
