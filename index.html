@@ -154,6 +154,10 @@
     .hero-grid { grid-template-columns: 1fr; }
     .phone { order: -1; }
   }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 </style>
 </head>
 <body>
@@ -222,7 +226,7 @@
 </section>
 
 <section>
-  <div class="container">
+  <div class="container reveal">
     <div class="section-head">
       <span class="eyebrow" id="featEyebrow"></span>
       <h2 id="featTitle"></h2>
@@ -258,7 +262,7 @@
 </section>
 
 <section>
-  <div class="container">
+  <div class="container reveal">
     <div class="section-head">
       <span class="eyebrow" id="installEyebrow"></span>
       <h2 id="installTitle"></h2>
@@ -405,6 +409,23 @@ function updateProjNav(strip) {
 }
 document.querySelectorAll('.proj-strip').forEach(updateProjNav);
 window.addEventListener('resize', () => document.querySelectorAll('.proj-strip').forEach(updateProjNav));
+
+(function initScrollReveal() {
+  const targets = document.querySelectorAll('.reveal');
+  if (!targets.length || typeof IntersectionObserver === 'undefined') {
+    targets.forEach(el => el.classList.add('in-view'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  targets.forEach(el => observer.observe(el));
+})();
 </script>
 
 </body>
