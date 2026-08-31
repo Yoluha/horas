@@ -43,6 +43,15 @@
     <string name="titulo_idioma">Langue</string>
     <string name="idioma_automatico">Automatique (langue du système)</string>
 
+    <string name="titulo_editar_registo">Modifier le pointage</string>
+    <string name="btn_alterar_hora">Changer l\'heure</string>
+    <string name="btn_apagar">Supprimer</string>
+    <string name="btn_cancelar">Annuler</string>
+    <string name="confirmar_apagar">Supprimer ce pointage ? Cette action est irréversible.</string>
+    <string name="registo_apagado">Pointage supprimé</string>
+    <string name="registo_atualizado">Pointage mis à jour</string>
+    <string name="sem_registos_dia">Aucun pointage ce jour-là</string>
+
     <string-array name="dias_semana">
         <item>Lundi</item>
         <item>Mardi</item>

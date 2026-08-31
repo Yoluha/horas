@@ -43,6 +43,15 @@
     <string name="titulo_idioma">Lingua</string>
     <string name="idioma_automatico">Automatico (lingua di sistema)</string>
 
+    <string name="titulo_editar_registo">Modifica timbratura</string>
+    <string name="btn_alterar_hora">Cambia orario</string>
+    <string name="btn_apagar">Elimina</string>
+    <string name="btn_cancelar">Annulla</string>
+    <string name="confirmar_apagar">Eliminare questa timbratura? Non può essere annullato.</string>
+    <string name="registo_apagado">Timbratura eliminata</string>
+    <string name="registo_atualizado">Timbratura aggiornata</string>
+    <string name="sem_registos_dia">Nessuna timbratura in questo giorno</string>
+
     <string-array name="dias_semana">
         <item>Lunedì</item>
         <item>Martedì</item>

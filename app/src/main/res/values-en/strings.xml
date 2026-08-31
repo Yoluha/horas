@@ -43,6 +43,15 @@
     <string name="titulo_idioma">Language</string>
     <string name="idioma_automatico">Automatic (system language)</string>
 
+    <string name="titulo_editar_registo">Edit entry</string>
+    <string name="btn_alterar_hora">Change time</string>
+    <string name="btn_apagar">Delete</string>
+    <string name="btn_cancelar">Cancel</string>
+    <string name="confirmar_apagar">Delete this entry? This can\'t be undone.</string>
+    <string name="registo_apagado">Entry deleted</string>
+    <string name="registo_atualizado">Entry updated</string>
+    <string name="sem_registos_dia">No entries this day</string>
+
     <string-array name="dias_semana">
         <item>Monday</item>
         <item>Tuesday</item>

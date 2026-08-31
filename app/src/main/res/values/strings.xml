@@ -43,6 +43,15 @@
     <string name="titulo_idioma">Idioma</string>
     <string name="idioma_automatico">Automático (idioma do sistema)</string>
 
+    <string name="titulo_editar_registo">Editar registo</string>
+    <string name="btn_alterar_hora">Alterar hora</string>
+    <string name="btn_apagar">Apagar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="confirmar_apagar">Apagar este registo? Não pode ser desfeito.</string>
+    <string name="registo_apagado">Registo apagado</string>
+    <string name="registo_atualizado">Registo atualizado</string>
+    <string name="sem_registos_dia">Sem registos neste dia</string>
+
     <string-array name="dias_semana">
         <item>Segunda-feira</item>
         <item>Terça-feira</item>
