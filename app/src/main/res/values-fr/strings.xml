@@ -64,6 +64,9 @@
     <string name="erro_importar">Impossible de lire le fichier (sauvegarde invalide)</string>
     <string name="erro_exportar">Impossible d\'enregistrer la sauvegarde</string>
 
+    <string name="total_semana">Cette semaine : %1$s</string>
+    <string name="total_mes">Ce mois-ci : %1$s</string>
+
     <string-array name="dias_semana">
         <item>Lundi</item>
         <item>Mardi</item>

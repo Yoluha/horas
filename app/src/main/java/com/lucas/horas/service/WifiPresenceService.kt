@@ -19,6 +19,7 @@ import com.lucas.horas.data.AppDatabase
 import com.lucas.horas.data.PunchEntity
 import com.lucas.horas.data.PunchType
 import com.lucas.horas.data.WifiPrefs
+import com.lucas.horas.widget.WidgetUpdater
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -103,6 +104,7 @@ class WifiPresenceService : Service() {
                     note = applicationContext.getString(R.string.nota_auto_wifi)
                 )
             )
+            WidgetUpdater.updateAll(applicationContext)
         }
     }
 

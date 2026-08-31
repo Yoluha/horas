@@ -12,6 +12,7 @@ import com.lucas.horas.R
 import com.lucas.horas.data.PunchDao
 import com.lucas.horas.data.PunchEntity
 import com.lucas.horas.util.TimeUtils
+import com.lucas.horas.widget.WidgetUpdater
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
@@ -65,6 +66,7 @@ object PunchEditor {
                 activity.lifecycleScope.launch {
                     dao.update(punch.copy(timestamp = novaHora, note = if (notaTexto.isBlank()) null else notaTexto))
                     Toast.makeText(activity, R.string.registo_atualizado, Toast.LENGTH_SHORT).show()
+                    WidgetUpdater.updateAll(activity)
                     onDone()
                 }
             }
@@ -80,6 +82,7 @@ object PunchEditor {
                 (activity as androidx.appcompat.app.AppCompatActivity).lifecycleScope.launch {
                     dao.delete(punch)
                     Toast.makeText(activity, R.string.registo_apagado, Toast.LENGTH_SHORT).show()
+                    WidgetUpdater.updateAll(activity)
                     onDone()
                 }
             }

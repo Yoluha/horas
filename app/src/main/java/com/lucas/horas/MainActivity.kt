@@ -24,6 +24,7 @@ import com.lucas.horas.theme.ThemePainter
 import com.lucas.horas.theme.ThemeStore
 import com.lucas.horas.util.ShareUtils
 import com.lucas.horas.util.TimeUtils
+import com.lucas.horas.widget.WidgetUpdater
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
@@ -142,6 +143,7 @@ class MainActivity : AppCompatActivity() {
             )
             binding.editNota.setText("")
             carregarHoje()
+            WidgetUpdater.updateAll(this@MainActivity)
         }
     }
 

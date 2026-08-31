@@ -8,7 +8,7 @@ object TimeUtils {
 
     private fun timeFormat() = SimpleDateFormat("HH:mm", Locale.getDefault())
     private fun dateFormat() = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-    private fun dayLabelFormat() = SimpleDateFormat("EEEE, dd/MM", Locale("pt", "PT"))
+    private fun dayLabelFormat() = SimpleDateFormat("EEEE, dd/MM", Locale.getDefault())
 
     fun formatTime(millis: Long): String = timeFormat().format(millis)
 
@@ -35,6 +35,24 @@ object TimeUtils {
     }
 
     fun startOfToday(): Long = startOfDay(System.currentTimeMillis())
+
+    /** Início da semana (segunda-feira) que contém o instante dado. */
+    fun startOfWeek(millis: Long): Long {
+        val cal = Calendar.getInstance()
+        cal.timeInMillis = startOfDay(millis)
+        val diaSemana = cal.get(Calendar.DAY_OF_WEEK) // 1=Domingo ... 7=Sábado
+        val diasDesdeSegunda = (diaSemana + 5) % 7 // Segunda=0, Terça=1, ..., Domingo=6
+        cal.add(Calendar.DAY_OF_MONTH, -diasDesdeSegunda)
+        return cal.timeInMillis
+    }
+
+    /** Início do mês que contém o instante dado. */
+    fun startOfMonth(millis: Long): Long {
+        val cal = Calendar.getInstance()
+        cal.timeInMillis = startOfDay(millis)
+        cal.set(Calendar.DAY_OF_MONTH, 1)
+        return cal.timeInMillis
+    }
 
     fun formatDuration(millis: Long): String {
         val totalMinutes = millis / 60000

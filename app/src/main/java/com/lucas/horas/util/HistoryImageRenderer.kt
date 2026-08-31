@@ -79,7 +79,7 @@ object HistoryImageRenderer {
         var totalDiff = 0L
 
         val dayFormat = SimpleDateFormat("dd/MM", Locale.getDefault())
-        val weekdayFormat = SimpleDateFormat("EEE", Locale("pt", "PT"))
+        val weekdayFormat = SimpleDateFormat("EEE", Locale.getDefault())
 
         for ((index, day) in ordenados.withIndex()) {
             if (index % 2 == 0) {

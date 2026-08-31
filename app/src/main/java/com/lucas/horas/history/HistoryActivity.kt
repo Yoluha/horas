@@ -20,6 +20,7 @@ import com.lucas.horas.theme.ThemePainter
 import com.lucas.horas.theme.ThemeStore
 import com.lucas.horas.util.HistoryImageRenderer
 import com.lucas.horas.util.ShareUtils
+import com.lucas.horas.util.TimeUtils
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -82,8 +83,26 @@ class HistoryActivity : AppCompatActivity() {
                 diasAtuais = dias
                 adapter.submitList(dias)
                 binding.txtVazio.visibility = if (dias.isEmpty()) android.view.View.VISIBLE else android.view.View.GONE
+                atualizarTotais(dias)
             }
         }
+    }
+
+    private fun atualizarTotais(dias: List<DaySummary>) {
+        val agora = System.currentTimeMillis()
+        val inicioSemana = TimeUtils.startOfWeek(agora)
+        val fimSemana = TimeUtils.startOfDay(inicioSemana) + 7L * 24 * 60 * 60 * 1000
+        val inicioMes = TimeUtils.startOfMonth(agora)
+        val fimMes = java.util.Calendar.getInstance().apply {
+            timeInMillis = inicioMes
+            add(java.util.Calendar.MONTH, 1)
+        }.timeInMillis
+
+        val totalSemana = HoursCalculator.totalBetween(dias, inicioSemana, fimSemana)
+        val totalMes = HoursCalculator.totalBetween(dias, inicioMes, fimMes)
+
+        binding.txtTotalSemana.text = getString(R.string.total_semana, TimeUtils.formatDuration(totalSemana))
+        binding.txtTotalMes.text = getString(R.string.total_mes, TimeUtils.formatDuration(totalMes))
     }
 
     private fun exportarPara(uri: Uri) {
@@ -118,6 +137,7 @@ class HistoryActivity : AppCompatActivity() {
                 dao.deleteAll()
                 dao.insertAll(punches)
                 BackupManager.aplicarHorario(texto, this@HistoryActivity)
+                com.lucas.horas.widget.WidgetUpdater.updateAll(this@HistoryActivity)
                 Toast.makeText(this@HistoryActivity, R.string.importar_sucesso, Toast.LENGTH_SHORT).show()
             } catch (e: Exception) {
                 Toast.makeText(this@HistoryActivity, R.string.erro_importar, Toast.LENGTH_LONG).show()
@@ -141,6 +161,8 @@ class HistoryActivity : AppCompatActivity() {
         ThemePainter.paintToolbar(binding.toolbar, tema)
         ThemePainter.paintIcon(binding.btnHorario, tema)
         ThemePainter.paintSecondaryText(binding.txtVazio, tema)
+        ThemePainter.paintPrimaryText(binding.txtTotalSemana, tema)
+        ThemePainter.paintPrimaryText(binding.txtTotalMes, tema)
         ThemePainter.paintFilledButton(binding.btnExportarResumo, tema)
         ThemePainter.paintOutlinedOrTextButton(binding.btnExportarDados, tema)
         ThemePainter.paintOutlinedOrTextButton(binding.btnImportarDados, tema)

@@ -64,6 +64,9 @@
     <string name="erro_importar">Impossibile leggere il file (backup non valido)</string>
     <string name="erro_exportar">Impossibile salvare il backup</string>
 
+    <string name="total_semana">Questa settimana: %1$s</string>
+    <string name="total_mes">Questo mese: %1$s</string>
+
     <string-array name="dias_semana">
         <item>Lunedì</item>
         <item>Martedì</item>

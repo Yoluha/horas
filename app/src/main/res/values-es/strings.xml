@@ -64,6 +64,9 @@
     <string name="erro_importar">No se pudo leer el archivo (no es una copia de seguridad válida)</string>
     <string name="erro_exportar">No se pudo guardar la copia de seguridad</string>
 
+    <string name="total_semana">Esta semana: %1$s</string>
+    <string name="total_mes">Este mes: %1$s</string>
+
     <string-array name="dias_semana">
         <item>Lunes</item>
         <item>Martes</item>

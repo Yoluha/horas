@@ -64,6 +64,9 @@
     <string name="erro_importar">Couldn\'t read the file (not a valid backup)</string>
     <string name="erro_exportar">Couldn\'t save the backup</string>
 
+    <string name="total_semana">This week: %1$s</string>
+    <string name="total_mes">This month: %1$s</string>
+
     <string-array name="dias_semana">
         <item>Monday</item>
         <item>Tuesday</item>

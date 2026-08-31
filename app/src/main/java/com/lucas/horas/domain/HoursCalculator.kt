@@ -16,6 +16,11 @@ object HoursCalculator {
             .sortedByDescending { it.dayStartMillis }
     }
 
+    /** Soma o total trabalhado nos dias entre startMillis (incl.) e endMillisExclusive (excl.). */
+    fun totalBetween(dias: List<DaySummary>, startMillis: Long, endMillisExclusive: Long): Long =
+        dias.filter { it.dayStartMillis in startMillis until endMillisExclusive }
+            .sumOf { it.totalMillis }
+
     fun summarizeDay(dayStartMillis: Long, punches: List<PunchEntity>): DaySummary =
         summarize(dayStartMillis, punches, isToday = dayStartMillis == TimeUtils.startOfToday())
 
