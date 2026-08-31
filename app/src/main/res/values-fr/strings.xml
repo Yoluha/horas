@@ -56,6 +56,14 @@
     <string name="nao_perguntar_novamente">Ne plus demander</string>
     <string name="btn_registar">Enregistrer</string>
 
+    <string name="btn_exportar_dados">Exporter les données (sauvegarde)</string>
+    <string name="btn_importar_dados">Importer des données</string>
+    <string name="confirmar_importar">Ceci remplace tous les pointages actuels par ceux du fichier choisi. Action irréversible. Continuer ?</string>
+    <string name="importar_sucesso">Données importées</string>
+    <string name="exportar_sucesso">Sauvegarde enregistrée</string>
+    <string name="erro_importar">Impossible de lire le fichier (sauvegarde invalide)</string>
+    <string name="erro_exportar">Impossible d\'enregistrer la sauvegarde</string>
+
     <string-array name="dias_semana">
         <item>Lundi</item>
         <item>Mardi</item>

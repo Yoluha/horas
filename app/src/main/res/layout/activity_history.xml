@@ -43,7 +43,34 @@
         android:id="@+id/btnExportarResumo"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_margin="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/btn_exportar_resumo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnExportarDados"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="12sp"
+            android:text="@string/btn_exportar_dados" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImportarDados"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:textSize="12sp"
+            android:text="@string/btn_importar_dados" />
+    </LinearLayout>
 
 </LinearLayout>

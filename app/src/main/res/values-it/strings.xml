@@ -56,6 +56,14 @@
     <string name="nao_perguntar_novamente">Non chiedere più</string>
     <string name="btn_registar">Registra</string>
 
+    <string name="btn_exportar_dados">Esporta dati (backup)</string>
+    <string name="btn_importar_dados">Importa dati</string>
+    <string name="confirmar_importar">Questo sostituisce tutte le timbrature attuali con quelle del file scelto. Non può essere annullato. Continuare?</string>
+    <string name="importar_sucesso">Dati importati</string>
+    <string name="exportar_sucesso">Backup salvato</string>
+    <string name="erro_importar">Impossibile leggere il file (backup non valido)</string>
+    <string name="erro_exportar">Impossibile salvare il backup</string>
+
     <string-array name="dias_semana">
         <item>Lunedì</item>
         <item>Martedì</item>

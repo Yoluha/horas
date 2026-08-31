@@ -56,6 +56,14 @@
     <string name="nao_perguntar_novamente">Não perguntar mais</string>
     <string name="btn_registar">Registar</string>
 
+    <string name="btn_exportar_dados">Exportar dados (backup)</string>
+    <string name="btn_importar_dados">Importar dados</string>
+    <string name="confirmar_importar">Isto substitui todos os registos atuais pelos do ficheiro escolhido. Não pode ser desfeito. Continuar?</string>
+    <string name="importar_sucesso">Dados importados</string>
+    <string name="exportar_sucesso">Backup guardado</string>
+    <string name="erro_importar">Não foi possível ler o ficheiro (não é um backup válido)</string>
+    <string name="erro_exportar">Não foi possível guardar o backup</string>
+
     <string-array name="dias_semana">
         <item>Segunda-feira</item>
         <item>Terça-feira</item>

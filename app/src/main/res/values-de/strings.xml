@@ -56,6 +56,14 @@
     <string name="nao_perguntar_novamente">Nicht mehr fragen</string>
     <string name="btn_registar">Speichern</string>
 
+    <string name="btn_exportar_dados">Daten exportieren (Backup)</string>
+    <string name="btn_importar_dados">Daten importieren</string>
+    <string name="confirmar_importar">Dies ersetzt alle aktuellen Einträge durch die aus der gewählten Datei. Kann nicht rückgängig gemacht werden. Fortfahren?</string>
+    <string name="importar_sucesso">Daten importiert</string>
+    <string name="exportar_sucesso">Backup gespeichert</string>
+    <string name="erro_importar">Datei konnte nicht gelesen werden (kein gültiges Backup)</string>
+    <string name="erro_exportar">Backup konnte nicht gespeichert werden</string>
+
     <string-array name="dias_semana">
         <item>Montag</item>
         <item>Dienstag</item>

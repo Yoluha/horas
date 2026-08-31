@@ -56,6 +56,14 @@
     <string name="nao_perguntar_novamente">No preguntar más</string>
     <string name="btn_registar">Registrar</string>
 
+    <string name="btn_exportar_dados">Exportar datos (copia de seguridad)</string>
+    <string name="btn_importar_dados">Importar datos</string>
+    <string name="confirmar_importar">Esto sustituye todos los registros actuales por los del archivo elegido. No se puede deshacer. ¿Continuar?</string>
+    <string name="importar_sucesso">Datos importados</string>
+    <string name="exportar_sucesso">Copia de seguridad guardada</string>
+    <string name="erro_importar">No se pudo leer el archivo (no es una copia de seguridad válida)</string>
+    <string name="erro_exportar">No se pudo guardar la copia de seguridad</string>
+
     <string-array name="dias_semana">
         <item>Lunes</item>
         <item>Martes</item>

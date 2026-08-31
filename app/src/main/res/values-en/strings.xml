@@ -56,6 +56,14 @@
     <string name="nao_perguntar_novamente">Don\'t ask again</string>
     <string name="btn_registar">Log it</string>
 
+    <string name="btn_exportar_dados">Export data (backup)</string>
+    <string name="btn_importar_dados">Import data</string>
+    <string name="confirmar_importar">This replaces all current entries with the ones from the chosen file. It can\'t be undone. Continue?</string>
+    <string name="importar_sucesso">Data imported</string>
+    <string name="exportar_sucesso">Backup saved</string>
+    <string name="erro_importar">Couldn\'t read the file (not a valid backup)</string>
+    <string name="erro_exportar">Couldn\'t save the backup</string>
+
     <string-array name="dias_semana">
         <item>Monday</item>
         <item>Tuesday</item>

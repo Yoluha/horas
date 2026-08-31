@@ -19,8 +19,17 @@ interface PunchDao {
     @Delete
     suspend fun delete(punch: PunchEntity)
 
+    @Insert
+    suspend fun insertAll(punches: List<PunchEntity>)
+
+    @Query("DELETE FROM punches")
+    suspend fun deleteAll()
+
     @Query("SELECT * FROM punches ORDER BY timestamp ASC")
     fun observeAll(): Flow<List<PunchEntity>>
+
+    @Query("SELECT * FROM punches ORDER BY timestamp ASC")
+    suspend fun getAllOnce(): List<PunchEntity>
 
     @Query("SELECT * FROM punches WHERE timestamp >= :startMillis AND timestamp < :endMillis ORDER BY timestamp ASC")
     suspend fun getBetween(startMillis: Long, endMillis: Long): List<PunchEntity>

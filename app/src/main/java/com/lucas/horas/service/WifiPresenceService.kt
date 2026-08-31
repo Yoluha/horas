@@ -37,14 +37,14 @@ class WifiPresenceService : Service() {
     private lateinit var connectivityManager: ConnectivityManager
     private var lastAutoEventMillis = 0L
 
-    private val networkCallback = object : ConnectivityManager.NetworkCallback() {
-        override fun onAvailable(network: Network) {
-            handleEvent(network, conectado = true)
-        }
+    /** Estado que ACOMPANHAMOS nós, não a rede momentânea — evita o bug de verificar
+     * a rede atual depois de já teres saído dela (isso nunca bate certo). */
+    private var conectadoAoAlvo = false
 
-        override fun onLost(network: Network) {
-            handleEvent(network, conectado = false)
-        }
+    private val networkCallback = object : ConnectivityManager.NetworkCallback() {
+        override fun onAvailable(network: Network) = reavaliarLigacao()
+        override fun onLost(network: Network) = reavaliarLigacao()
+        override fun onCapabilitiesChanged(network: Network, capabilities: NetworkCapabilities) = reavaliarLigacao()
     }
 
     override fun onCreate() {
@@ -56,6 +56,10 @@ class WifiPresenceService : Service() {
             .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
             .build()
         connectivityManager.registerNetworkCallback(request, networkCallback)
+
+        // Sincroniza o estado inicial — se já estiveres ligado à rede-alvo ao ativar
+        // esta funcionalidade, isto conta logo como entrada em vez de esperar por um evento.
+        reavaliarLigacao()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -74,20 +78,22 @@ class WifiPresenceService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? = null
 
-    private fun handleEvent(network: Network, conectado: Boolean) {
+    private fun reavaliarLigacao() {
         val alvo = WifiPrefs.getSsid(applicationContext)
         if (alvo.isBlank()) return
 
         val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val ssidAtual = wifiManager.connectionInfo?.ssid?.trim('"').orEmpty()
+        val ligadoAgora = ssidAtual.equals(alvo, ignoreCase = true)
 
-        if (!ssidAtual.equals(alvo, ignoreCase = true)) return
+        if (ligadoAgora == conectadoAoAlvo) return // sem mudança de estado, ignora
+        conectadoAoAlvo = ligadoAgora
 
         val agora = System.currentTimeMillis()
         if (agora - lastAutoEventMillis < DEBOUNCE_MILLIS) return
         lastAutoEventMillis = agora
 
-        val tipo = if (conectado) PunchType.ENTRADA else PunchType.SAIDA
+        val tipo = if (ligadoAgora) PunchType.ENTRADA else PunchType.SAIDA
         scope.launch {
             val dao = AppDatabase.getInstance(applicationContext).punchDao()
             dao.insert(
