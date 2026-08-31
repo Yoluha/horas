@@ -51,6 +51,10 @@
     <string name="registo_apagado">Registo apagado</string>
     <string name="registo_atualizado">Registo atualizado</string>
     <string name="sem_registos_dia">Sem registos neste dia</string>
+    <string name="aviso_saida_sem_entrada_titulo">Sem entrada em aberto</string>
+    <string name="aviso_saida_sem_entrada_texto">Não há nenhuma entrada registada hoje antes desta saída. Registar mesmo assim?</string>
+    <string name="nao_perguntar_novamente">Não perguntar mais</string>
+    <string name="btn_registar">Registar</string>
 
     <string-array name="dias_semana">
         <item>Segunda-feira</item>

@@ -51,6 +51,10 @@
     <string name="registo_apagado">Entry deleted</string>
     <string name="registo_atualizado">Entry updated</string>
     <string name="sem_registos_dia">No entries this day</string>
+    <string name="aviso_saida_sem_entrada_titulo">No open clock-in</string>
+    <string name="aviso_saida_sem_entrada_texto">There\'s no clock-in recorded today before this clock-out. Log it anyway?</string>
+    <string name="nao_perguntar_novamente">Don\'t ask again</string>
+    <string name="btn_registar">Log it</string>
 
     <string-array name="dias_semana">
         <item>Monday</item>

@@ -51,6 +51,10 @@
     <string name="registo_apagado">Pointage supprimé</string>
     <string name="registo_atualizado">Pointage mis à jour</string>
     <string name="sem_registos_dia">Aucun pointage ce jour-là</string>
+    <string name="aviso_saida_sem_entrada_titulo">Aucune arrivée en cours</string>
+    <string name="aviso_saida_sem_entrada_texto">Aucune arrivée n\'a été enregistrée aujourd\'hui avant ce départ. Enregistrer quand même ?</string>
+    <string name="nao_perguntar_novamente">Ne plus demander</string>
+    <string name="btn_registar">Enregistrer</string>
 
     <string-array name="dias_semana">
         <item>Lundi</item>

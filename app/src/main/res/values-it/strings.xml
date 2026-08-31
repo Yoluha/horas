@@ -51,6 +51,10 @@
     <string name="registo_apagado">Timbratura eliminata</string>
     <string name="registo_atualizado">Timbratura aggiornata</string>
     <string name="sem_registos_dia">Nessuna timbratura in questo giorno</string>
+    <string name="aviso_saida_sem_entrada_titulo">Nessuna entrata aperta</string>
+    <string name="aviso_saida_sem_entrada_texto">Non risulta nessuna entrata registrata oggi prima di questa uscita. Registrare comunque?</string>
+    <string name="nao_perguntar_novamente">Non chiedere più</string>
+    <string name="btn_registar">Registra</string>
 
     <string-array name="dias_semana">
         <item>Lunedì</item>

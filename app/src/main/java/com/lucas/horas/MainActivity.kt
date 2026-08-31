@@ -1,11 +1,16 @@
 package com.lucas.horas
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucas.horas.data.AppDatabase
+import com.lucas.horas.data.AvisosPrefs
 import com.lucas.horas.data.PunchEntity
 import com.lucas.horas.data.PunchType
 import com.lucas.horas.databinding.ActivityMainBinding
@@ -13,6 +18,8 @@ import com.lucas.horas.domain.HoursCalculator
 import com.lucas.horas.domain.MessageBuilder
 import com.lucas.horas.history.DayDetailActivity
 import com.lucas.horas.history.HistoryActivity
+import com.lucas.horas.history.PunchAdapter
+import com.lucas.horas.history.PunchEditor
 import com.lucas.horas.theme.ThemePainter
 import com.lucas.horas.theme.ThemeStore
 import com.lucas.horas.util.ShareUtils
@@ -24,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val dao by lazy { AppDatabase.getInstance(this).punchDao() }
+    private val adapterHoje = PunchAdapter { punch -> PunchEditor.open(this, punch, dao) { carregarHoje() } }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,8 +40,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.txtRelogio.text = TimeUtils.formatTime(System.currentTimeMillis())
 
+        binding.recyclerHoje.layoutManager = LinearLayoutManager(this)
+        binding.recyclerHoje.adapter = adapterHoje
+
         binding.btnEntrada.setOnClickListener { registarPonto(PunchType.ENTRADA) }
-        binding.btnSaida.setOnClickListener { registarPonto(PunchType.SAIDA) }
+        binding.btnSaida.setOnClickListener { tentarRegistarSaida() }
 
         binding.btnEnviarHoje.setOnClickListener { enviarHoje() }
         binding.btnEscolherDia.setOnClickListener { abrirSeletorDeData() }
@@ -59,6 +70,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun aplicarTema() {
+        adapterHoje.tema = ThemeStore.getSelectedTheme(this)
+        adapterHoje.notifyDataSetChanged()
+
         val tema = ThemeStore.getSelectedTheme(this) ?: return
         ThemePainter.paintRoot(binding.root, tema)
         ThemePainter.paintStatusBar(this, tema)
@@ -66,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         ThemePainter.paintSaidaButton(binding.btnSaida, tema)
         ThemePainter.paintPrimaryText(binding.txtRelogio, tema)
         ThemePainter.paintPrimaryText(binding.txtTituloHoje, tema)
-        ThemePainter.paintSecondaryText(binding.txtRegistosHoje, tema)
+        ThemePainter.paintSecondaryText(binding.txtSemRegistosHoje, tema)
         ThemePainter.paintPrimaryText(binding.txtTotalHoje, tema)
         ThemePainter.paintInput(binding.layoutNota, binding.editNota, tema)
         ThemePainter.paintOutlinedOrTextButton(binding.btnEnviarHoje, tema)
@@ -75,6 +89,45 @@ class MainActivity : AppCompatActivity() {
         ThemePainter.paintIcon(binding.btnWifiConfig, tema)
         ThemePainter.paintIcon(binding.btnTema, tema)
         ThemePainter.paintIcon(binding.btnIdioma, tema)
+    }
+
+    private fun tentarRegistarSaida() {
+        if (!AvisosPrefs.isAvisoSaidaSemEntradaAtivo(this)) {
+            registarPonto(PunchType.SAIDA)
+            return
+        }
+        lifecycleScope.launch {
+            val inicio = TimeUtils.startOfToday()
+            val fim = TimeUtils.endOfDay(inicio)
+            val punches = dao.getBetween(inicio, fim)
+            val resumo = HoursCalculator.summarizeDay(inicio, punches)
+
+            if (resumo.inProgress) {
+                registarPonto(PunchType.SAIDA)
+            } else {
+                mostrarAvisoSaidaSemEntrada()
+            }
+        }
+    }
+
+    private fun mostrarAvisoSaidaSemEntrada() {
+        val checkbox = CheckBox(this).apply {
+            text = getString(R.string.nao_perguntar_novamente)
+            setPadding(60, 20, 60, 0)
+        }
+
+        AlertDialog.Builder(this)
+            .setTitle(R.string.aviso_saida_sem_entrada_titulo)
+            .setMessage(R.string.aviso_saida_sem_entrada_texto)
+            .setView(checkbox)
+            .setPositiveButton(R.string.btn_registar) { _, _ ->
+                if (checkbox.isChecked) {
+                    AvisosPrefs.setAvisoSaidaSemEntradaAtivo(this, false)
+                }
+                registarPonto(PunchType.SAIDA)
+            }
+            .setNegativeButton(R.string.btn_cancelar, null)
+            .show()
     }
 
     private fun registarPonto(type: PunchType) {
@@ -99,15 +152,8 @@ class MainActivity : AppCompatActivity() {
             val punches = dao.getBetween(inicio, fim)
             val resumo = HoursCalculator.summarizeDay(inicio, punches)
 
-            if (punches.isEmpty()) {
-                binding.txtRegistosHoje.text = getString(R.string.sem_registos)
-            } else {
-                binding.txtRegistosHoje.text = punches.joinToString("\n") { punch ->
-                    val label = if (punch.type == PunchType.ENTRADA) "Entrada" else "Saída"
-                    val nota = if (!punch.note.isNullOrBlank()) " — ${punch.note}" else ""
-                    "$label: ${TimeUtils.formatTime(punch.timestamp)}$nota"
-                }
-            }
+            adapterHoje.submitList(punches)
+            binding.txtSemRegistosHoje.visibility = if (punches.isEmpty()) View.VISIBLE else View.GONE
 
             val sufixo = if (resumo.inProgress) " ${getString(R.string.em_curso)}" else ""
             binding.txtTotalHoje.text = "Total: ${TimeUtils.formatDuration(resumo.totalMillis)}$sufixo"

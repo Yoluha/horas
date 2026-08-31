@@ -51,6 +51,10 @@
     <string name="registo_apagado">Eintrag gelöscht</string>
     <string name="registo_atualizado">Eintrag aktualisiert</string>
     <string name="sem_registos_dia">Keine Einträge an diesem Tag</string>
+    <string name="aviso_saida_sem_entrada_titulo">Kein offenes Kommen</string>
+    <string name="aviso_saida_sem_entrada_texto">Heute wurde vor diesem Gehen kein Kommen erfasst. Trotzdem speichern?</string>
+    <string name="nao_perguntar_novamente">Nicht mehr fragen</string>
+    <string name="btn_registar">Speichern</string>
 
     <string-array name="dias_semana">
         <item>Montag</item>
