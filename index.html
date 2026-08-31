@@ -55,9 +55,8 @@
   .proj-strip-wrap { background: var(--paper); border-bottom: 1px solid var(--line); padding: 12px 0; }
   .proj-strip-row { display: flex; align-items: stretch; height: 104px; gap: 12px; max-width: 812px; margin: 0; padding: 0 24px; }
   @keyframes projLabelGlow {
-    0% { text-shadow: 0 0 3px var(--accent); }
-    50% { text-shadow: 0 0 10px var(--accent), 0 0 4px var(--accent); }
-    100% { text-shadow: 0 0 3px var(--accent); }
+    0%, 100% { color: var(--ink-soft); text-shadow: 0 0 4px var(--accent); }
+    50% { color: var(--accent); text-shadow: 0 0 16px var(--accent), 0 0 7px var(--accent); }
   }
   .proj-strip-label {
     writing-mode: vertical-rl; text-orientation: upright; font-family: var(--font-mono); font-size: 0.5rem;
