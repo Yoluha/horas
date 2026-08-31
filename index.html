@@ -52,21 +52,26 @@
   }
 
   /* OTHER PROJECTS STRIP */
-  .proj-strip-wrap { background: var(--paper-alt); border-bottom: 1px solid var(--line); padding: 14px 0; }
-  .proj-strip-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 10px 0; padding: 0 24px; max-width: 812px; margin-left: auto; margin-right: auto; }
-  .proj-strip { display: flex; gap: 10px; overflow-x: auto; padding: 0 24px 4px 24px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .proj-strip-wrap { background: var(--paper); border-bottom: 1px solid var(--line); padding: 12px 0; }
+  .proj-strip-row { display: flex; align-items: stretch; gap: 12px; max-width: 812px; margin: 0 auto; padding: 0 24px; }
+  .proj-strip-label {
+    writing-mode: vertical-rl; text-orientation: upright; font-family: var(--font-mono); font-size: 0.64rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-soft); margin: 0; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .proj-strip { display: flex; gap: 8px; overflow-x: auto; flex: 1; padding-bottom: 4px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
   .proj-strip::-webkit-scrollbar { height: 6px; }
   .proj-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
   .proj-card-sm {
-    scroll-snap-align: start; flex: 0 0 auto; width: 148px; min-height: 92px; border: 1px solid var(--line);
-    border-radius: 10px; padding: 8px 10px; text-decoration: none; display: flex; flex-direction: column; gap: 2px;
-    background-size: cover; background-position: center;
+    scroll-snap-align: start; flex: 0 0 auto; width: 128px; min-height: 78px; border: 1px solid var(--line);
+    border-radius: 9px; padding: 7px 9px; text-decoration: none; display: flex; flex-direction: column; gap: 2px;
+    background-size: cover; background-position: center; position: relative; overflow: hidden;
     transition: transform 0.12s ease, border-color 0.12s ease;
   }
   .proj-card-sm:hover { transform: translateY(-2px); border-color: var(--accent); }
-  .proj-card-sm .proj-icon-sm { font-size: 1.1rem; margin-bottom: 4px; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6)); }
-  .proj-card-sm h4 { font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
-  .proj-card-sm span.desc { font-size: 0.63rem; line-height: 1.25; color: rgba(255,255,255,0.88); text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+  .proj-card-sm .proj-icon-sm { position: absolute; right: -8px; bottom: -12px; font-size: 2.6rem; margin: 0; opacity: 0.35; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); line-height: 1; }
+  .proj-card-sm h4 { position: relative; z-index: 1; font-family: var(--font-display); font-size: 0.7rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
+  .proj-card-sm span.desc { position: relative; z-index: 1; font-size: 0.58rem; line-height: 1.2; color: rgba(255,255,255,0.88); text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
   .proj-card-sm.grad-jc { background-image: linear-gradient(165deg, rgba(8,11,16,0.35) 0%, rgba(10,61,82,0.55) 55%, rgba(201,122,18,0.75) 100%), linear-gradient(160deg, #10151d, #0a3d52 55%, #c97a12); }
   .proj-card-sm.grad-3d { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(22,52,48,0.55) 55%, rgba(201,106,46,0.75) 100%), linear-gradient(135deg, #163430, #2e8f87 60%, #c96a2e); }
   .proj-card-sm.grad-yb { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(48,29,99,0.6) 55%, rgba(216,38,140,0.75) 100%), linear-gradient(135deg, #15102b, #4c1d95 55%, #d8268c); }
@@ -137,6 +142,7 @@
 <body>
 
 <div class="proj-strip-wrap">
+  <div class="proj-strip-row">
   <p class="proj-strip-label" id="stripLabel"></p>
   <div class="proj-strip">
     <a class="proj-card-sm grad-jc" href="https://yoluha.github.io/johnny-castaway-reborn/">
@@ -154,6 +160,7 @@
       <h4>Yoshiki Beats</h4>
       <span class="desc" id="cardYbDesc"></span>
     </a>
+  </div>
   </div>
 </div>
 
@@ -281,7 +288,7 @@ const LANG_ORDER = ['pt','en','es','fr','de','it','pl','ja','nl','cs','zh','ru',
 const LANG_NAMES = { pt:'Português', en:'English', es:'Español', fr:'Français', de:'Deutsch', it:'Italiano', pl:'Polski', ja:'日本語', nl:'Nederlands', cs:'Čeština', zh:'中文', ru:'Русский', ko:'한국어', ne:'नेपाली' };
 
 const T = {
-  stripLabel: { pt:'Outros projetos', en:'Other projects', es:'Otros proyectos', fr:'Autres projets', de:'Weitere Projekte', it:'Altri progetti', pl:'Inne projekty', ja:'他のプロジェクト', nl:'Andere projecten', cs:'Další projekty', zh:'其他项目', ru:'Другие проекты', ko:'다른 프로젝트', ne:'अन्य परियोजनाहरू' },
+  stripLabel: { pt:'Projetos', en:'Projects', es:'Proyectos', fr:'Projets', de:'Projekte', it:'Progetti', pl:'Projekty', ja:'プロジェクト', nl:'Projecten', cs:'Projekty', zh:'项目', ru:'Проекты', ko:'프로젝트', ne:'परियोजनाहरू' },
   cardJcDesc: { pt:'Screensaver de 1992, remasterizado', en:'The 1992 screensaver, remastered', es:'El protector de pantalla de 1992, remasterizado', fr:'L\'économiseur d\'écran de 1992, remasterisé', de:'Der Bildschirmschoner von 1992, neu aufgelegt', it:'Il salvaschermo del 1992, rimasterizzato', pl:'Wygaszacz ekranu z 1992 roku, odświeżony', ja:'1992年のスクリーンセーバー、リマスター版', nl:'De screensaver uit 1992, geremasterd', cs:'Spořič obrazovky z roku 1992, remasterovaný', zh:'1992年的屏保，重制版', ru:'Скринсейвер 1992 года, ремастер', ko:'1992년 스크린세이버, 리마스터', ne:'१९९२ को स्क्रिनसेभर, नयाँ रूपमा' },
   card3dDesc: { pt:'Orçamentos, produção e clientes', en:'Quotes, production and clients', es:'Presupuestos, producción y clientes', fr:'Devis, production et clients', de:'Angebote, Produktion und Kunden', it:'Preventivi, produzione e clienti', pl:'Wyceny, produkcja i klienci', ja:'見積もり・生産・顧客管理', nl:'Offertes, productie en klanten', cs:'Nabídky, výroba a klienti', zh:'报价、生产与客户', ru:'Сметы, производство и клиенты', ko:'견적, 생산, 고객 관리', ne:'मूल्य उद्धरण, उत्पादन र ग्राहक' },
   cardYbDesc: { pt:'Instrumentais J-Trap e GΛRĀN', en:'Instrumental J-Trap and GΛRĀN', es:'Instrumental J-Trap y GΛRĀN', fr:'Instrumentaux J-Trap et GΛRĀN', de:'Instrumental J-Trap und GΛRĀN', it:'Strumentali J-Trap e GΛRĀN', pl:'Instrumentale J-Trap i GΛRĀN', ja:'インストゥルメンタルのJ-TrapとGΛRĀN', nl:'Instrumentale J-Trap en GΛRĀN', cs:'Instrumentální J-Trap a GΛRĀN', zh:'J-Trap 与 GΛRĀN 器乐', ru:'Инструментал J-Trap и GΛRĀN', ko:'인스트루멘탈 J-Trap과 GΛRĀN', ne:'इन्स्ट्रुमेन्टल J-Trap र GΛRĀN' },
