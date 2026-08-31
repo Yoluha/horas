@@ -98,6 +98,7 @@ class WifiConfigActivity : AppCompatActivity() {
         super.onResume()
         val tema = ThemeStore.getSelectedTheme(this) ?: return
         ThemePainter.paintRoot(binding.root, tema)
+        ThemePainter.paintStatusBar(this, tema)
         ThemePainter.paintToolbar(binding.toolbar, tema)
         ThemePainter.paintSecondaryText(binding.txtExplicacao, tema)
         ThemePainter.paintSecondaryText(binding.txtAvisoBateria, tema)

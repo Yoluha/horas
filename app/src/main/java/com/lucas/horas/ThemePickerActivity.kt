@@ -42,6 +42,7 @@ class ThemePickerActivity : AppCompatActivity() {
         val tema = ThemeStore.getSelectedTheme(this)
         if (tema != null) {
             ThemePainter.paintRoot(binding.root, tema)
+            ThemePainter.paintStatusBar(this, tema)
             ThemePainter.paintToolbar(binding.toolbar, tema)
         } else {
             binding.root.setBackgroundColor(getColor(R.color.background))

@@ -76,6 +76,7 @@ class ScheduleActivity : AppCompatActivity() {
         super.onResume()
         val tema = ThemeStore.getSelectedTheme(this) ?: return
         ThemePainter.paintRoot(binding.root, tema)
+        ThemePainter.paintStatusBar(this, tema)
         ThemePainter.paintToolbar(binding.toolbar, tema)
         ThemePainter.paintFilledButton(binding.btnGuardarHorario, tema)
         ThemePainter.paintSecondaryText(binding.txtExplicacao, tema)

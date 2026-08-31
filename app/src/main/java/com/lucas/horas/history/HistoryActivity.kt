@@ -74,6 +74,7 @@ class HistoryActivity : AppCompatActivity() {
         if (tema == null) return
 
         ThemePainter.paintRoot(binding.root, tema)
+        ThemePainter.paintStatusBar(this, tema)
         ThemePainter.paintToolbar(binding.toolbar, tema)
         ThemePainter.paintIcon(binding.btnHorario, tema)
         ThemePainter.paintSecondaryText(binding.txtVazio, tema)

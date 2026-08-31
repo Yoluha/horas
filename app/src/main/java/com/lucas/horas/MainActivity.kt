@@ -61,6 +61,9 @@ class MainActivity : AppCompatActivity() {
     private fun aplicarTema() {
         val tema = ThemeStore.getSelectedTheme(this) ?: return
         ThemePainter.paintRoot(binding.root, tema)
+        ThemePainter.paintStatusBar(this, tema)
+        ThemePainter.paintEntradaButton(binding.btnEntrada, tema)
+        ThemePainter.paintSaidaButton(binding.btnSaida, tema)
         ThemePainter.paintPrimaryText(binding.txtRelogio, tema)
         ThemePainter.paintPrimaryText(binding.txtTituloHoje, tema)
         ThemePainter.paintSecondaryText(binding.txtRegistosHoje, tema)
