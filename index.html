@@ -377,6 +377,9 @@ function fitProjLabel() {
   var browserLang = (navigator.language || 'pt').slice(0, 2);
   var initial = saved || (LANG_ORDER.includes(browserLang) ? browserLang : 'pt');
   setLang(initial);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(fitProjLabel);
+  }
 })();
 
 function scrollProjStrip(btn, dir) {
