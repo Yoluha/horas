@@ -50,6 +50,22 @@
   .langswitch button { background: none; border: 1px solid transparent; cursor: pointer; padding: 5px 10px; border-radius: 7px; color: var(--ink-soft); font-family: inherit; font-size: inherit; }
   .langswitch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 
+  /* OTHER PROJECTS STRIP */
+  .proj-strip-wrap { background: var(--paper-alt); border-bottom: 1px solid var(--line); padding: 14px 0; }
+  .proj-strip-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 10px 0; padding: 0 24px; max-width: 812px; margin-left: auto; margin-right: auto; }
+  .proj-strip { display: flex; gap: 12px; overflow-x: auto; padding: 0 24px 4px 24px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .proj-strip::-webkit-scrollbar { height: 6px; }
+  .proj-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+  .proj-card-sm {
+    scroll-snap-align: start; flex: 0 0 auto; width: 220px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 14px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 4px;
+    transition: transform 0.12s ease, border-color 0.12s ease;
+  }
+  .proj-card-sm:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .proj-card-sm .proj-icon-sm { font-size: 1.3rem; }
+  .proj-card-sm h4 { font-family: var(--font-display); font-size: 0.92rem; font-weight: 700; color: var(--ink); margin: 2px 0 0 0; }
+  .proj-card-sm span.desc { font-size: 0.78rem; color: var(--ink-soft); }
+
   /* HERO */
   .hero { padding-top: 60px; }
   .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 44px; align-items: center; }
@@ -136,6 +152,30 @@
       <button id="btn-pt" aria-pressed="true" onclick="setLang('pt')">PT</button>
       <button id="btn-en" aria-pressed="false" onclick="setLang('en')">EN</button>
     </div>
+  </div>
+</div>
+
+<div class="proj-strip-wrap">
+  <p class="proj-strip-label"><span data-lang="pt">Outros projetos</span><span data-lang="en">Other projects</span></p>
+  <div class="proj-strip">
+    <a class="proj-card-sm" href="https://yoluha.github.io/johnny-castaway-reborn/">
+      <span class="proj-icon-sm">🏝️</span>
+      <h4>Johnny Castaway Reborn</h4>
+      <span class="desc" data-lang="pt">Screensaver reinventado</span>
+      <span class="desc" data-lang="en">Screensaver reimagined</span>
+    </a>
+    <a class="proj-card-sm" href="https://yoluha.github.io/3d-manager/">
+      <span class="proj-icon-sm">📐</span>
+      <h4>3D Manager</h4>
+      <span class="desc" data-lang="pt">Gestão de negócio de impressão 3D</span>
+      <span class="desc" data-lang="en">3D printing business management</span>
+    </a>
+    <a class="proj-card-sm" href="https://www.youtube.com/channel/UClEkyF0yv7Vyh2nRhKlvFlQ">
+      <span class="proj-icon-sm">🎧</span>
+      <h4>Yoshiki Beats</h4>
+      <span class="desc" data-lang="pt">Canal de música</span>
+      <span class="desc" data-lang="en">Music channel</span>
+    </a>
   </div>
 </div>
 
