@@ -53,18 +53,22 @@
   /* OTHER PROJECTS STRIP */
   .proj-strip-wrap { background: var(--paper-alt); border-bottom: 1px solid var(--line); padding: 14px 0; }
   .proj-strip-label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 10px 0; padding: 0 24px; max-width: 812px; margin-left: auto; margin-right: auto; }
-  .proj-strip { display: flex; gap: 12px; overflow-x: auto; padding: 0 24px 4px 24px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .proj-strip { display: flex; gap: 10px; overflow-x: auto; padding: 0 24px 4px 24px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
   .proj-strip::-webkit-scrollbar { height: 6px; }
   .proj-strip::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
   .proj-card-sm {
-    scroll-snap-align: start; flex: 0 0 auto; width: 220px; background: var(--card); border: 1px solid var(--line);
-    border-radius: 12px; padding: 14px 16px; text-decoration: none; display: flex; flex-direction: column; gap: 4px;
+    scroll-snap-align: start; flex: 0 0 auto; width: 148px; height: 92px; border: 1px solid var(--line);
+    border-radius: 10px; padding: 8px 10px; text-decoration: none; display: flex; flex-direction: column; justify-content: flex-end; gap: 1px;
+    background-size: cover; background-position: center; position: relative;
     transition: transform 0.12s ease, border-color 0.12s ease;
   }
   .proj-card-sm:hover { transform: translateY(-2px); border-color: var(--accent); }
-  .proj-card-sm .proj-icon-sm { font-size: 1.3rem; }
-  .proj-card-sm h4 { font-family: var(--font-display); font-size: 0.92rem; font-weight: 700; color: var(--ink); margin: 2px 0 0 0; }
-  .proj-card-sm span.desc { font-size: 0.78rem; color: var(--ink-soft); }
+  .proj-card-sm .proj-icon-sm { position: absolute; top: 8px; left: 10px; font-size: 1.15rem; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6)); }
+  .proj-card-sm h4 { font-family: var(--font-display); font-size: 0.76rem; font-weight: 700; color: #fff; margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
+  .proj-card-sm span.desc { font-size: 0.63rem; line-height: 1.25; color: rgba(255,255,255,0.88); text-shadow: 0 1px 3px rgba(0,0,0,0.7); }
+  .proj-card-sm.grad-jc { background-image: linear-gradient(165deg, rgba(8,11,16,0.35) 0%, rgba(10,61,82,0.55) 55%, rgba(201,122,18,0.75) 100%), linear-gradient(160deg, #10151d, #0a3d52 55%, #c97a12); }
+  .proj-card-sm.grad-3d { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(22,52,48,0.55) 55%, rgba(201,106,46,0.75) 100%), linear-gradient(135deg, #163430, #2e8f87 60%, #c96a2e); }
+  .proj-card-sm.grad-yb { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(48,29,99,0.6) 55%, rgba(216,38,140,0.75) 100%), linear-gradient(135deg, #15102b, #4c1d95 55%, #d8268c); }
 
   /* HERO */
   .hero { padding-top: 60px; }
@@ -158,23 +162,23 @@
 <div class="proj-strip-wrap">
   <p class="proj-strip-label"><span data-lang="pt">Outros projetos</span><span data-lang="en">Other projects</span></p>
   <div class="proj-strip">
-    <a class="proj-card-sm" href="https://yoluha.github.io/johnny-castaway-reborn/">
+    <a class="proj-card-sm grad-jc" href="https://yoluha.github.io/johnny-castaway-reborn/">
       <span class="proj-icon-sm">🏝️</span>
       <h4>Johnny Castaway Reborn</h4>
-      <span class="desc" data-lang="pt">Screensaver reinventado</span>
-      <span class="desc" data-lang="en">Screensaver reimagined</span>
+      <span class="desc" data-lang="pt">Screensaver de 1992, remasterizado</span>
+      <span class="desc" data-lang="en">The 1992 screensaver, remastered</span>
     </a>
-    <a class="proj-card-sm" href="https://yoluha.github.io/3d-manager/">
+    <a class="proj-card-sm grad-3d" href="https://yoluha.github.io/3d-manager/">
       <span class="proj-icon-sm">📐</span>
       <h4>3D Manager</h4>
-      <span class="desc" data-lang="pt">Gestão de negócio de impressão 3D</span>
-      <span class="desc" data-lang="en">3D printing business management</span>
+      <span class="desc" data-lang="pt">Orçamentos, produção e clientes</span>
+      <span class="desc" data-lang="en">Quotes, production and clients</span>
     </a>
-    <a class="proj-card-sm" href="https://www.youtube.com/channel/UClEkyF0yv7Vyh2nRhKlvFlQ">
+    <a class="proj-card-sm grad-yb" href="https://www.youtube.com/channel/UClEkyF0yv7Vyh2nRhKlvFlQ">
       <span class="proj-icon-sm">🎧</span>
       <h4>Yoshiki Beats</h4>
-      <span class="desc" data-lang="pt">Canal de música</span>
-      <span class="desc" data-lang="en">Music channel</span>
+      <span class="desc" data-lang="pt">Instrumentais J-Trap e Djent</span>
+      <span class="desc" data-lang="en">Instrumental J-Trap and Djent</span>
     </a>
   </div>
 </div>
