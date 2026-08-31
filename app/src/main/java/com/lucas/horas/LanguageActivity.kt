@@ -31,7 +31,15 @@ class LanguageActivity : AppCompatActivity() {
             "es" to "Español",
             "fr" to "Français",
             "de" to "Deutsch",
-            "it" to "Italiano"
+            "it" to "Italiano",
+            "pl" to "Polski",
+            "ja" to "日本語",
+            "nl" to "Nederlands",
+            "cs" to "Čeština",
+            "zh" to "中文",
+            "ru" to "Русский",
+            "ko" to "한국어",
+            "ne" to "नेपाली"
         )
 
         val atual = AppCompatDelegate.getApplicationLocales()

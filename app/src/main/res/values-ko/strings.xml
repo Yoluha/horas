@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">출근</string>
+    <string name="btn_saida">퇴근</string>
+    <string name="hint_nota">메모 (선택 사항) — 예: 조퇴, 치과</string>
+    <string name="btn_enviar_hoje">오늘 기록 보내기</string>
+    <string name="btn_escolher_dia">다른 날짜 보기</string>
+    <string name="btn_historico">기록</string>
+    <string name="titulo_hoje">오늘</string>
+    <string name="sem_registos">오늘 기록이 아직 없습니다</string>
+    <string name="em_curso">(진행 중)</string>
+
+    <string name="titulo_historico">기록</string>
+    <string name="sem_historico">아직 기록된 날이 없습니다</string>
+    <string name="btn_exportar_resumo">요약 내보내기 (이미지)</string>
+
+    <string name="titulo_horario">정상 근무 일정</string>
+    <string name="explicacao_horario">요일별로 평소 근무하는 시간을 설정하세요. 내보낸 요약에서 초과/부족 시간을 계산하는 데 사용됩니다.</string>
+    <string name="horario_guardado">근무 일정이 저장되었습니다</string>
+    <string name="btn_guardar">저장</string>
+
+    <string name="btn_enviar_dia">이 날 보내기</string>
+    <string name="enviar_via">보내는 방법</string>
+    <string name="erro_partilha">공유할 수 없습니다</string>
+
+    <string name="titulo_wifi">자동 감지 (WiFi)</string>
+    <string name="explicacao_wifi">휴대폰이 이 WiFi 네트워크에 연결되면 자동으로 출근을 기록하고, 연결이 끊기면 퇴근을 기록합니다. 이는 보조 기능일 뿐입니다 — 이 기능이 켜져 있어도 언제든지 수동으로 기록할 수 있습니다. 자동 기록 시간은 몇 분 정도 차이가 날 수 있으며(도착 후 휴대폰이 네트워크에 연결되기까지 걸리는 시간, 옷을 갈아입는 시간 등, 또는 퇴근 후 연결이 끊기기까지 걸리는 시간), 기록에는 항상 \"자동 (WiFi)\"로 표시되어 수동 기록과 절대 혼동되지 않습니다.</string>
+    <string name="switch_ativar_wifi">자동 감지 활성화</string>
+    <string name="hint_ssid">WiFi 네트워크 이름 (SSID)</string>
+    <string name="btn_usar_rede_atual">현재 연결된 네트워크 사용</string>
+    <string name="erro_sem_rede_atual">현재 연결된 WiFi 네트워크가 없거나 네트워크 이름이 없습니다</string>
+    <string name="erro_permissao_localizacao">연결된 WiFi 네트워크 이름을 읽으려면 Android 위치 권한이 필요합니다</string>
+    <string name="nota_auto_wifi">자동 (WiFi) — 몇 분 정도 차이가 날 수 있습니다</string>
+    <string name="notif_canal_nome">직장 WiFi 감지</string>
+    <string name="notif_titulo">Horas — 직장 네트워크 모니터링 중</string>
+    <string name="notif_texto">이 네트워크에 연결/해제되면 자동으로 출퇴근을 기록합니다</string>
+    <string name="aviso_bateria">일부 휴대폰(Xiaomi/POCO, Huawei 등)에서는 배터리를 절약하기 위해 시스템이 백그라운드 앱을 종료합니다. 자동 감지가 스스로 작동을 멈추면 휴대폰 설정 → 배터리 → Horas 선택 → 이 앱의 배터리 절약 기능을 끄고, \"자동 시작\" 옵션이 있으면 활성화하세요.</string>
+
+    <string name="titulo_temas">테마</string>
+    <string name="tema_automatico">자동 (시스템 라이트/다크)</string>
+
+    <string name="titulo_idioma">언어</string>
+    <string name="idioma_automatico">자동 (시스템 언어)</string>
+
+    <string name="titulo_editar_registo">기록 편집</string>
+    <string name="btn_alterar_hora">시간 변경</string>
+    <string name="btn_apagar">삭제</string>
+    <string name="btn_cancelar">취소</string>
+    <string name="confirmar_apagar">이 기록을 삭제하시겠습니까? 되돌릴 수 없습니다.</string>
+    <string name="registo_apagado">기록이 삭제되었습니다</string>
+    <string name="registo_atualizado">기록이 업데이트되었습니다</string>
+    <string name="sem_registos_dia">이 날짜에는 기록이 없습니다</string>
+    <string name="aviso_saida_sem_entrada_titulo">열려 있는 출근 기록이 없습니다</string>
+    <string name="aviso_saida_sem_entrada_texto">이 퇴근 기록 전에 오늘 출근 기록이 없습니다. 그래도 기록하시겠습니까?</string>
+    <string name="nao_perguntar_novamente">다시 묻지 않기</string>
+    <string name="btn_registar">기록하기</string>
+
+    <string name="btn_exportar_dados">데이터 내보내기 (백업)</string>
+    <string name="btn_importar_dados">데이터 가져오기</string>
+    <string name="confirmar_importar">선택한 파일의 내용으로 현재 모든 기록이 대체됩니다. 되돌릴 수 없습니다. 계속하시겠습니까?</string>
+    <string name="importar_sucesso">데이터를 가져왔습니다</string>
+    <string name="exportar_sucesso">백업이 저장되었습니다</string>
+    <string name="erro_importar">파일을 읽을 수 없습니다 (유효한 백업이 아님)</string>
+    <string name="erro_exportar">백업을 저장할 수 없습니다</string>
+
+    <string name="total_semana">이번 주: %1$s</string>
+    <string name="total_mes">이번 달: %1$s</string>
+
+    <string-array name="dias_semana">
+        <item>월요일</item>
+        <item>화요일</item>
+        <item>수요일</item>
+        <item>목요일</item>
+        <item>금요일</item>
+        <item>토요일</item>
+        <item>일요일</item>
+    </string-array>
+</resources>

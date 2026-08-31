@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">WEJŚCIE</string>
+    <string name="btn_saida">WYJŚCIE</string>
+    <string name="hint_nota">Notatka (opcjonalnie) — np. wyszedłem wcześniej, dentysta</string>
+    <string name="btn_enviar_hoje">Wyślij dzisiejszy</string>
+    <string name="btn_escolher_dia">Zobacz inny dzień</string>
+    <string name="btn_historico">Historia</string>
+    <string name="titulo_hoje">Dzisiaj</string>
+    <string name="sem_registos">Brak wpisów dzisiaj</string>
+    <string name="em_curso">(w trakcie)</string>
+
+    <string name="titulo_historico">Historia</string>
+    <string name="sem_historico">Brak zarejestrowanych dni</string>
+    <string name="btn_exportar_resumo">Eksportuj podsumowanie (obraz)</string>
+
+    <string name="titulo_horario">Normalny harmonogram</string>
+    <string name="explicacao_horario">Określ, ile godzin normalnie pracujesz każdego dnia tygodnia. Służy to do obliczenia różnicy (nadgodziny/niedogodziny) w eksportowanym podsumowaniu.</string>
+    <string name="horario_guardado">Harmonogram zapisany</string>
+    <string name="btn_guardar">Zapisz</string>
+
+    <string name="btn_enviar_dia">Wyślij ten dzień</string>
+    <string name="enviar_via">Wyślij przez</string>
+    <string name="erro_partilha">Nie udało się udostępnić</string>
+
+    <string name="titulo_wifi">Automatyczne wykrywanie (WiFi)</string>
+    <string name="explicacao_wifi">Gdy telefon połączy się z tą siecią WiFi, automatycznie zarejestruje wejście; po rozłączeniu — wyjście. To tylko zabezpieczenie — nadal możesz rejestrować ręcznie w dowolnym momencie, nawet gdy ta funkcja jest włączona. Automatyczne godziny mogą różnić się o kilka minut (czas potrzebny telefonowi na dołączenie do sieci po przyjściu, przebranie się itp., lub na rozłączenie po wyjściu), i zawsze są oznaczone jako „Automatyczne (WiFi)” w rejestrach, aby nigdy nie pomylić ich z ręcznymi.</string>
+    <string name="switch_ativar_wifi">Włącz automatyczne wykrywanie</string>
+    <string name="hint_ssid">Nazwa sieci WiFi (SSID)</string>
+    <string name="btn_usar_rede_atual">Użyj sieci, z którą jestem teraz połączony</string>
+    <string name="erro_sem_rede_atual">Nie jesteś teraz połączony z żadną siecią WiFi, lub brakuje nazwy sieci</string>
+    <string name="erro_permissao_localizacao">Android wymaga uprawnienia lokalizacji, aby odczytać nazwę połączonej sieci WiFi</string>
+    <string name="nota_auto_wifi">Automatyczne (WiFi) — może się różnić o kilka minut</string>
+    <string name="notif_canal_nome">Wykrywanie WiFi w pracy</string>
+    <string name="notif_titulo">Horas — monitorowanie sieci w pracy</string>
+    <string name="notif_texto">Automatycznie rejestruje wejście/wyjście po połączeniu/rozłączeniu z tą siecią</string>
+    <string name="aviso_bateria">Na niektórych telefonach (Xiaomi/POCO, Huawei itp.) system zamyka aplikacje w tle, aby oszczędzać baterię. Jeśli automatyczne wykrywanie przestanie działać samo, przejdź do Ustawień telefonu → Bateria → wybierz Horas → wyłącz oszczędzanie baterii dla tej aplikacji i włącz „Autostart”, jeśli ta opcja istnieje.</string>
+
+    <string name="titulo_temas">Motywy</string>
+    <string name="tema_automatico">Automatyczny (jasny/ciemny systemu)</string>
+
+    <string name="titulo_idioma">Język</string>
+    <string name="idioma_automatico">Automatyczny (język systemu)</string>
+
+    <string name="titulo_editar_registo">Edytuj wpis</string>
+    <string name="btn_alterar_hora">Zmień godzinę</string>
+    <string name="btn_apagar">Usuń</string>
+    <string name="btn_cancelar">Anuluj</string>
+    <string name="confirmar_apagar">Usunąć ten wpis? Nie można tego cofnąć.</string>
+    <string name="registo_apagado">Wpis usunięty</string>
+    <string name="registo_atualizado">Wpis zaktualizowany</string>
+    <string name="sem_registos_dia">Brak wpisów tego dnia</string>
+    <string name="aviso_saida_sem_entrada_titulo">Brak otwartego wejścia</string>
+    <string name="aviso_saida_sem_entrada_texto">Nie zarejestrowano dziś wejścia przed tym wyjściem. Zarejestrować mimo to?</string>
+    <string name="nao_perguntar_novamente">Nie pytaj ponownie</string>
+    <string name="btn_registar">Zarejestruj</string>
+
+    <string name="btn_exportar_dados">Eksportuj dane (kopia zapasowa)</string>
+    <string name="btn_importar_dados">Importuj dane</string>
+    <string name="confirmar_importar">To zastąpi wszystkie bieżące wpisy tymi z wybranego pliku. Nie można tego cofnąć. Kontynuować?</string>
+    <string name="importar_sucesso">Dane zaimportowane</string>
+    <string name="exportar_sucesso">Kopia zapasowa zapisana</string>
+    <string name="erro_importar">Nie można odczytać pliku (nieprawidłowa kopia zapasowa)</string>
+    <string name="erro_exportar">Nie udało się zapisać kopii zapasowej</string>
+
+    <string name="total_semana">Ten tydzień: %1$s</string>
+    <string name="total_mes">Ten miesiąc: %1$s</string>
+
+    <string-array name="dias_semana">
+        <item>Poniedziałek</item>
+        <item>Wtorek</item>
+        <item>Środa</item>
+        <item>Czwartek</item>
+        <item>Piątek</item>
+        <item>Sobota</item>
+        <item>Niedziela</item>
+    </string-array>
+</resources>

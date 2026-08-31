@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">上班打卡</string>
+    <string name="btn_saida">下班打卡</string>
+    <string name="hint_nota">备注（可选）— 例如：提前离开、看牙医</string>
+    <string name="btn_enviar_hoje">发送今天的记录</string>
+    <string name="btn_escolher_dia">查看其他日期</string>
+    <string name="btn_historico">历史记录</string>
+    <string name="titulo_hoje">今天</string>
+    <string name="sem_registos">今天还没有记录</string>
+    <string name="em_curso">（进行中）</string>
+
+    <string name="titulo_historico">历史记录</string>
+    <string name="sem_historico">还没有已记录的日期</string>
+    <string name="btn_exportar_resumo">导出摘要（图片）</string>
+
+    <string name="titulo_horario">正常工作时间</string>
+    <string name="explicacao_horario">设置你每周各天通常的工作时长，用于在导出的摘要中计算多做/少做的差值。</string>
+    <string name="horario_guardado">工作时间已保存</string>
+    <string name="btn_guardar">保存</string>
+
+    <string name="btn_enviar_dia">发送这一天</string>
+    <string name="enviar_via">发送方式</string>
+    <string name="erro_partilha">无法分享</string>
+
+    <string name="titulo_wifi">自动检测（WiFi）</string>
+    <string name="explicacao_wifi">当手机连接到这个WiFi网络时，会自动记录上班打卡；断开连接时，会自动记录下班打卡。这只是一个辅助功能——即使开启此功能，你仍然可以随时手动打卡。自动记录的时间可能会有几分钟的误差（手机在你到达后连接网络所需的时间、换衣服等，或离开后断开连接的时间），并且在记录中始终标记为"自动（WiFi）"，因此不会与手动记录混淆。</string>
+    <string name="switch_ativar_wifi">启用自动检测</string>
+    <string name="hint_ssid">WiFi网络名称（SSID）</string>
+    <string name="btn_usar_rede_atual">使用我当前连接的网络</string>
+    <string name="erro_sem_rede_atual">你目前未连接任何WiFi网络，或缺少网络名称</string>
+    <string name="erro_permissao_localizacao">Android需要位置权限才能读取已连接WiFi网络的名称</string>
+    <string name="nota_auto_wifi">自动（WiFi）— 可能有几分钟误差</string>
+    <string name="notif_canal_nome">工作WiFi检测</string>
+    <string name="notif_titulo">Horas — 正在监控工作网络</string>
+    <string name="notif_texto">连接/离开此网络时自动记录上下班打卡</string>
+    <string name="aviso_bateria">在某些手机上（小米/POCO、华为等），系统会关闭后台应用以节省电量。如果自动检测自行停止工作，请前往手机设置 → 电池 → 选择Horas → 关闭此应用的省电功能，如果有"自启动"选项，请启用它。</string>
+
+    <string name="titulo_temas">主题</string>
+    <string name="tema_automatico">自动（跟随系统浅色/深色）</string>
+
+    <string name="titulo_idioma">语言</string>
+    <string name="idioma_automatico">自动（系统语言）</string>
+
+    <string name="titulo_editar_registo">编辑记录</string>
+    <string name="btn_alterar_hora">修改时间</string>
+    <string name="btn_apagar">删除</string>
+    <string name="btn_cancelar">取消</string>
+    <string name="confirmar_apagar">删除这条记录？此操作无法撤销。</string>
+    <string name="registo_apagado">记录已删除</string>
+    <string name="registo_atualizado">记录已更新</string>
+    <string name="sem_registos_dia">这一天没有记录</string>
+    <string name="aviso_saida_sem_entrada_titulo">没有未结束的上班打卡</string>
+    <string name="aviso_saida_sem_entrada_texto">在这次下班打卡之前，今天没有上班打卡记录。仍要记录吗？</string>
+    <string name="nao_perguntar_novamente">不再询问</string>
+    <string name="btn_registar">记录</string>
+
+    <string name="btn_exportar_dados">导出数据（备份）</string>
+    <string name="btn_importar_dados">导入数据</string>
+    <string name="confirmar_importar">这将用所选文件中的记录替换所有当前记录，此操作无法撤销。要继续吗？</string>
+    <string name="importar_sucesso">数据已导入</string>
+    <string name="exportar_sucesso">备份已保存</string>
+    <string name="erro_importar">无法读取文件（不是有效的备份）</string>
+    <string name="erro_exportar">无法保存备份</string>
+
+    <string name="total_semana">本周：%1$s</string>
+    <string name="total_mes">本月：%1$s</string>
+
+    <string-array name="dias_semana">
+        <item>星期一</item>
+        <item>星期二</item>
+        <item>星期三</item>
+        <item>星期四</item>
+        <item>星期五</item>
+        <item>星期六</item>
+        <item>星期日</item>
+    </string-array>
+</resources>

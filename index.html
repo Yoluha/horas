@@ -46,9 +46,10 @@
   .langbar-inner { max-width: 860px; margin: 0 auto; padding: 12px 24px; display: flex; justify-content: space-between; align-items: center; }
   .brand { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px; }
   .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--green-lt); box-shadow: 0 0 0 3px rgba(76,175,80,0.2); }
-  .langswitch { display: flex; gap: 4px; font-family: var(--font-mono); font-size: 0.78rem; }
-  .langswitch button { background: none; border: 1px solid transparent; cursor: pointer; padding: 5px 10px; border-radius: 7px; color: var(--ink-soft); font-family: inherit; font-size: inherit; }
-  .langswitch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .langswitch select {
+    background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: 7px;
+    padding: 6px 8px; font-family: var(--font-mono); font-size: 0.78rem; cursor: pointer;
+  }
 
   /* OTHER PROJECTS STRIP */
   .proj-strip-wrap { background: var(--paper-alt); border-bottom: 1px solid var(--line); padding: 14px 0; }
@@ -117,14 +118,6 @@
   .steps li p { margin: 2px 0 0 0; font-size: 0.94rem; }
   .steps li strong { font-family: var(--font-display); font-size: 0.98rem; }
 
-  /* THEME STRIP */
-  .theme-strip { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
-  .swatch { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); flex-shrink: 0; }
-
-  /* LANG PILLS */
-  .lang-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-  .lang-pill { font-family: var(--font-mono); font-size: 0.82rem; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 7px 16px; }
-
   details.legal { border: 1px solid var(--line); border-radius: 10px; padding: 4px 18px; background: var(--card); margin-bottom: 10px; }
   details.legal summary { cursor: pointer; font-family: var(--font-display); font-weight: 600; padding: 12px 0; }
   details.legal p { font-size: 0.88rem; padding-bottom: 14px; max-width: none; }
@@ -135,12 +128,6 @@
   footer .meta { font-family: var(--font-mono); font-size: 0.8rem; color: #9aa7c2; }
   footer a.gh { color: var(--green-lt); font-weight: 700; text-decoration: none; }
 
-  [data-lang] { display: none; }
-  html[data-active="pt"] [data-lang="pt"] { display: revert; }
-  html[data-active="en"] [data-lang="en"] { display: revert; }
-  span[data-lang] { display: inline; }
-  html[data-active="pt"] span[data-lang="en"], html[data-active="en"] span[data-lang="pt"] { display: none; }
-
   @media (max-width: 720px) {
     .hero-grid { grid-template-columns: 1fr; }
     .phone { order: -1; }
@@ -150,25 +137,22 @@
 <body>
 
 <div class="proj-strip-wrap">
-  <p class="proj-strip-label"><span data-lang="pt">Outros projetos</span><span data-lang="en">Other projects</span></p>
+  <p class="proj-strip-label" id="stripLabel"></p>
   <div class="proj-strip">
     <a class="proj-card-sm grad-jc" href="https://yoluha.github.io/johnny-castaway-reborn/">
       <span class="proj-icon-sm">🏝️</span>
       <h4>Johnny Castaway</h4>
-      <span class="desc" data-lang="pt">Screensaver de 1992, remasterizado</span>
-      <span class="desc" data-lang="en">The 1992 screensaver, remastered</span>
+      <span class="desc" id="cardJcDesc"></span>
     </a>
     <a class="proj-card-sm grad-3d" href="https://yoluha.github.io/3d-manager/">
       <span class="proj-icon-sm">📐</span>
       <h4>3D Manager</h4>
-      <span class="desc" data-lang="pt">Orçamentos, produção e clientes</span>
-      <span class="desc" data-lang="en">Quotes, production and clients</span>
+      <span class="desc" id="card3dDesc"></span>
     </a>
     <a class="proj-card-sm grad-yb" href="https://www.youtube.com/channel/UClEkyF0yv7Vyh2nRhKlvFlQ">
       <span class="proj-icon-sm">🎧</span>
       <h4>Yoshiki Beats</h4>
-      <span class="desc" data-lang="pt">Instrumentais J-Trap e Djent</span>
-      <span class="desc" data-lang="en">Instrumental J-Trap and Djent</span>
+      <span class="desc" id="cardYbDesc"></span>
     </a>
   </div>
 </div>
@@ -176,9 +160,8 @@
 <div class="langbar">
   <div class="langbar-inner">
     <div class="brand"><span class="dot"></span> Horas</div>
-    <div class="langswitch" role="group" aria-label="Language">
-      <button id="btn-pt" aria-pressed="true" onclick="setLang('pt')">PT</button>
-      <button id="btn-en" aria-pressed="false" onclick="setLang('en')">EN</button>
+    <div class="langswitch">
+      <select id="langSelect" onchange="setLang(this.value)"></select>
     </div>
   </div>
 </div>
@@ -186,22 +169,15 @@
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow" data-lang="pt">App Android · Registo de ponto</span>
-      <span class="eyebrow" data-lang="en">Android app · Time clock</span>
-
-      <h1 data-lang="pt">Pica o ponto sem complicação.</h1>
-      <h1 data-lang="en">Clock in and out, no fuss.</h1>
-
-      <p class="tagline" data-lang="pt">Entrada e saída com um toque, nota opcional, e um botão para enviar o dia ao patrão pelo WhatsApp. Se te esqueceres, a rede WiFi do trabalho pode registar por ti.</p>
-      <p class="tagline" data-lang="en">Clock in and out with one tap, an optional note, and a button to send the day to your boss on WhatsApp. If you forget, your work WiFi can log it for you.</p>
+      <span class="eyebrow" id="heroEyebrow"></span>
+      <h1 id="heroTitle"></h1>
+      <p class="tagline" id="heroTagline"></p>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://github.com/Yoluha/horas/releases/latest" data-lang="pt">⬇ Descarregar APK</a>
-        <a class="btn btn-primary" href="https://github.com/Yoluha/horas/releases/latest" data-lang="en">⬇ Download APK</a>
+        <a class="btn btn-primary" href="https://github.com/Yoluha/horas/releases/latest" id="btnDownload"></a>
         <a class="btn btn-ghost" href="https://github.com/Yoluha/horas">GitHub ↗</a>
       </div>
-      <div class="apk-note" data-lang="pt">Android · não está na Play Store · instala diretamente o ficheiro .apk</div>
-      <div class="apk-note" data-lang="en">Android · not on the Play Store · install the .apk file directly</div>
+      <div class="apk-note" id="apkNote"></div>
     </div>
 
     <div class="phone">
@@ -220,42 +196,34 @@
 <section>
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow" data-lang="pt">O que faz</span>
-      <span class="eyebrow" data-lang="en">What it does</span>
-      <h2 data-lang="pt">Feito para resolver um problema muito específico</h2>
-      <h2 data-lang="en">Built to solve one very specific problem</h2>
+      <span class="eyebrow" id="featEyebrow"></span>
+      <h2 id="featTitle"></h2>
     </div>
 
     <div class="feat-grid">
       <div class="feat">
-        <h3><span class="emoji">✅</span> <span data-lang="pt">Ponto manual</span><span data-lang="en">Manual clock</span></h3>
-        <p data-lang="pt">Um toque para entrada, um toque para saída. Nota opcional em cada registo.</p>
-        <p data-lang="en">One tap to clock in, one to clock out. Optional note on each entry.</p>
+        <h3><span class="emoji">✅</span> <span id="feat1Title"></span></h3>
+        <p id="feat1Desc"></p>
       </div>
       <div class="feat">
-        <h3><span class="emoji">📶</span> <span data-lang="pt">Deteção por WiFi</span><span data-lang="en">WiFi detection</span></h3>
-        <p data-lang="pt">Liga/desliga da rede do trabalho? Regista sozinho — o manual continua sempre disponível.</p>
-        <p data-lang="en">Connect/disconnect from your work network? It logs itself — manual clocking still always works.</p>
+        <h3><span class="emoji">📶</span> <span id="feat2Title"></span></h3>
+        <p id="feat2Desc"></p>
       </div>
       <div class="feat">
-        <h3><span class="emoji">💬</span> <span data-lang="pt">Envio por WhatsApp</span><span data-lang="en">WhatsApp export</span></h3>
-        <p data-lang="pt">Um dia, ou o histórico todo — envia como texto ou como imagem, escolhes o contacto na hora.</p>
-        <p data-lang="en">One day, or the whole history — send as text or image, pick the contact on the spot.</p>
+        <h3><span class="emoji">💬</span> <span id="feat3Title"></span></h3>
+        <p id="feat3Desc"></p>
       </div>
       <div class="feat">
-        <h3><span class="emoji">📊</span> <span data-lang="pt">Resumo com diferença</span><span data-lang="en">Summary with over/under</span></h3>
-        <p data-lang="pt">Define o teu horário normal e exporta um resumo em imagem com horas a mais/a menos por dia.</p>
-        <p data-lang="en">Set your normal schedule and export an image summary with over/under hours per day.</p>
+        <h3><span class="emoji">📊</span> <span id="feat4Title"></span></h3>
+        <p id="feat4Desc"></p>
       </div>
       <div class="feat">
-        <h3><span class="emoji">🎨</span> <span data-lang="pt">97 temas</span><span data-lang="en">97 themes</span></h3>
-        <p data-lang="pt">Os mesmos temas do 3D Manager — de Dracula e Nord a One Piece e Cyberpunk.</p>
-        <p data-lang="en">The same themes from 3D Manager — from Dracula and Nord to One Piece and Cyberpunk.</p>
+        <h3><span class="emoji">🎨</span> <span id="feat5Title"></span></h3>
+        <p id="feat5Desc"></p>
       </div>
       <div class="feat">
-        <h3><span class="emoji">🌍</span> <span data-lang="pt">6 idiomas</span><span data-lang="en">6 languages</span></h3>
-        <p data-lang="pt">Português, English, Español, Français, Deutsch, Italiano.</p>
-        <p data-lang="en">Portuguese, English, Spanish, French, German, Italian.</p>
+        <h3><span class="emoji">🌍</span> <span id="feat6Title"></span></h3>
+        <p>PT · EN · ES · FR · DE · IT · PL · JA · NL · CS · ZH · RU · KO · NE</p>
       </div>
     </div>
   </div>
@@ -264,71 +232,113 @@
 <section>
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow" data-lang="pt">Como instalar</span>
-      <span class="eyebrow" data-lang="en">How to install</span>
-      <h2 data-lang="pt">3 passos</h2>
-      <h2 data-lang="en">3 steps</h2>
+      <span class="eyebrow" id="installEyebrow"></span>
+      <h2 id="installTitle"></h2>
     </div>
     <ol class="steps">
       <li>
         <div>
-          <strong data-lang="pt">Descarrega o .apk</strong><strong data-lang="en">Download the .apk</strong>
-          <p data-lang="pt">No botão em cima, ou na página de <a href="https://github.com/Yoluha/horas/releases/latest">releases</a>.</p>
-          <p data-lang="en">Using the button above, or from the <a href="https://github.com/Yoluha/horas/releases/latest">releases page</a>.</p>
+          <strong id="step1Title"></strong>
+          <p id="step1Desc"></p>
         </div>
       </li>
       <li>
         <div>
-          <strong data-lang="pt">Permite fontes desconhecidas</strong><strong data-lang="en">Allow unknown sources</strong>
-          <p data-lang="pt">O Android vai pedir para confirmares — é normal para apps fora da Play Store.</p>
-          <p data-lang="en">Android will ask you to confirm — normal for apps outside the Play Store.</p>
+          <strong id="step2Title"></strong>
+          <p id="step2Desc"></p>
         </div>
       </li>
       <li>
         <div>
-          <strong data-lang="pt">Abre o ficheiro e instala</strong><strong data-lang="en">Open the file and install</strong>
-          <p data-lang="pt">Pronto. Define o teu horário normal e, se quiseres, a rede WiFi do trabalho.</p>
-          <p data-lang="en">Done. Set your normal schedule and, if you want, your work WiFi network.</p>
+          <strong id="step3Title"></strong>
+          <p id="step3Desc"></p>
         </div>
       </li>
     </ol>
 
     <details class="legal">
-      <summary data-lang="pt">Isto é seguro?</summary>
-      <summary data-lang="en">Is this safe?</summary>
-      <p data-lang="pt">É um projeto pessoal de código aberto — todo o código Kotlin está neste repositório para inspecionares. O APK usa uma assinatura de desenvolvimento (debug), por isso o Android avisa que a origem é desconhecida; isso é esperado para qualquer app instalada fora da Play Store, não um sinal de problema.</p>
-      <p data-lang="en">This is a personal open-source project — all the Kotlin code is in this repository for you to inspect. The APK uses a debug signature, so Android will warn the source is unknown; that's expected for any app installed outside the Play Store, not a red flag.</p>
+      <summary id="legalQ"></summary>
+      <p id="legalA"></p>
     </details>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <h2 data-lang="pt">Feito para uso pessoal, partilhado por se for útil a mais alguém.</h2>
-    <h2 data-lang="en">Made for personal use, shared in case it's useful to someone else.</h2>
+    <h2 id="footerTitle"></h2>
     <p class="meta">
       <a class="gh" href="https://github.com/Yoluha/horas">github.com/Yoluha/horas</a>
     </p>
     <p class="meta">
-      <span data-lang="pt">Dúvidas, problemas, ou sugestões</span><span data-lang="en">Questions, issues, or suggestions</span>
+      <span id="footerContactLabel"></span>
       — Lucas Yoshiki Amaral · <a href="mailto:yoluha91@gmail.com">yoluha91@gmail.com</a>
     </p>
   </div>
 </footer>
 
 <script>
-  function setLang(lang) {
-    document.documentElement.setAttribute('data-active', lang);
-    document.getElementById('btn-pt').setAttribute('aria-pressed', lang === 'pt');
-    document.getElementById('btn-en').setAttribute('aria-pressed', lang === 'en');
-    try { localStorage.setItem('horas-lang', lang); } catch (e) {}
-  }
-  (function () {
-    var saved = null;
-    try { saved = localStorage.getItem('horas-lang'); } catch (e) {}
-    var browserLang = (navigator.language || 'pt').slice(0, 2);
-    setLang(saved || (browserLang === 'en' ? 'en' : 'pt'));
-  })();
+const LANG_ORDER = ['pt','en','es','fr','de','it','pl','ja','nl','cs','zh','ru','ko','ne'];
+const LANG_NAMES = { pt:'Português', en:'English', es:'Español', fr:'Français', de:'Deutsch', it:'Italiano', pl:'Polski', ja:'日本語', nl:'Nederlands', cs:'Čeština', zh:'中文', ru:'Русский', ko:'한국어', ne:'नेपाली' };
+
+const T = {
+  stripLabel: { pt:'Outros projetos', en:'Other projects', es:'Otros proyectos', fr:'Autres projets', de:'Weitere Projekte', it:'Altri progetti', pl:'Inne projekty', ja:'他のプロジェクト', nl:'Andere projecten', cs:'Další projekty', zh:'其他项目', ru:'Другие проекты', ko:'다른 프로젝트', ne:'अन्य परियोजनाहरू' },
+  cardJcDesc: { pt:'Screensaver de 1992, remasterizado', en:'The 1992 screensaver, remastered', es:'El protector de pantalla de 1992, remasterizado', fr:'L\'économiseur d\'écran de 1992, remasterisé', de:'Der Bildschirmschoner von 1992, neu aufgelegt', it:'Il salvaschermo del 1992, rimasterizzato', pl:'Wygaszacz ekranu z 1992 roku, odświeżony', ja:'1992年のスクリーンセーバー、リマスター版', nl:'De screensaver uit 1992, geremasterd', cs:'Spořič obrazovky z roku 1992, remasterovaný', zh:'1992年的屏保，重制版', ru:'Скринсейвер 1992 года, ремастер', ko:'1992년 스크린세이버, 리마스터', ne:'१९९२ को स्क्रिनसेभर, नयाँ रूपमा' },
+  card3dDesc: { pt:'Orçamentos, produção e clientes', en:'Quotes, production and clients', es:'Presupuestos, producción y clientes', fr:'Devis, production et clients', de:'Angebote, Produktion und Kunden', it:'Preventivi, produzione e clienti', pl:'Wyceny, produkcja i klienci', ja:'見積もり・生産・顧客管理', nl:'Offertes, productie en klanten', cs:'Nabídky, výroba a klienti', zh:'报价、生产与客户', ru:'Сметы, производство и клиенты', ko:'견적, 생산, 고객 관리', ne:'मूल्य उद्धरण, उत्पादन र ग्राहक' },
+  cardYbDesc: { pt:'Instrumentais J-Trap e Djent', en:'Instrumental J-Trap and Djent', es:'Instrumental J-Trap y Djent', fr:'Instrumentaux J-Trap et Djent', de:'Instrumental J-Trap und Djent', it:'Strumentali J-Trap e Djent', pl:'Instrumentale J-Trap i Djent', ja:'インストゥルメンタルのJ-TrapとDjent', nl:'Instrumentale J-Trap en Djent', cs:'Instrumentální J-Trap a Djent', zh:'J-Trap 与 Djent 器乐', ru:'Инструментал J-Trap и Djent', ko:'인스트루멘탈 J-Trap과 Djent', ne:'इन्स्ट्रुमेन्टल J-Trap र Djent' },
+  heroEyebrow: { pt:'App Android · Registo de ponto', en:'Android app · Time clock', es:'App Android · Registro de horario', fr:'App Android · Pointeuse', de:'Android-App · Stempeluhr', it:'App Android · Timbratura', pl:'Aplikacja Android · Rejestracja czasu', ja:'Androidアプリ・勤怠管理', nl:'Android-app · Prikklok', cs:'Android aplikace · Docházka', zh:'Android 应用 · 打卡系统', ru:'Android-приложение · Учёт времени', ko:'Android 앱 · 근태 관리', ne:'Android एप · समय दर्ता' },
+  heroTitle: { pt:'Pica o ponto sem complicação.', en:'Clock in and out, no fuss.', es:'Ficha entrada y salida sin complicaciones.', fr:'Pointez sans prise de tête.', de:'Stempeln, ganz ohne Aufwand.', it:'Timbra senza complicazioni.', pl:'Rejestruj czas pracy bez zbędnych komplikacji.', ja:'手間なく出退勤を記録。', nl:'Klok in en uit, zonder gedoe.', cs:'Docházka bez komplikací.', zh:'轻松打卡，毫不费力。', ru:'Отмечайтесь без лишних хлопот.', ko:'번거로움 없이 출퇴근 기록.', ne:'झन्झट बिना समय दर्ता गर्नुहोस्।' },
+  heroTagline: { pt:'Entrada e saída com um toque, nota opcional, e um botão para enviar o dia ao patrão pelo WhatsApp. Se te esqueceres, a rede WiFi do trabalho pode registar por ti.', en:'Clock in and out with one tap, an optional note, and a button to send the day to your boss on WhatsApp. If you forget, your work WiFi can log it for you.', es:'Entrada y salida con un toque, nota opcional, y un botón para enviar el día a tu jefe por WhatsApp. Si se te olvida, la red WiFi del trabajo puede registrarlo por ti.', fr:'Arrivée et départ en un geste, note facultative, et un bouton pour envoyer la journée à votre patron sur WhatsApp. Si vous oubliez, le WiFi du travail peut pointer à votre place.', de:'Kommen und Gehen mit einem Fingertipp, optionaler Notiz, und einer Schaltfläche, um den Tag per WhatsApp an deinen Chef zu senden. Falls du es vergisst, kann dein Arbeits-WLAN das für dich erledigen.', it:'Entrata e uscita con un tocco, nota facoltativa, e un pulsante per inviare la giornata al tuo capo su WhatsApp. Se te ne dimentichi, il WiFi del lavoro può timbrare al posto tuo.', pl:'Przyjście i wyjście jednym dotknięciem, opcjonalna notatka i przycisk do wysłania dnia do szefa przez WhatsApp. Jeśli zapomnisz, sieć WiFi w pracy zarejestruje to za ciebie.', ja:'ワンタップで出退勤、任意でメモ、そしてWhatsAppで上司にその日の記録を送るボタンも。忘れても職場のWiFiが代わりに記録してくれます。', nl:'In- en uitklokken met één tik, optionele notitie, en een knop om de dag via WhatsApp naar je baas te sturen. Vergeet je het? Dan kan je werk-WiFi het voor je registreren.', cs:'Příchod a odchod jedním klepnutím, volitelná poznámka a tlačítko pro odeslání dne šéfovi přes WhatsApp. Když zapomenete, pracovní WiFi to zaznamená za vás.', zh:'轻触即可打卡上下班，可添加备注，还有一键通过WhatsApp把当天记录发给老板。忘记打卡？公司WiFi会替你记录。', ru:'Приход и уход одним нажатием, необязательная заметка и кнопка для отправки дня начальнику через WhatsApp. Если забудете — рабочий WiFi отметит за вас.', ko:'한 번의 탭으로 출퇴근 기록, 선택적 메모, WhatsApp으로 상사에게 하루 기록을 보내는 버튼까지. 깜빡해도 회사 WiFi가 대신 기록해줍니다.', ne:'एक ट्यापमा भित्र र बाहिर, वैकल्पिक नोट, र WhatsApp मार्फत आफ्नो बसलाई दिन पठाउने बटन। बिर्सनुभयो भने, कार्यस्थलको WiFi ले तपाईंको लागि दर्ता गर्न सक्छ।' },
+  btnDownload: { pt:'⬇ Descarregar APK', en:'⬇ Download APK', es:'⬇ Descargar APK', fr:'⬇ Télécharger l\'APK', de:'⬇ APK herunterladen', it:'⬇ Scarica APK', pl:'⬇ Pobierz APK', ja:'⬇ APKをダウンロード', nl:'⬇ APK downloaden', cs:'⬇ Stáhnout APK', zh:'⬇ 下载 APK', ru:'⬇ Скачать APK', ko:'⬇ APK 다운로드', ne:'⬇ APK डाउनलोड गर्नुहोस्' },
+  apkNote: { pt:'Android · não está na Play Store · instala diretamente o ficheiro .apk', en:'Android · not on the Play Store · install the .apk file directly', es:'Android · no está en la Play Store · instala directamente el archivo .apk', fr:'Android · pas sur le Play Store · installez directement le fichier .apk', de:'Android · nicht im Play Store · installiere die .apk-Datei direkt', it:'Android · non è sul Play Store · installa direttamente il file .apk', pl:'Android · brak w Play Store · zainstaluj plik .apk bezpośrednio', ja:'Android・Playストア非掲載・.apkファイルを直接インストール', nl:'Android · niet in de Play Store · installeer het .apk-bestand rechtstreeks', cs:'Android · není na Play Store · nainstalujte soubor .apk přímo', zh:'Android · 未上架 Play 商店 · 直接安装 .apk 文件', ru:'Android · нет в Play Store · установите файл .apk напрямую', ko:'Android · Play 스토어 미출시 · .apk 파일을 직접 설치', ne:'Android · Play Store मा छैन · .apk फाइल सिधै स्थापना गर्नुहोस्' },
+  featEyebrow: { pt:'O que faz', en:'What it does', es:'Qué hace', fr:'Ce qu\'elle fait', de:'Was sie kann', it:'Cosa fa', pl:'Co robi', ja:'できること', nl:'Wat het doet', cs:'Co umí', zh:'功能介绍', ru:'Что умеет', ko:'주요 기능', ne:'यसले के गर्छ' },
+  featTitle: { pt:'Feito para resolver um problema muito específico', en:'Built to solve one very specific problem', es:'Hecho para resolver un problema muy específico', fr:'Conçu pour résoudre un problème très précis', de:'Entwickelt, um ein ganz bestimmtes Problem zu lösen', it:'Creato per risolvere un problema molto specifico', pl:'Stworzone, by rozwiązać jeden bardzo konkretny problem', ja:'ある一つの具体的な問題を解決するために作られました', nl:'Gemaakt om één heel specifiek probleem op te lossen', cs:'Vytvořeno k řešení jednoho velmi konkrétního problému', zh:'专为解决一个非常具体的问题而生', ru:'Создано для решения одной конкретной проблемы', ko:'매우 구체적인 하나의 문제를 해결하기 위해 만들어짐', ne:'एउटा विशेष समस्या समाधान गर्न बनाइएको' },
+  feat1Title: { pt:'Ponto manual', en:'Manual clock', es:'Fichaje manual', fr:'Pointage manuel', de:'Manuelles Stempeln', it:'Timbratura manuale', pl:'Ręczna rejestracja', ja:'手動打刻', nl:'Handmatig klokken', cs:'Ruční docházka', zh:'手动打卡', ru:'Ручная отметка', ko:'수동 출퇴근 기록', ne:'म्यानुअल दर्ता' },
+  feat1Desc: { pt:'Um toque para entrada, um toque para saída. Nota opcional em cada registo.', en:'One tap to clock in, one to clock out. Optional note on each entry.', es:'Un toque para entrar, un toque para salir. Nota opcional en cada registro.', fr:'Un geste pour l\'arrivée, un pour le départ. Note facultative sur chaque pointage.', de:'Ein Tipp für Kommen, ein Tipp für Gehen. Optionale Notiz bei jedem Eintrag.', it:'Un tocco per entrare, uno per uscire. Nota facoltativa su ogni voce.', pl:'Jedno dotknięcie dla przyjścia, jedno dla wyjścia. Opcjonalna notatka przy każdym wpisie.', ja:'出勤も退勤もワンタップ。各記録に任意でメモを追加できます。', nl:'Eén tik om in te klokken, één om uit te klokken. Optionele notitie bij elke registratie.', cs:'Jedno klepnutí pro příchod, jedno pro odchod. Volitelná poznámka u každého záznamu.', zh:'轻触一下上班打卡，再轻触一下下班打卡。每条记录都可添加备注。', ru:'Одно нажатие для прихода, одно для ухода. Необязательная заметка к каждой записи.', ko:'출근도 퇴근도 한 번의 탭으로. 각 기록에 선택적으로 메모 추가.', ne:'भित्र आउन एक ट्याप, बाहिर जान एक ट्याप। प्रत्येक रेकर्डमा वैकल्पिक नोट।' },
+  feat2Title: { pt:'Deteção por WiFi', en:'WiFi detection', es:'Detección por WiFi', fr:'Détection WiFi', de:'WLAN-Erkennung', it:'Rilevamento WiFi', pl:'Wykrywanie WiFi', ja:'WiFi検出', nl:'WiFi-detectie', cs:'Detekce WiFi', zh:'WiFi 检测', ru:'Определение по WiFi', ko:'WiFi 감지', ne:'WiFi पहिचान' },
+  feat2Desc: { pt:'Liga/desliga da rede do trabalho? Regista sozinho — o manual continua sempre disponível.', en:'Connect/disconnect from your work network? It logs itself — manual clocking still always works.', es:'¿Te conectas/desconectas de la red del trabajo? Se registra solo — el modo manual sigue siempre disponible.', fr:'Connexion/déconnexion du réseau du travail ? Ça se pointe tout seul — le mode manuel reste toujours disponible.', de:'Verbindest du dich mit dem Arbeitsnetzwerk oder trennst die Verbindung? Wird automatisch erfasst — manuelles Stempeln funktioniert weiterhin jederzeit.', it:'Ti connetti/disconnetti dalla rete del lavoro? Si registra da solo — la modalità manuale resta sempre disponibile.', pl:'Łączysz się lub rozłączasz z siecią w pracy? Rejestruje się samo — ręczna rejestracja nadal zawsze dostępna.', ja:'職場のネットワークに接続・切断するだけで自動記録。手動打刻もいつでも利用可能です。', nl:'Verbinden/verbreken met je werknetwerk? Het registreert zichzelf — handmatig klokken blijft altijd beschikbaar.', cs:'Připojujete se nebo odpojujete od pracovní sítě? Zaznamená se to samo — ruční docházka je stále vždy dostupná.', zh:'连接/断开公司网络？自动记录——手动打卡依旧随时可用。', ru:'Подключаетесь/отключаетесь от рабочей сети? Отметка происходит сама — ручной режим всегда доступен.', ko:'회사 네트워크에 연결/해제하면 자동으로 기록됩니다 — 수동 기록 기능도 항상 사용 가능.', ne:'कार्यस्थलको नेटवर्कमा जोडिनु/छुट्टिनुहुन्छ? आफैं दर्ता हुन्छ — म्यानुअल विकल्प सधैं उपलब्ध रहन्छ।' },
+  feat3Title: { pt:'Envio por WhatsApp', en:'WhatsApp export', es:'Envío por WhatsApp', fr:'Export WhatsApp', de:'WhatsApp-Export', it:'Esportazione WhatsApp', pl:'Eksport przez WhatsApp', ja:'WhatsAppで送信', nl:'WhatsApp-export', cs:'Export přes WhatsApp', zh:'WhatsApp 导出', ru:'Экспорт в WhatsApp', ko:'WhatsApp 내보내기', ne:'WhatsApp मार्फत पठाउने' },
+  feat3Desc: { pt:'Um dia, ou o histórico todo — envia como texto ou como imagem, escolhes o contacto na hora.', en:'One day, or the whole history — send as text or image, pick the contact on the spot.', es:'Un día, o todo el historial — envía como texto o como imagen, eliges el contacto al momento.', fr:'Une journée, ou tout l\'historique — envoyez en texte ou en image, choisissez le contact sur le moment.', de:'Ein Tag oder der gesamte Verlauf — als Text oder Bild senden, den Kontakt wählst du im Moment aus.', it:'Un giorno, o tutto lo storico — invia come testo o come immagine, scegli il contatto al momento.', pl:'Jeden dzień lub cała historia — wyślij jako tekst lub obraz, kontakt wybierasz na miejscu.', ja:'1日分でも全履歴でも、テキストまたは画像として送信でき、宛先はその場で選べます。', nl:'Eén dag, of de hele geschiedenis — verstuur als tekst of afbeelding, kies het contact ter plekke.', cs:'Jeden den, nebo celá historie — odešlete jako text nebo obrázek, kontakt vyberete na místě.', zh:'一天或整段历史——以文字或图片形式发送，联系人当场选择。', ru:'Один день или всю историю — отправьте как текст или изображение, контакт выбирается на месте.', ko:'하루치든 전체 기록이든 — 텍스트나 이미지로 전송, 연락처는 그 자리에서 선택.', ne:'एक दिन, वा सम्पूर्ण इतिहास — पाठ वा तस्बिरको रूपमा पठाउनुहोस्, सम्पर्क त्यहीँ छान्नुहोस्।' },
+  feat4Title: { pt:'Resumo com diferença', en:'Summary with over/under', es:'Resumen con diferencia', fr:'Résumé avec écart', de:'Übersicht mit Mehr-/Minderstunden', it:'Riepilogo con differenza', pl:'Podsumowanie z różnicą', ja:'過不足付きサマリー', nl:'Overzicht met verschil', cs:'Souhrn s rozdílem', zh:'带差值的汇总', ru:'Сводка с разницей', ko:'초과/부족 요약', ne:'फरकसहितको सारांश' },
+  feat4Desc: { pt:'Define o teu horário normal e exporta um resumo em imagem com horas a mais/a menos por dia.', en:'Set your normal schedule and export an image summary with over/under hours per day.', es:'Define tu horario normal y exporta un resumen en imagen con horas de más/de menos por día.', fr:'Définissez votre horaire normal et exportez un résumé en image avec les heures en plus/en moins par jour.', de:'Lege deinen normalen Arbeitsplan fest und exportiere eine Bild-Übersicht mit Mehr-/Minderstunden pro Tag.', it:'Imposta il tuo orario normale ed esporta un riepilogo in immagine con ore in più/in meno al giorno.', pl:'Ustaw swój normalny harmonogram i eksportuj podsumowanie w formie obrazu z nadgodzinami/niedogodzinami dziennie.', ja:'通常の勤務時間を設定すれば、1日ごとの過不足を画像サマリーとして書き出せます。', nl:'Stel je normale rooster in en exporteer een afbeeldingsoverzicht met meer/minder uren per dag.', cs:'Nastavte svůj běžný rozvrh a exportujte obrázkový souhrn s přesčasy/nedostatky za den.', zh:'设置你的正常工作时间，导出每日多做/少做小时数的图片汇总。', ru:'Задайте обычный график и экспортируйте сводку-изображение с переработкой/недоработкой по дням.', ko:'평소 근무 일정을 설정하면 하루 단위 초과/부족 시간을 이미지 요약으로 내보낼 수 있습니다.', ne:'तपाईंको सामान्य समयतालिका सेट गर्नुहोस् र दैनिक बढी/कम घण्टासहित तस्बिर सारांश निर्यात गर्नुहोस्।' },
+  feat5Title: { pt:'97 temas', en:'97 themes', es:'97 temas', fr:'97 thèmes', de:'97 Designs', it:'97 temi', pl:'97 motywów', ja:'97種類のテーマ', nl:'97 thema\'s', cs:'97 motivů', zh:'97 种主题', ru:'97 тем', ko:'97가지 테마', ne:'९७ थिमहरू' },
+  feat5Desc: { pt:'Os mesmos temas do 3D Manager — de Dracula e Nord a One Piece e Cyberpunk.', en:'The same themes from 3D Manager — from Dracula and Nord to One Piece and Cyberpunk.', es:'Los mismos temas de 3D Manager — de Dracula y Nord a One Piece y Cyberpunk.', fr:'Les mêmes thèmes que 3D Manager — de Dracula et Nord à One Piece et Cyberpunk.', de:'Dieselben Designs wie in 3D Manager — von Dracula und Nord bis One Piece und Cyberpunk.', it:'Gli stessi temi di 3D Manager — da Dracula e Nord a One Piece e Cyberpunk.', pl:'Te same motywy co w 3D Manager — od Dracula i Nord po One Piece i Cyberpunk.', ja:'3D Managerと同じテーマ群 — DraculaやNordから、One PieceやCyberpunkまで。', nl:'Dezelfde thema\'s als 3D Manager — van Dracula en Nord tot One Piece en Cyberpunk.', cs:'Stejné motivy jako v 3D Manageru — od Dracula a Nord po One Piece a Cyberpunk.', zh:'与 3D Manager 相同的主题 — 从 Dracula、Nord 到海贼王、赛博朋克。', ru:'Те же темы, что и в 3D Manager — от Dracula и Nord до One Piece и Cyberpunk.', ko:'3D Manager와 동일한 테마 — Dracula, Nord부터 One Piece, Cyberpunk까지.', ne:'3D Manager जस्तै थिमहरू — Dracula र Nord देखि One Piece र Cyberpunk सम्म।' },
+  feat6Title: { pt:'14 idiomas', en:'14 languages', es:'14 idiomas', fr:'14 langues', de:'14 Sprachen', it:'14 lingue', pl:'14 języków', ja:'14言語対応', nl:'14 talen', cs:'14 jazyků', zh:'14 种语言', ru:'14 языков', ko:'14개 언어', ne:'१४ भाषाहरू' },
+  installEyebrow: { pt:'Como instalar', en:'How to install', es:'Cómo instalar', fr:'Comment installer', de:'Installation', it:'Come installare', pl:'Jak zainstalować', ja:'インストール方法', nl:'Zo installeer je het', cs:'Jak nainstalovat', zh:'安装方法', ru:'Как установить', ko:'설치 방법', ne:'कसरी स्थापना गर्ने' },
+  installTitle: { pt:'3 passos', en:'3 steps', es:'3 pasos', fr:'3 étapes', de:'3 Schritte', it:'3 passaggi', pl:'3 kroki', ja:'3ステップ', nl:'3 stappen', cs:'3 kroky', zh:'3 个步骤', ru:'3 шага', ko:'3단계', ne:'३ चरण' },
+  step1Title: { pt:'Descarrega o .apk', en:'Download the .apk', es:'Descarga el .apk', fr:'Téléchargez le .apk', de:'Lade die .apk herunter', it:'Scarica il file .apk', pl:'Pobierz plik .apk', ja:'.apkファイルをダウンロード', nl:'Download het .apk-bestand', cs:'Stáhněte soubor .apk', zh:'下载 .apk 文件', ru:'Скачайте файл .apk', ko:'.apk 파일 다운로드', ne:'.apk फाइल डाउनलोड गर्नुहोस्' },
+  step1Desc: { pt:'No botão em cima, ou na página de <a href="https://github.com/Yoluha/horas/releases/latest">releases</a>.', en:'Using the button above, or from the <a href="https://github.com/Yoluha/horas/releases/latest">releases page</a>.', es:'Con el botón de arriba, o desde la <a href="https://github.com/Yoluha/horas/releases/latest">página de releases</a>.', fr:'Avec le bouton ci-dessus, ou depuis la <a href="https://github.com/Yoluha/horas/releases/latest">page des releases</a>.', de:'Über die Schaltfläche oben oder von der <a href="https://github.com/Yoluha/horas/releases/latest">Releases-Seite</a>.', it:'Con il pulsante qui sopra, o dalla <a href="https://github.com/Yoluha/horas/releases/latest">pagina delle release</a>.', pl:'Za pomocą przycisku powyżej lub ze <a href="https://github.com/Yoluha/horas/releases/latest">strony wydań</a>.', ja:'上のボタンから、または<a href="https://github.com/Yoluha/horas/releases/latest">リリースページ</a>から。', nl:'Via de knop hierboven, of via de <a href="https://github.com/Yoluha/horas/releases/latest">releases-pagina</a>.', cs:'Pomocí tlačítka výše, nebo ze <a href="https://github.com/Yoluha/horas/releases/latest">stránky s verzemi</a>.', zh:'点击上方按钮，或前往<a href="https://github.com/Yoluha/horas/releases/latest">发布页面</a>下载。', ru:'С помощью кнопки выше или со <a href="https://github.com/Yoluha/horas/releases/latest">страницы релизов</a>.', ko:'위 버튼을 사용하거나 <a href="https://github.com/Yoluha/horas/releases/latest">릴리스 페이지</a>에서 받으세요.', ne:'माथिको बटनबाट, वा <a href="https://github.com/Yoluha/horas/releases/latest">रिलिज पृष्ठ</a>बाट।' },
+  step2Title: { pt:'Permite fontes desconhecidas', en:'Allow unknown sources', es:'Permite orígenes desconocidos', fr:'Autorisez les sources inconnues', de:'Unbekannte Quellen zulassen', it:'Consenti origini sconosciute', pl:'Zezwól na nieznane źródła', ja:'不明なアプリのインストールを許可', nl:'Sta onbekende bronnen toe', cs:'Povolte neznámé zdroje', zh:'允许未知来源', ru:'Разрешите неизвестные источники', ko:'출처를 알 수 없는 앱 허용', ne:'अज्ञात स्रोतहरू अनुमति दिनुहोस्' },
+  step2Desc: { pt:'O Android vai pedir para confirmares — é normal para apps fora da Play Store.', en:'Android will ask you to confirm — normal for apps outside the Play Store.', es:'Android te pedirá que confirmes — es normal para apps fuera de la Play Store.', fr:'Android vous demandera de confirmer — normal pour les applis hors du Play Store.', de:'Android wird dich um Bestätigung bitten — normal für Apps außerhalb des Play Store.', it:'Android ti chiederà conferma — normale per le app fuori dal Play Store.', pl:'Android poprosi o potwierdzenie — to normalne dla aplikacji spoza Play Store.', ja:'Androidが確認を求めますが、Playストア外のアプリでは通常のことです。', nl:'Android vraagt om bevestiging — normaal voor apps buiten de Play Store.', cs:'Android vás požádá o potvrzení — u aplikací mimo Play Store je to běžné.', zh:'Android 会要求你确认——这是安装 Play 商店以外应用的正常提示。', ru:'Android попросит подтверждение — это нормально для приложений вне Play Store.', ko:'Android가 확인을 요청합니다 — Play 스토어 외부 앱에서는 정상입니다.', ne:'Android ले पुष्टि गर्न सोध्नेछ — Play Store बाहिरका एपहरूको लागि यो सामान्य हो।' },
+  step3Title: { pt:'Abre o ficheiro e instala', en:'Open the file and install', es:'Abre el archivo e instala', fr:'Ouvrez le fichier et installez', de:'Öffne die Datei und installiere sie', it:'Apri il file e installa', pl:'Otwórz plik i zainstaluj', ja:'ファイルを開いてインストール', nl:'Open het bestand en installeer', cs:'Otevřete soubor a nainstalujte', zh:'打开文件并安装', ru:'Откройте файл и установите', ko:'파일을 열고 설치', ne:'फाइल खोल्नुहोस् र स्थापना गर्नुहोस्' },
+  step3Desc: { pt:'Pronto. Define o teu horário normal e, se quiseres, a rede WiFi do trabalho.', en:'Done. Set your normal schedule and, if you want, your work WiFi network.', es:'Listo. Define tu horario normal y, si quieres, la red WiFi del trabajo.', fr:'C\'est fait. Définissez votre horaire normal et, si vous le souhaitez, le réseau WiFi du travail.', de:'Fertig. Lege deinen normalen Arbeitsplan fest und, falls gewünscht, dein Arbeits-WLAN.', it:'Fatto. Imposta il tuo orario normale e, se vuoi, la rete WiFi del lavoro.', pl:'Gotowe. Ustaw swój normalny harmonogram i, jeśli chcesz, sieć WiFi w pracy.', ja:'完了です。通常の勤務時間と、必要であれば職場のWiFiネットワークを設定してください。', nl:'Klaar. Stel je normale rooster in en, indien gewenst, je werk-WiFi-netwerk.', cs:'Hotovo. Nastavte svůj běžný rozvrh a případně pracovní WiFi síť.', zh:'完成。设置你的正常工作时间，如果需要，也可以设置公司 WiFi 网络。', ru:'Готово. Задайте обычный график и, при желании, рабочую сеть WiFi.', ko:'완료. 평소 근무 일정을 설정하고, 원한다면 회사 WiFi 네트워크도 설정하세요.', ne:'भयो। तपाईंको सामान्य समयतालिका र चाहनुभएमा कार्यस्थलको WiFi नेटवर्क सेट गर्नुहोस्।' },
+  legalQ: { pt:'Isto é seguro?', en:'Is this safe?', es:'¿Esto es seguro?', fr:'Est-ce sûr ?', de:'Ist das sicher?', it:'È sicuro?', pl:'Czy to jest bezpieczne?', ja:'これは安全ですか？', nl:'Is dit veilig?', cs:'Je to bezpečné?', zh:'这安全吗？', ru:'Это безопасно?', ko:'안전한가요?', ne:'के यो सुरक्षित छ?' },
+  legalA: { pt:'É um projeto pessoal de código aberto — todo o código Kotlin está neste repositório para inspecionares. O APK usa uma assinatura de desenvolvimento (debug), por isso o Android avisa que a origem é desconhecida; isso é esperado para qualquer app instalada fora da Play Store, não um sinal de problema.', en:'This is a personal open-source project — all the Kotlin code is in this repository for you to inspect. The APK uses a debug signature, so Android will warn the source is unknown; that\'s expected for any app installed outside the Play Store, not a red flag.', es:'Es un proyecto personal de código abierto — todo el código Kotlin está en este repositorio para que lo inspecciones. El APK usa una firma de desarrollo (debug), por lo que Android avisará que el origen es desconocido; eso es normal para cualquier app instalada fuera de la Play Store, no una señal de problema.', fr:'C\'est un projet personnel open source — tout le code Kotlin est dans ce dépôt pour que vous puissiez l\'inspecter. L\'APK utilise une signature de développement (debug), Android avertira donc que la source est inconnue ; c\'est normal pour toute appli installée hors du Play Store, pas un signe de problème.', de:'Dies ist ein persönliches Open-Source-Projekt — der gesamte Kotlin-Code befindet sich in diesem Repository und kann eingesehen werden. Die APK verwendet eine Debug-Signatur, daher warnt Android, dass die Quelle unbekannt ist; das ist bei jeder App außerhalb des Play Store normal und kein Warnsignal.', it:'È un progetto personale open source — tutto il codice Kotlin è in questo repository, ispezionabile da chiunque. L\'APK usa una firma di sviluppo (debug), quindi Android avviserà che l\'origine è sconosciuta; è normale per qualsiasi app installata fuori dal Play Store, non un segnale di problema.', pl:'To osobisty projekt open source — cały kod Kotlin znajduje się w tym repozytorium do wglądu. APK używa podpisu deweloperskiego (debug), więc Android ostrzeże, że źródło jest nieznane; to normalne dla każdej aplikacji instalowanej spoza Play Store, nie oznaka problemu.', ja:'これは個人のオープンソースプロジェクトです — すべてのKotlinコードはこのリポジトリで確認できます。APKは開発用（debug）署名を使用しているため、Androidは提供元が不明であると警告しますが、Playストア外のアプリでは通常のことで問題のサインではありません。', nl:'Dit is een persoonlijk open source project — alle Kotlin-code staat in deze repository, klaar om te inspecteren. De APK gebruikt een debug-handtekening, dus Android waarschuwt dat de bron onbekend is; dat is normaal voor elke app buiten de Play Store, geen teken van een probleem.', cs:'Toto je osobní open source projekt — veškerý Kotlin kód je v tomto repozitáři k prohlédnutí. APK používá vývojářský (debug) podpis, takže Android upozorní, že zdroj je neznámý; to je běžné u jakékoli aplikace instalované mimo Play Store, ne známka problému.', zh:'这是一个个人开源项目——所有 Kotlin 代码都在这个仓库中，欢迎查看。该 APK 使用调试（debug）签名，因此 Android 会提示来源未知；这对任何 Play 商店以外安装的应用来说都是正常现象，并非问题信号。', ru:'Это личный проект с открытым исходным кодом — весь код на Kotlin находится в этом репозитории и доступен для проверки. APK использует отладочную (debug) подпись, поэтому Android предупредит о неизвестном источнике; это нормально для любого приложения вне Play Store, а не признак проблемы.', ko:'이것은 개인 오픈소스 프로젝트입니다 — 모든 Kotlin 코드는 이 저장소에서 확인할 수 있습니다. APK는 디버그 서명을 사용하므로 Android가 출처를 알 수 없다고 경고하지만, 이는 Play 스토어 외부에 설치되는 모든 앱에서 정상적인 현상이며 문제의 신호가 아닙니다.', ne:'यो व्यक्तिगत खुला-स्रोत परियोजना हो — सबै Kotlin कोड यस रिपोजिटोरीमा जाँच्नको लागि उपलब्ध छ। APK ले डेभलपमेन्ट (debug) हस्ताक्षर प्रयोग गर्छ, त्यसैले Android ले स्रोत अज्ञात भनी चेतावनी दिन्छ; यो Play Store बाहिर स्थापना गरिने कुनै पनि एपको लागि सामान्य हो, समस्याको संकेत होइन।' },
+  footerTitle: { pt:'Feito para uso pessoal, partilhado por se for útil a mais alguém.', en:'Made for personal use, shared in case it\'s useful to someone else.', es:'Hecho para uso personal, compartido por si le sirve a alguien más.', fr:'Conçu pour un usage personnel, partagé au cas où il serait utile à quelqu\'un d\'autre.', de:'Für den persönlichen Gebrauch erstellt, geteilt für den Fall, dass es jemand anderem nützt.', it:'Creato per uso personale, condiviso nel caso possa essere utile a qualcun altro.', pl:'Stworzone do użytku osobistego, udostępnione na wypadek, gdyby przydało się komuś innemu.', ja:'個人利用のために作りましたが、誰かの役に立つかもしれないので公開しています。', nl:'Gemaakt voor persoonlijk gebruik, gedeeld voor het geval het iemand anders van pas komt.', cs:'Vytvořeno pro osobní použití, sdíleno pro případ, že by se hodilo někomu dalšímu.', zh:'为个人使用而制作，分享出来以防对他人也有用。', ru:'Сделано для личного использования, опубликовано на случай, если пригодится кому-то ещё.', ko:'개인적으로 사용하려고 만들었지만, 다른 사람에게도 유용할 수 있어 공유합니다.', ne:'व्यक्तिगत प्रयोगको लागि बनाइएको, अरू कसैलाई उपयोगी हुन सक्छ भनेर साझा गरिएको।' },
+  footerContactLabel: { pt:'Dúvidas, problemas, ou sugestões', en:'Questions, issues, or suggestions', es:'Preguntas, problemas, o sugerencias', fr:'Questions, problèmes ou suggestions', de:'Fragen, Probleme oder Vorschläge', it:'Domande, problemi o suggerimenti', pl:'Pytania, problemy lub sugestie', ja:'ご質問・不具合報告・ご提案は', nl:'Vragen, problemen of suggesties', cs:'Dotazy, problémy nebo návrhy', zh:'问题、故障反馈或建议', ru:'Вопросы, проблемы или предложения', ko:'질문, 문제, 제안 사항', ne:'प्रश्न, समस्या, वा सुझावहरू' }
+};
+
+function setLang(lang) {
+  if (!LANG_ORDER.includes(lang)) lang = 'pt';
+  document.documentElement.lang = lang;
+  Object.keys(T).forEach(key => {
+    const el = document.getElementById(key);
+    if (el) el.innerHTML = T[key][lang] || T[key].pt;
+  });
+  const sel = document.getElementById('langSelect');
+  if (sel && sel.value !== lang) sel.value = lang;
+  try { localStorage.setItem('horas-lang', lang); } catch (e) {}
+}
+
+(function () {
+  const sel = document.getElementById('langSelect');
+  sel.innerHTML = LANG_ORDER.map(code => `<option value="${code}">${LANG_NAMES[code]}</option>`).join('');
+
+  var saved = null;
+  try { saved = localStorage.getItem('horas-lang'); } catch (e) {}
+  var browserLang = (navigator.language || 'pt').slice(0, 2);
+  var initial = saved || (LANG_ORDER.includes(browserLang) ? browserLang : 'pt');
+  setLang(initial);
+})();
 </script>
 
 </body>

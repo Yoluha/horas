@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">भित्र आउने</string>
+    <string name="btn_saida">बाहिर जाने</string>
+    <string name="hint_nota">नोट (वैकल्पिक) — जस्तै: चाँडै गएँ, दन्त चिकित्सक</string>
+    <string name="btn_enviar_hoje">आजको पठाउनुहोस्</string>
+    <string name="btn_escolher_dia">अर्को दिन हेर्नुहोस्</string>
+    <string name="btn_historico">इतिहास</string>
+    <string name="titulo_hoje">आज</string>
+    <string name="sem_registos">आज अझै कुनै रेकर्ड छैन</string>
+    <string name="em_curso">(चलिरहेको)</string>
+
+    <string name="titulo_historico">इतिहास</string>
+    <string name="sem_historico">अझै कुनै दिन दर्ता गरिएको छैन</string>
+    <string name="btn_exportar_resumo">सारांश निर्यात गर्नुहोस् (तस्बिर)</string>
+
+    <string name="titulo_horario">सामान्य समयतालिका</string>
+    <string name="explicacao_horario">हप्ताको प्रत्येक दिन तपाईं सामान्यतया कति घण्टा काम गर्नुहुन्छ भन्ने सेट गर्नुहोस्। यो निर्यात गरिएको सारांशमा बढी/कम घण्टाको फरक गणना गर्न प्रयोग गरिन्छ।</string>
+    <string name="horario_guardado">समयतालिका सुरक्षित गरियो</string>
+    <string name="btn_guardar">सुरक्षित गर्नुहोस्</string>
+
+    <string name="btn_enviar_dia">यो दिन पठाउनुहोस्</string>
+    <string name="enviar_via">यसद्वारा पठाउनुहोस्</string>
+    <string name="erro_partilha">साझा गर्न सकिएन</string>
+
+    <string name="titulo_wifi">स्वचालित पहिचान (WiFi)</string>
+    <string name="explicacao_wifi">तपाईंको फोन यो WiFi नेटवर्कमा जोडिँदा, यसले स्वचालित रूपमा भित्र आउने समय दर्ता गर्छ; जोडान टुट्दा, बाहिर जाने समय दर्ता गर्छ। यो केवल सहायता हो — यो सक्रिय भए पनि तपाईं जुनसुकै बेला म्यानुअल रूपमा दर्ता गर्न सक्नुहुन्छ। स्वचालित समयहरू केही मिनेटले फरक हुन सक्छन् (पुगेपछि फोन नेटवर्कमा जोडिन लाग्ने समय, कपडा फेर्ने आदि, वा गएपछि जोडान टुट्न लाग्ने समय), र तिनीहरू रेकर्डमा सधैं \"स्वचालित (WiFi)\" भनी चिन्ह लगाइन्छ, ताकि म्यानुअलसँग कहिल्यै नमिलोस्।</string>
+    <string name="switch_ativar_wifi">स्वचालित पहिचान सक्षम गर्नुहोस्</string>
+    <string name="hint_ssid">WiFi नेटवर्कको नाम (SSID)</string>
+    <string name="btn_usar_rede_atual">अहिले जोडिएको नेटवर्क प्रयोग गर्नुहोस्</string>
+    <string name="erro_sem_rede_atual">तपाईं अहिले कुनै पनि WiFi नेटवर्कमा जोडिनुभएको छैन, वा नेटवर्कको नाम हराइरहेको छ</string>
+    <string name="erro_permissao_localizacao">जोडिएको WiFi नेटवर्कको नाम पढ्न Android लाई स्थान अनुमति चाहिन्छ</string>
+    <string name="nota_auto_wifi">स्वचालित (WiFi) — केही मिनेटले फरक हुन सक्छ</string>
+    <string name="notif_canal_nome">कार्यस्थलको WiFi पहिचान</string>
+    <string name="notif_titulo">Horas — कार्यस्थलको नेटवर्क अनुगमन गर्दै</string>
+    <string name="notif_texto">यो नेटवर्कमा जोडिँदा/छुट्टिँदा स्वचालित रूपमा भित्र/बाहिर दर्ता गर्छ</string>
+    <string name="aviso_bateria">केही फोनहरूमा (Xiaomi/POCO, Huawei, आदि) ब्याट्री बचाउन प्रणालीले पृष्ठभूमि एपहरू बन्द गर्छ। यदि स्वचालित पहिचानले आफैं काम गर्न बन्द गर्यो भने, फोन सेटिङ्ग → ब्याट्री → Horas छान्नुहोस् → यो एपको लागि ब्याट्री बचत बन्द गर्नुहोस्, र \"स्वतः सुरुवात\" विकल्प भएमा सक्षम गर्नुहोस्।</string>
+
+    <string name="titulo_temas">थिमहरू</string>
+    <string name="tema_automatico">स्वचालित (प्रणालीको उज्यालो/अँध्यारो)</string>
+
+    <string name="titulo_idioma">भाषा</string>
+    <string name="idioma_automatico">स्वचालित (प्रणालीको भाषा)</string>
+
+    <string name="titulo_editar_registo">रेकर्ड सम्पादन गर्नुहोस्</string>
+    <string name="btn_alterar_hora">समय परिवर्तन गर्नुहोस्</string>
+    <string name="btn_apagar">मेटाउनुहोस्</string>
+    <string name="btn_cancelar">रद्द गर्नुहोस्</string>
+    <string name="confirmar_apagar">यो रेकर्ड मेटाउने? यो फिर्ता गर्न सकिँदैन।</string>
+    <string name="registo_apagado">रेकर्ड मेटाइयो</string>
+    <string name="registo_atualizado">रेकर्ड अद्यावधिक गरियो</string>
+    <string name="sem_registos_dia">यो दिन कुनै रेकर्ड छैन</string>
+    <string name="aviso_saida_sem_entrada_titulo">खुला भित्र आउने रेकर्ड छैन</string>
+    <string name="aviso_saida_sem_entrada_texto">यो बाहिर जानुअघि आज कुनै भित्र आउने रेकर्ड छैन। फेरि पनि दर्ता गर्ने?</string>
+    <string name="nao_perguntar_novamente">फेरि नसोध्नुहोस्</string>
+    <string name="btn_registar">दर्ता गर्नुहोस्</string>
+
+    <string name="btn_exportar_dados">डाटा निर्यात गर्नुहोस् (ब्याकअप)</string>
+    <string name="btn_importar_dados">डाटा आयात गर्नुहोस्</string>
+    <string name="confirmar_importar">यसले हालका सबै रेकर्डहरूलाई छानिएको फाइलका रेकर्डहरूले प्रतिस्थापन गर्छ। यो फिर्ता गर्न सकिँदैन। जारी राख्ने?</string>
+    <string name="importar_sucesso">डाटा आयात गरियो</string>
+    <string name="exportar_sucesso">ब्याकअप सुरक्षित गरियो</string>
+    <string name="erro_importar">फाइल पढ्न सकिएन (मान्य ब्याकअप होइन)</string>
+    <string name="erro_exportar">ब्याकअप सुरक्षित गर्न सकिएन</string>
+
+    <string name="total_semana">यो हप्ता: %1$s</string>
+    <string name="total_mes">यो महिना: %1$s</string>
+
+    <string-array name="dias_semana">
+        <item>सोमबार</item>
+        <item>मंगलबार</item>
+        <item>बुधबार</item>
+        <item>बिहीबार</item>
+        <item>शुक्रबार</item>
+        <item>शनिबार</item>
+        <item>आइतबार</item>
+    </string-array>
+</resources>

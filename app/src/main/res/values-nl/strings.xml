@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">INKLOKKEN</string>
+    <string name="btn_saida">UITKLOKKEN</string>
+    <string name="hint_nota">Notitie (optioneel) — bijv. eerder vertrokken, tandarts</string>
+    <string name="btn_enviar_hoje">Vandaag versturen</string>
+    <string name="btn_escolher_dia">Andere dag bekijken</string>
+    <string name="btn_historico">Geschiedenis</string>
+    <string name="titulo_hoje">Vandaag</string>
+    <string name="sem_registos">Nog geen registraties vandaag</string>
+    <string name="em_curso">(bezig)</string>
+
+    <string name="titulo_historico">Geschiedenis</string>
+    <string name="sem_historico">Nog geen dagen geregistreerd</string>
+    <string name="btn_exportar_resumo">Overzicht exporteren (afbeelding)</string>
+
+    <string name="titulo_horario">Normaal Rooster</string>
+    <string name="explicacao_horario">Stel in hoeveel uur je normaal op elke dag van de week werkt. Dit wordt gebruikt om het verschil (meer/minder) te berekenen in het geëxporteerde overzicht.</string>
+    <string name="horario_guardado">Rooster opgeslagen</string>
+    <string name="btn_guardar">Opslaan</string>
+
+    <string name="btn_enviar_dia">Deze dag versturen</string>
+    <string name="enviar_via">Verstuur via</string>
+    <string name="erro_partilha">Kon niet delen</string>
+
+    <string name="titulo_wifi">Automatische Detectie (WiFi)</string>
+    <string name="explicacao_wifi">Wanneer je telefoon verbinding maakt met dit WiFi-netwerk, klokt hij je automatisch in; bij verbreken klokt hij je uit. Dit is slechts een hulpmiddel — je kunt nog steeds altijd handmatig in-/uitklokken, ook als dit aanstaat. Automatische tijden kunnen een paar minuten afwijken (de tijd die je telefoon nodig heeft om verbinding te maken na aankomst, omkleden, etc., of om te verbreken na vertrek), en ze worden altijd gemarkeerd als \"Automatisch (WiFi)\" in de registraties, zodat ze nooit verward worden met handmatige.</string>
+    <string name="switch_ativar_wifi">Automatische detectie inschakelen</string>
+    <string name="hint_ssid">Naam WiFi-netwerk (SSID)</string>
+    <string name="btn_usar_rede_atual">Gebruik het netwerk waarmee ik nu verbonden ben</string>
+    <string name="erro_sem_rede_atual">Je bent momenteel met geen enkel WiFi-netwerk verbonden, of de netwerknaam ontbreekt</string>
+    <string name="erro_permissao_localizacao">Android vereist locatietoestemming om de naam van het verbonden WiFi-netwerk te lezen</string>
+    <string name="nota_auto_wifi">Automatisch (WiFi) — kan een paar minuten afwijken</string>
+    <string name="notif_canal_nome">Detectie van werk-WiFi</string>
+    <string name="notif_titulo">Horas — werknetwerk wordt gecontroleerd</string>
+    <string name="notif_texto">Klokt je automatisch in/uit wanneer je dit netwerk betreedt/verlaat</string>
+    <string name="aviso_bateria">Op sommige telefoons (Xiaomi/POCO, Huawei, enz.) sluit het systeem apps op de achtergrond om batterij te besparen. Als de detectie vanzelf stopt met werken, ga dan naar Telefooninstellingen → Batterij → selecteer Horas → schakel batterijbesparing voor deze app uit, en schakel \"Automatisch starten\" in als die optie bestaat.</string>
+
+    <string name="titulo_temas">Thema\'s</string>
+    <string name="tema_automatico">Automatisch (systeem licht/donker)</string>
+
+    <string name="titulo_idioma">Taal</string>
+    <string name="idioma_automatico">Automatisch (systeemtaal)</string>
+
+    <string name="titulo_editar_registo">Registratie bewerken</string>
+    <string name="btn_alterar_hora">Tijd wijzigen</string>
+    <string name="btn_apagar">Verwijderen</string>
+    <string name="btn_cancelar">Annuleren</string>
+    <string name="confirmar_apagar">Deze registratie verwijderen? Dit kan niet ongedaan worden gemaakt.</string>
+    <string name="registo_apagado">Registratie verwijderd</string>
+    <string name="registo_atualizado">Registratie bijgewerkt</string>
+    <string name="sem_registos_dia">Geen registraties deze dag</string>
+    <string name="aviso_saida_sem_entrada_titulo">Geen openstaande inklok</string>
+    <string name="aviso_saida_sem_entrada_texto">Er is vandaag geen inklok geregistreerd vóór deze uitklok. Toch registreren?</string>
+    <string name="nao_perguntar_novamente">Niet meer vragen</string>
+    <string name="btn_registar">Registreren</string>
+
+    <string name="btn_exportar_dados">Gegevens exporteren (back-up)</string>
+    <string name="btn_importar_dados">Gegevens importeren</string>
+    <string name="confirmar_importar">Dit vervangt alle huidige registraties door die uit het gekozen bestand. Dit kan niet ongedaan worden gemaakt. Doorgaan?</string>
+    <string name="importar_sucesso">Gegevens geïmporteerd</string>
+    <string name="exportar_sucesso">Back-up opgeslagen</string>
+    <string name="erro_importar">Kon het bestand niet lezen (geen geldige back-up)</string>
+    <string name="erro_exportar">Kon de back-up niet opslaan</string>
+
+    <string name="total_semana">Deze week: %1$s</string>
+    <string name="total_mes">Deze maand: %1$s</string>
+
+    <string-array name="dias_semana">
+        <item>Maandag</item>
+        <item>Dinsdag</item>
+        <item>Woensdag</item>
+        <item>Donderdag</item>
+        <item>Vrijdag</item>
+        <item>Zaterdag</item>
+        <item>Zondag</item>
+    </string-array>
+</resources>

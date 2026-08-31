@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">出勤</string>
+    <string name="btn_saida">退勤</string>
+    <string name="hint_nota">メモ（任意）— 例：早退、歯医者</string>
+    <string name="btn_enviar_hoje">今日の分を送信</string>
+    <string name="btn_escolher_dia">他の日を見る</string>
+    <string name="btn_historico">履歴</string>
+    <string name="titulo_hoje">今日</string>
+    <string name="sem_registos">今日の記録はまだありません</string>
+    <string name="em_curso">（進行中）</string>
+
+    <string name="titulo_historico">履歴</string>
+    <string name="sem_historico">まだ記録された日がありません</string>
+    <string name="btn_exportar_resumo">サマリーを画像で書き出す</string>
+
+    <string name="titulo_horario">通常の勤務時間</string>
+    <string name="explicacao_horario">曜日ごとの通常の勤務時間を設定します。書き出したサマリーで超過/不足時間を計算するために使用されます。</string>
+    <string name="horario_guardado">勤務時間を保存しました</string>
+    <string name="btn_guardar">保存</string>
+
+    <string name="btn_enviar_dia">この日を送信</string>
+    <string name="enviar_via">送信方法</string>
+    <string name="erro_partilha">共有できませんでした</string>
+
+    <string name="titulo_wifi">自動検出（WiFi）</string>
+    <string name="explicacao_wifi">スマートフォンがこのWiFiネットワークに接続すると自動的に出勤を記録し、切断すると退勤を記録します。これは補助機能です — この機能をオンにしていても、いつでも手動で打刻できます。自動記録の時刻は数分ずれることがあります（到着後にネットワークへ接続するまでの時間、着替えなど、または退出後に切断するまでの時間）。記録には常に「自動（WiFi）」と表示されるため、手動の記録と混同することはありません。</string>
+    <string name="switch_ativar_wifi">自動検出を有効にする</string>
+    <string name="hint_ssid">WiFiネットワーク名（SSID）</string>
+    <string name="btn_usar_rede_atual">今接続しているネットワークを使う</string>
+    <string name="erro_sem_rede_atual">現在WiFiネットワークに接続していないか、ネットワーク名がありません</string>
+    <string name="erro_permissao_localizacao">接続中のWiFiネットワーク名を読み取るには、Androidの位置情報の権限が必要です</string>
+    <string name="nota_auto_wifi">自動（WiFi）— 数分ずれる場合があります</string>
+    <string name="notif_canal_nome">職場WiFiの検出</string>
+    <string name="notif_titulo">Horas — 職場のネットワークを監視中</string>
+    <string name="notif_texto">このネットワークに接続/切断すると自動的に出勤/退勤を記録します</string>
+    <string name="aviso_bateria">一部のスマートフォン（Xiaomi/POCO、Huaweiなど）では、バッテリー節約のためシステムがバックグラウンドアプリを終了させます。自動検出が勝手に止まる場合は、スマートフォンの設定 → バッテリー → Horasを選択 → このアプリのバッテリー節約をオフにし、「自動起動」があれば有効にしてください。</string>
+
+    <string name="titulo_temas">テーマ</string>
+    <string name="tema_automatico">自動（システムのライト/ダーク）</string>
+
+    <string name="titulo_idioma">言語</string>
+    <string name="idioma_automatico">自動（システムの言語）</string>
+
+    <string name="titulo_editar_registo">記録を編集</string>
+    <string name="btn_alterar_hora">時刻を変更</string>
+    <string name="btn_apagar">削除</string>
+    <string name="btn_cancelar">キャンセル</string>
+    <string name="confirmar_apagar">この記録を削除しますか？元に戻せません。</string>
+    <string name="registo_apagado">記録を削除しました</string>
+    <string name="registo_atualizado">記録を更新しました</string>
+    <string name="sem_registos_dia">この日の記録はありません</string>
+    <string name="aviso_saida_sem_entrada_titulo">出勤の記録がありません</string>
+    <string name="aviso_saida_sem_entrada_texto">この退勤より前に今日の出勤記録がありません。それでも記録しますか？</string>
+    <string name="nao_perguntar_novamente">今後表示しない</string>
+    <string name="btn_registar">記録する</string>
+
+    <string name="btn_exportar_dados">データを書き出す（バックアップ）</string>
+    <string name="btn_importar_dados">データを読み込む</string>
+    <string name="confirmar_importar">選択したファイルの内容で現在の記録がすべて置き換わります。元に戻せません。続けますか？</string>
+    <string name="importar_sucesso">データを読み込みました</string>
+    <string name="exportar_sucesso">バックアップを保存しました</string>
+    <string name="erro_importar">ファイルを読み込めませんでした（有効なバックアップではありません）</string>
+    <string name="erro_exportar">バックアップを保存できませんでした</string>
+
+    <string name="total_semana">今週：%1$s</string>
+    <string name="total_mes">今月：%1$s</string>
+
+    <string-array name="dias_semana">
+        <item>月曜日</item>
+        <item>火曜日</item>
+        <item>水曜日</item>
+        <item>木曜日</item>
+        <item>金曜日</item>
+        <item>土曜日</item>
+        <item>日曜日</item>
+    </string-array>
+</resources>

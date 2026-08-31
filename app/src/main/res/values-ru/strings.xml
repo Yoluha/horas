@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Horas</string>
+
+    <string name="btn_entrada">ПРИХОД</string>
+    <string name="btn_saida">УХОД</string>
+    <string name="hint_nota">Заметка (необязательно) — напр. ушёл раньше, стоматолог</string>
+    <string name="btn_enviar_hoje">Отправить сегодняшний</string>
+    <string name="btn_escolher_dia">Посмотреть другой день</string>
+    <string name="btn_historico">История</string>
+    <string name="titulo_hoje">Сегодня</string>
+    <string name="sem_registos">Сегодня пока нет записей</string>
+    <string name="em_curso">(в процессе)</string>
+
+    <string name="titulo_historico">История</string>
+    <string name="sem_historico">Пока нет зарегистрированных дней</string>
+    <string name="btn_exportar_resumo">Экспортировать сводку (изображение)</string>
+
+    <string name="titulo_horario">Обычный график</string>
+    <string name="explicacao_horario">Укажите, сколько часов вы обычно работаете в каждый день недели. Это используется для расчёта разницы (переработка/недоработка) в экспортированной сводке.</string>
+    <string name="horario_guardado">График сохранён</string>
+    <string name="btn_guardar">Сохранить</string>
+
+    <string name="btn_enviar_dia">Отправить этот день</string>
+    <string name="enviar_via">Отправить через</string>
+    <string name="erro_partilha">Не удалось поделиться</string>
+
+    <string name="titulo_wifi">Автоматическое определение (WiFi)</string>
+    <string name="explicacao_wifi">Когда телефон подключается к этой сети WiFi, он автоматически регистрирует приход; при отключении — уход. Это лишь подстраховка — вы всегда можете отмечаться вручную, даже если эта функция включена. Автоматическое время может отличаться на несколько минут (время, необходимое телефону для подключения к сети после прихода, переодевания и т. д., или для отключения после ухода), и в записях они всегда помечены как «Автоматически (WiFi)», чтобы никогда не путаться с ручными записями.</string>
+    <string name="switch_ativar_wifi">Включить автоматическое определение</string>
+    <string name="hint_ssid">Имя сети WiFi (SSID)</string>
+    <string name="btn_usar_rede_atual">Использовать сеть, к которой я сейчас подключён</string>
+    <string name="erro_sem_rede_atual">Вы сейчас не подключены ни к одной сети WiFi, либо отсутствует имя сети</string>
+    <string name="erro_permissao_localizacao">Android требует разрешение на геолокацию для чтения имени подключённой сети WiFi</string>
+    <string name="nota_auto_wifi">Автоматически (WiFi) — может отличаться на несколько минут</string>
+    <string name="notif_canal_nome">Определение рабочей сети WiFi</string>
+    <string name="notif_titulo">Horas — отслеживание рабочей сети</string>
+    <string name="notif_texto">Автоматически регистрирует приход/уход при подключении/отключении от этой сети</string>
+    <string name="aviso_bateria">На некоторых телефонах (Xiaomi/POCO, Huawei и др.) система закрывает фоновые приложения для экономии батареи. Если автоматическое определение перестаёт работать само по себе, зайдите в Настройки телефона → Батарея → выберите Horas → отключите экономию батареи для этого приложения и включите «Автозапуск», если такая опция есть.</string>
+
+    <string name="titulo_temas">Темы</string>
+    <string name="tema_automatico">Автоматически (светлая/тёмная системы)</string>
+
+    <string name="titulo_idioma">Язык</string>
+    <string name="idioma_automatico">Автоматически (язык системы)</string>
+
+    <string name="titulo_editar_registo">Редактировать запись</string>
+    <string name="btn_alterar_hora">Изменить время</string>
+    <string name="btn_apagar">Удалить</string>
+    <string name="btn_cancelar">Отмена</string>
+    <string name="confirmar_apagar">Удалить эту запись? Это действие нельзя отменить.</string>
+    <string name="registo_apagado">Запись удалена</string>
+    <string name="registo_atualizado">Запись обновлена</string>
+    <string name="sem_registos_dia">В этот день нет записей</string>
+    <string name="aviso_saida_sem_entrada_titulo">Нет открытого прихода</string>
+    <string name="aviso_saida_sem_entrada_texto">Сегодня перед этим уходом не зарегистрирован приход. Всё равно зарегистрировать?</string>
+    <string name="nao_perguntar_novamente">Больше не спрашивать</string>
+    <string name="btn_registar">Зарегистрировать</string>
+
+    <string name="btn_exportar_dados">Экспортировать данные (резервная копия)</string>
+    <string name="btn_importar_dados">Импортировать данные</string>
+    <string name="confirmar_importar">Это заменит все текущие записи записями из выбранного файла. Это действие нельзя отменить. Продолжить?</string>
+    <string name="importar_sucesso">Данные импортированы</string>
+    <string name="exportar_sucesso">Резервная копия сохранена</string>
+    <string name="erro_importar">Не удалось прочитать файл (недействительная резервная копия)</string>
+    <string name="erro_exportar">Не удалось сохранить резервную копию</string>
+
+    <string name="total_semana">На этой неделе: %1$s</string>
+    <string name="total_mes">В этом месяце: %1$s</string>
+
+    <string-array name="dias_semana">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </string-array>
+</resources>
