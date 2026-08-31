@@ -152,5 +152,12 @@
             android:layout_marginTop="8dp"
             android:text="@string/btn_escolher_dia" />
 
+        <FrameLayout
+            android:id="@+id/adContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center" />
+
     </LinearLayout>
 </ScrollView>

@@ -15,6 +15,19 @@ android {
         versionName = "1.0"
     }
 
+    flavorDimensions += "tier"
+    productFlavors {
+        create("free") {
+            dimension = "tier"
+            // Tem anúncios (AdMob) — é a versão distribuída de graça.
+        }
+        create("pro") {
+            dimension = "tier"
+            // Sem anúncios, sem SDK de anúncios sequer incluído — é a versão vendida.
+            versionNameSuffix = "-pro"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -44,4 +57,7 @@ dependencies {
     ksp("androidx.room:room-compiler:2.8.4")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+    "freeImplementation"("com.google.android.gms:play-services-ads:25.4.0")
+    "freeImplementation"("com.google.android.ump:user-messaging-platform:4.0.0")
 }

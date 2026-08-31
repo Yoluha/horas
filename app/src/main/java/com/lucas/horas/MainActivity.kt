@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
+import com.lucas.horas.ads.AdsProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucas.horas.data.AppDatabase
@@ -61,6 +62,8 @@ class MainActivity : AppCompatActivity() {
         binding.btnIdioma.setOnClickListener {
             startActivity(Intent(this, LanguageActivity::class.java))
         }
+
+        AdsProvider.prepareAndShowBanner(this, binding.adContainer)
     }
 
     override fun onResume() {
