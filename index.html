@@ -75,6 +75,14 @@
   .proj-card-sm.grad-jc { background-image: linear-gradient(165deg, rgba(8,11,16,0.35) 0%, rgba(10,61,82,0.55) 55%, rgba(201,122,18,0.75) 100%), linear-gradient(160deg, #10151d, #0a3d52 55%, #c97a12); }
   .proj-card-sm.grad-3d { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(22,52,48,0.55) 55%, rgba(201,106,46,0.75) 100%), linear-gradient(135deg, #163430, #2e8f87 60%, #c96a2e); }
   .proj-card-sm.grad-yb { background-image: linear-gradient(165deg, rgba(8,11,16,0.35), rgba(48,29,99,0.6) 55%, rgba(216,38,140,0.75) 100%), linear-gradient(135deg, #15102b, #4c1d95 55%, #d8268c); }
+  .proj-nav {
+    flex-shrink: 0; width: 26px; align-self: stretch; border: 1px solid var(--line); background: var(--card);
+    color: var(--ink-soft); border-radius: 8px; cursor: pointer; font-size: 1.2rem; line-height: 1;
+    display: flex; align-items: center; justify-content: center; padding: 0;
+    transition: background 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+  }
+  .proj-nav:hover:not(:disabled) { background: var(--accent); color: #08131c; border-color: var(--accent); }
+  .proj-nav:disabled { opacity: 0.3; cursor: default; }
 
   /* HERO */
   .hero { padding-top: 60px; }
@@ -144,7 +152,8 @@
 <div class="proj-strip-wrap">
   <div class="proj-strip-row">
   <p class="proj-strip-label" id="stripLabel"></p>
-  <div class="proj-strip">
+  <button type="button" class="proj-nav proj-nav-prev" onclick="scrollProjStrip(this,-1)" aria-label="Anterior">&#8249;</button>
+  <div class="proj-strip" onscroll="updateProjNav(this)">
     <a class="proj-card-sm grad-jc" href="https://yoluha.github.io/johnny-castaway-reborn/">
       <span class="proj-icon-sm">🏝️</span>
       <h4>Johnny Castaway Reborn</h4>
@@ -161,6 +170,7 @@
       <span class="desc" id="cardYbDesc"></span>
     </a>
   </div>
+  <button type="button" class="proj-nav proj-nav-next" onclick="scrollProjStrip(this,1)" aria-label="Seguinte">&#8250;</button>
   </div>
 </div>
 
@@ -346,6 +356,24 @@ function setLang(lang) {
   var initial = saved || (LANG_ORDER.includes(browserLang) ? browserLang : 'pt');
   setLang(initial);
 })();
+
+function scrollProjStrip(btn, dir) {
+  const strip = btn.parentElement.querySelector('.proj-strip');
+  const card = strip.querySelector('.proj-card-sm');
+  const step = card ? card.offsetWidth + 9 : 150;
+  strip.scrollBy({ left: dir * step * 2, behavior: 'smooth' });
+}
+function updateProjNav(strip) {
+  const row = strip.parentElement;
+  const prev = row.querySelector('.proj-nav-prev');
+  const next = row.querySelector('.proj-nav-next');
+  if (!prev || !next) return;
+  const max = strip.scrollWidth - strip.clientWidth;
+  prev.disabled = strip.scrollLeft <= 2;
+  next.disabled = strip.scrollLeft >= max - 2;
+}
+document.querySelectorAll('.proj-strip').forEach(updateProjNav);
+window.addEventListener('resize', () => document.querySelectorAll('.proj-strip').forEach(updateProjNav));
 </script>
 
 </body>
