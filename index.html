@@ -350,6 +350,22 @@ function setLang(lang) {
   const sel = document.getElementById('langSelect');
   if (sel && sel.value !== lang) sel.value = lang;
   try { localStorage.setItem('horas-lang', lang); } catch (e) {}
+  fitProjLabel();
+}
+
+function fitProjLabel() {
+  const el = document.getElementById('stripLabel');
+  if (!el) return;
+  el.style.fontSize = '';
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const natural = range.getBoundingClientRect().height;
+  if (!natural) return;
+  let scale = 90 / natural;
+  scale = Math.max(0.7, Math.min(scale, 2.2));
+  let rem = 0.5 * scale;
+  rem = Math.max(0.38, Math.min(rem, 0.95));
+  el.style.fontSize = rem.toFixed(3) + 'rem';
 }
 
 (function () {
