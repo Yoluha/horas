@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.recyclerHoje.layoutManager = LinearLayoutManager(this)
         binding.recyclerHoje.adapter = adapterHoje
+        binding.recyclerHoje.itemAnimator = null
 
         binding.btnEntrada.setOnClickListener { registarPonto(PunchType.ENTRADA) }
         binding.btnSaida.setOnClickListener { tentarRegistarSaida() }
@@ -177,6 +178,7 @@ class MainActivity : AppCompatActivity() {
             val resumo = HoursCalculator.summarizeDay(inicio, punches)
 
             adapterHoje.submitList(punches)
+            binding.recyclerHoje.requestLayout()
             binding.txtSemRegistosHoje.visibility = if (punches.isEmpty()) View.VISIBLE else View.GONE
 
             val sufixo = if (resumo.inProgress) " ${getString(R.string.em_curso)}" else ""
