@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — sledování pracovní sítě</string>
     <string name="notif_texto">Automaticky zaznamená příchod/odchod při připojení/odpojení od této sítě</string>
     <string name="aviso_bateria">Na některých telefonech (Xiaomi/POCO, Huawei atd.) systém zavírá aplikace na pozadí, aby šetřil baterii. Pokud detekce sama přestane fungovat, přejděte do Nastavení telefonu → Baterie → vyberte Horas → vypněte šetření baterie pro tuto aplikaci a povolte „Automatické spuštění“, pokud tato možnost existuje.</string>
+    <string name="switch_aviso_desconexao">Upozornit mě při opuštění pracovní sítě</string>
+    <string name="notif_canal_aviso_nome">Upozornění při opuštění pracovní sítě</string>
+    <string name="notif_aviso_titulo">Opustil jsi pracovní síť</string>
+    <string name="notif_aviso_entrada_ok">✓ Příchod zaznamenan v %1$s</string>
+    <string name="notif_aviso_entrada_falta">⚠️ Dnes zatím není zaznamenán příchod</string>
+    <string name="notif_aviso_saida_ok">✓ Odchod zaznamenán v %1$s</string>
 
     <string name="titulo_temas">Motivy</string>
     <string name="tema_automatico">Automaticky (světlý/tmavý systému)</string>

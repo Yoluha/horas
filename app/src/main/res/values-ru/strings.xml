@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — отслеживание рабочей сети</string>
     <string name="notif_texto">Автоматически регистрирует приход/уход при подключении/отключении от этой сети</string>
     <string name="aviso_bateria">На некоторых телефонах (Xiaomi/POCO, Huawei и др.) система закрывает фоновые приложения для экономии батареи. Если автоматическое определение перестаёт работать само по себе, зайдите в Настройки телефона → Батарея → выберите Horas → отключите экономию батареи для этого приложения и включите «Автозапуск», если такая опция есть.</string>
+    <string name="switch_aviso_desconexao">Уведомлять при выходе из рабочей сети</string>
+    <string name="notif_canal_aviso_nome">Уведомление при выходе из рабочей сети</string>
+    <string name="notif_aviso_titulo">Вы вышли из рабочей сети</string>
+    <string name="notif_aviso_entrada_ok">✓ Приход отмечен в %1$s</string>
+    <string name="notif_aviso_entrada_falta">⚠️ Сегодня приход ещё не отмечен</string>
+    <string name="notif_aviso_saida_ok">✓ Уход отмечен в %1$s</string>
 
     <string name="titulo_temas">Темы</string>
     <string name="tema_automatico">Автоматически (светлая/тёмная системы)</string>

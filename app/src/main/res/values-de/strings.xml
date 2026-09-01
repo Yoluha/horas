@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — überwacht Arbeitsnetzwerk</string>
     <string name="notif_texto">Erfasst automatisch Kommen/Gehen beim Verbinden/Trennen dieses Netzwerks</string>
     <string name="aviso_bateria">Auf manchen Handys (Xiaomi/POCO, Huawei usw.) schließt das System Hintergrund-Apps, um Akku zu sparen. Falls die Erkennung von selbst aufhört zu funktionieren, gehe zu Telefoneinstellungen → Akku → wähle Horas → deaktiviere den Akkusparmodus für diese App und aktiviere \"Autostart\", falls diese Option vorhanden ist.</string>
+    <string name="switch_aviso_desconexao">Benachrichtigen, wenn ich das Arbeitsnetzwerk verlasse</string>
+    <string name="notif_canal_aviso_nome">Hinweis beim Verlassen des Arbeitsnetzwerks</string>
+    <string name="notif_aviso_titulo">Du hast das Arbeitsnetzwerk verlassen</string>
+    <string name="notif_aviso_entrada_ok">✓ Kommen erfasst um %1$s</string>
+    <string name="notif_aviso_entrada_falta">⚠️ Heute noch kein Kommen erfasst</string>
+    <string name="notif_aviso_saida_ok">✓ Gehen erfasst um %1$s</string>
 
     <string name="titulo_temas">Designs</string>
     <string name="tema_automatico">Automatisch (System hell/dunkel)</string>

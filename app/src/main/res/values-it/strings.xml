@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — monitoraggio rete di lavoro</string>
     <string name="notif_texto">Registra entrata/uscita automaticamente alla connessione/disconnessione da questa rete</string>
     <string name="aviso_bateria">Su alcuni telefoni (Xiaomi/POCO, Huawei, ecc.) il sistema chiude le app in background per risparmiare batteria. Se il rilevamento smette di funzionare da solo, vai su Impostazioni del telefono → Batteria → seleziona Horas → disattiva il risparmio energetico per questa app, e attiva \"Avvio automatico\" se questa opzione esiste.</string>
+    <string name="switch_aviso_desconexao">Avvisami quando esco dalla rete del lavoro</string>
+    <string name="notif_canal_aviso_nome">Avviso all\'uscita dalla rete del lavoro</string>
+    <string name="notif_aviso_titulo">Hai lasciato la rete del lavoro</string>
+    <string name="notif_aviso_entrada_ok">✓ Entrata registrata alle %1$s</string>
+    <string name="notif_aviso_entrada_falta">⚠️ Ancora nessuna entrata registrata oggi</string>
+    <string name="notif_aviso_saida_ok">✓ Uscita registrata alle %1$s</string>
 
     <string name="titulo_temas">Temi</string>
     <string name="tema_automatico">Automatico (chiaro/scuro di sistema)</string>

@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — monitorizando red del trabajo</string>
     <string name="notif_texto">Registra entrada/salida automáticamente al conectarte/desconectarte de esta red</string>
     <string name="aviso_bateria">En algunos móviles (Xiaomi/POCO, Huawei, etc.) el sistema cierra apps en segundo plano para ahorrar batería. Si la detección deja de funcionar sola, ve a Ajustes del móvil → Batería → elige Horas → desactiva el ahorro de batería para esta app, y activa \"Inicio automático\" si existe esa opción.</string>
+    <string name="switch_aviso_desconexao">Avisarme cuando salga de la red del trabajo</string>
+    <string name="notif_canal_aviso_nome">Aviso al salir de la red del trabajo</string>
+    <string name="notif_aviso_titulo">Saliste de la red del trabajo</string>
+    <string name="notif_aviso_entrada_ok">✓ Entrada registrada a las %1$s</string>
+    <string name="notif_aviso_entrada_falta">⚠️ Todavía no hay entrada registrada hoy</string>
+    <string name="notif_aviso_saida_ok">✓ Salida registrada a las %1$s</string>
 
     <string name="titulo_temas">Temas</string>
     <string name="tema_automatico">Automático (claro/oscuro del sistema)</string>

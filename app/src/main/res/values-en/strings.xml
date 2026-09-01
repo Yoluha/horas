@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — monitoring work network</string>
     <string name="notif_texto">Clocks you in/out automatically when you join/leave this network</string>
     <string name="aviso_bateria">On some phones (Xiaomi/POCO, Huawei, etc.) the system closes background apps to save battery. If automatic detection stops working on its own, go to Phone Settings → Battery → select Horas → turn off battery saving for this app, and enable \"Autostart\" if that option exists.</string>
+    <string name="switch_aviso_desconexao">Notify me when I leave the work network</string>
+    <string name="notif_canal_aviso_nome">Alert when leaving work network</string>
+    <string name="notif_aviso_titulo">You left the work network</string>
+    <string name="notif_aviso_entrada_ok">✓ Clock-in recorded at %1$s</string>
+    <string name="notif_aviso_entrada_falta">⚠️ No clock-in recorded today yet</string>
+    <string name="notif_aviso_saida_ok">✓ Clock-out recorded at %1$s</string>
 
     <string name="titulo_temas">Themes</string>
     <string name="tema_automatico">Automatic (system light/dark)</string>

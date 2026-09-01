@@ -31,6 +31,7 @@ class WifiConfigActivity : AppCompatActivity() {
         binding.toolbar.setNavigationOnClickListener { finish() }
 
         binding.switchAtivar.isChecked = WifiPrefs.isEnabled(this)
+        binding.switchAvisoDesconexao.isChecked = WifiPrefs.isAvisoDesconexaoAtivo(this)
         binding.editSsid.setText(WifiPrefs.getSsid(this))
 
         binding.btnUsarRedeAtual.setOnClickListener { usarRedeAtual() }
@@ -82,6 +83,7 @@ class WifiConfigActivity : AppCompatActivity() {
 
         WifiPrefs.setSsid(this, ssid)
         WifiPrefs.setEnabled(this, ativar)
+        WifiPrefs.setAvisoDesconexaoAtivo(this, binding.switchAvisoDesconexao.isChecked)
 
         val intentServico = Intent(this, WifiPresenceService::class.java)
         if (ativar) {
@@ -106,5 +108,6 @@ class WifiConfigActivity : AppCompatActivity() {
         ThemePainter.paintOutlinedOrTextButton(binding.btnUsarRedeAtual, tema)
         ThemePainter.paintFilledButton(binding.btnGuardarWifi, tema)
         binding.switchAtivar.setTextColor(tema.textMainColor)
+        binding.switchAvisoDesconexao.setTextColor(tema.textMainColor)
     }
 }

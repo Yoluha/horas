@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — monitorowanie sieci w pracy</string>
     <string name="notif_texto">Automatycznie rejestruje wejście/wyjście po połączeniu/rozłączeniu z tą siecią</string>
     <string name="aviso_bateria">Na niektórych telefonach (Xiaomi/POCO, Huawei itp.) system zamyka aplikacje w tle, aby oszczędzać baterię. Jeśli automatyczne wykrywanie przestanie działać samo, przejdź do Ustawień telefonu → Bateria → wybierz Horas → wyłącz oszczędzanie baterii dla tej aplikacji i włącz „Autostart”, jeśli ta opcja istnieje.</string>
+    <string name="switch_aviso_desconexao">Powiadom mnie, gdy opuszczę sieć pracy</string>
+    <string name="notif_canal_aviso_nome">Powiadomienie o opuszczeniu sieci pracy</string>
+    <string name="notif_aviso_titulo">Opuściłeś sieć pracy</string>
+    <string name="notif_aviso_entrada_ok">✓ Wejście zarejestrowane o %1$s</string>
+    <string name="notif_aviso_entrada_falta">⚠️ Dziś jeszcze nie zarejestrowano wejścia</string>
+    <string name="notif_aviso_saida_ok">✓ Wyjście zarejestrowane o %1$s</string>
 
     <string name="titulo_temas">Motywy</string>
     <string name="tema_automatico">Automatyczny (jasny/ciemny systemu)</string>

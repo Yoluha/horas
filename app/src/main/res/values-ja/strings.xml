@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — 職場のネットワークを監視中</string>
     <string name="notif_texto">このネットワークに接続/切断すると自動的に出勤/退勤を記録します</string>
     <string name="aviso_bateria">一部のスマートフォン（Xiaomi/POCO、Huaweiなど）では、バッテリー節約のためシステムがバックグラウンドアプリを終了させます。自動検出が勝手に止まる場合は、スマートフォンの設定 → バッテリー → Horasを選択 → このアプリのバッテリー節約をオフにし、「自動起動」があれば有効にしてください。</string>
+    <string name="switch_aviso_desconexao">職場のネットワークから離れたら通知する</string>
+    <string name="notif_canal_aviso_nome">職場ネットワーク退出時の通知</string>
+    <string name="notif_aviso_titulo">職場のネットワークから離れました</string>
+    <string name="notif_aviso_entrada_ok">✓ 出勤を%1$sに記録しました</string>
+    <string name="notif_aviso_entrada_falta">⚠️ 今日はまだ出勤が記録されていません</string>
+    <string name="notif_aviso_saida_ok">✓ 退勤を%1$sに記録しました</string>
 
     <string name="titulo_temas">テーマ</string>
     <string name="tema_automatico">自動（システムのライト/ダーク）</string>

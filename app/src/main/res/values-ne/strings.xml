@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — कार्यस्थलको नेटवर्क अनुगमन गर्दै</string>
     <string name="notif_texto">यो नेटवर्कमा जोडिँदा/छुट्टिँदा स्वचालित रूपमा भित्र/बाहिर दर्ता गर्छ</string>
     <string name="aviso_bateria">केही फोनहरूमा (Xiaomi/POCO, Huawei, आदि) ब्याट्री बचाउन प्रणालीले पृष्ठभूमि एपहरू बन्द गर्छ। यदि स्वचालित पहिचानले आफैं काम गर्न बन्द गर्यो भने, फोन सेटिङ्ग → ब्याट्री → Horas छान्नुहोस् → यो एपको लागि ब्याट्री बचत बन्द गर्नुहोस्, र \"स्वतः सुरुवात\" विकल्प भएमा सक्षम गर्नुहोस्।</string>
+    <string name="switch_aviso_desconexao">कामको नेटवर्कबाट बाहिर निस्कँदा मलाई सूचित गर्नुहोस्</string>
+    <string name="notif_canal_aviso_nome">कामको नेटवर्कबाट बाहिर निस्कँदाको सूचना</string>
+    <string name="notif_aviso_titulo">तपाईं कामको नेटवर्कबाट बाहिर निस्कनुभयो</string>
+    <string name="notif_aviso_entrada_ok">✓ प्रवेश %1$s मा दर्ता भयो</string>
+    <string name="notif_aviso_entrada_falta">⚠️ आज अझै प्रवेश दर्ता भएको छैन</string>
+    <string name="notif_aviso_saida_ok">✓ निकास %1$s मा दर्ता भयो</string>
 
     <string name="titulo_temas">थिमहरू</string>
     <string name="tema_automatico">स्वचालित (प्रणालीको उज्यालो/अँध्यारो)</string>

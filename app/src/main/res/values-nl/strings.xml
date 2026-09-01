@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — werknetwerk wordt gecontroleerd</string>
     <string name="notif_texto">Klokt je automatisch in/uit wanneer je dit netwerk betreedt/verlaat</string>
     <string name="aviso_bateria">Op sommige telefoons (Xiaomi/POCO, Huawei, enz.) sluit het systeem apps op de achtergrond om batterij te besparen. Als de detectie vanzelf stopt met werken, ga dan naar Telefooninstellingen → Batterij → selecteer Horas → schakel batterijbesparing voor deze app uit, en schakel \"Automatisch starten\" in als die optie bestaat.</string>
+    <string name="switch_aviso_desconexao">Waarschuw me als ik het werknetwerk verlaat</string>
+    <string name="notif_canal_aviso_nome">Melding bij verlaten werknetwerk</string>
+    <string name="notif_aviso_titulo">Je hebt het werknetwerk verlaten</string>
+    <string name="notif_aviso_entrada_ok">✓ Inklokken geregistreerd om %1$s</string>
+    <string name="notif_aviso_entrada_falta">⚠️ Nog geen inklokken geregistreerd vandaag</string>
+    <string name="notif_aviso_saida_ok">✓ Uitklokken geregistreerd om %1$s</string>
 
     <string name="titulo_temas">Thema\'s</string>
     <string name="tema_automatico">Automatisch (systeem licht/donker)</string>

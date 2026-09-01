@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — 正在监控工作网络</string>
     <string name="notif_texto">连接/离开此网络时自动记录上下班打卡</string>
     <string name="aviso_bateria">在某些手机上（小米/POCO、华为等），系统会关闭后台应用以节省电量。如果自动检测自行停止工作，请前往手机设置 → 电池 → 选择Horas → 关闭此应用的省电功能，如果有"自启动"选项，请启用它。</string>
+    <string name="switch_aviso_desconexao">离开工作网络时提醒我</string>
+    <string name="notif_canal_aviso_nome">离开工作网络提醒</string>
+    <string name="notif_aviso_titulo">你已离开工作网络</string>
+    <string name="notif_aviso_entrada_ok">✓ 上班打卡时间：%1$s</string>
+    <string name="notif_aviso_entrada_falta">⚠️ 今天还没有上班打卡记录</string>
+    <string name="notif_aviso_saida_ok">✓ 下班打卡时间：%1$s</string>
 
     <string name="titulo_temas">主题</string>
     <string name="tema_automatico">自动（跟随系统浅色/深色）</string>

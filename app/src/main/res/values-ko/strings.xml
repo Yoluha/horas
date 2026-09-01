@@ -36,6 +36,12 @@
     <string name="notif_titulo">Horas — 직장 네트워크 모니터링 중</string>
     <string name="notif_texto">이 네트워크에 연결/해제되면 자동으로 출퇴근을 기록합니다</string>
     <string name="aviso_bateria">일부 휴대폰(Xiaomi/POCO, Huawei 등)에서는 배터리를 절약하기 위해 시스템이 백그라운드 앱을 종료합니다. 자동 감지가 스스로 작동을 멈추면 휴대폰 설정 → 배터리 → Horas 선택 → 이 앱의 배터리 절약 기능을 끄고, \"자동 시작\" 옵션이 있으면 활성화하세요.</string>
+    <string name="switch_aviso_desconexao">직장 네트워크에서 나가면 알림</string>
+    <string name="notif_canal_aviso_nome">직장 네트워크 이탈 알림</string>
+    <string name="notif_aviso_titulo">직장 네트워크에서 나갔습니다</string>
+    <string name="notif_aviso_entrada_ok">✓ 출근이 %1$s에 기록되었습니다</string>
+    <string name="notif_aviso_entrada_falta">⚠️ 오늘은 아직 출근 기록이 없습니다</string>
+    <string name="notif_aviso_saida_ok">✓ 퇴근이 %1$s에 기록되었습니다</string>
 
     <string name="titulo_temas">테마</string>
     <string name="tema_automatico">자동 (시스템 라이트/다크)</string>
