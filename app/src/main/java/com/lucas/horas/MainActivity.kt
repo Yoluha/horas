@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.lucas.horas.ads.AdsProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.core.content.ContextCompat
 import com.lucas.horas.data.AppDatabase
 import com.lucas.horas.data.AvisosPrefs
 import com.lucas.horas.data.PunchEntity
 import com.lucas.horas.data.PunchType
+import com.lucas.horas.data.WifiPrefs
 import com.lucas.horas.databinding.ActivityMainBinding
 import com.lucas.horas.domain.HoursCalculator
 import com.lucas.horas.domain.MessageBuilder
@@ -21,11 +23,13 @@ import com.lucas.horas.history.DayDetailActivity
 import com.lucas.horas.history.HistoryActivity
 import com.lucas.horas.history.PunchAdapter
 import com.lucas.horas.history.PunchEditor
+import com.lucas.horas.service.WifiPresenceService
 import com.lucas.horas.theme.ThemePainter
 import com.lucas.horas.theme.ThemeStore
 import com.lucas.horas.util.ShareUtils
 import com.lucas.horas.util.TimeUtils
 import com.lucas.horas.widget.WidgetUpdater
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import java.util.Calendar
 
@@ -71,6 +75,18 @@ class MainActivity : AppCompatActivity() {
         binding.txtRelogio.text = TimeUtils.formatTime(System.currentTimeMillis())
         carregarHoje()
         aplicarTema()
+        garantirServicoWifiAtivo()
+    }
+
+    /** Se a deteção automática por WiFi estiver ativada nas definições, garante que o
+     * serviço está mesmo a correr — o Android (sobretudo Xiaomi/POCO a poupar bateria)
+     * pode matá-lo em segundo plano sem avisar, e isto volta a arrancá-lo sempre que
+     * abrires a app. Chamar startForegroundService num serviço já em curso não faz nada
+     * de mal, por isso é seguro fazer isto sempre. */
+    private fun garantirServicoWifiAtivo() {
+        if (WifiPrefs.isEnabled(this)) {
+            ContextCompat.startForegroundService(this, Intent(this, WifiPresenceService::class.java))
+        }
     }
 
     private fun aplicarTema() {
@@ -150,8 +166,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private var carregarHojeJob: Job? = null
+
     private fun carregarHoje() {
-        lifecycleScope.launch {
+        carregarHojeJob?.cancel()
+        carregarHojeJob = lifecycleScope.launch {
             val inicio = TimeUtils.startOfToday()
             val fim = TimeUtils.endOfDay(inicio)
             val punches = dao.getBetween(inicio, fim)
