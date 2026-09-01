@@ -9,7 +9,6 @@ import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import com.lucas.horas.ads.AdsProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.core.content.ContextCompat
 import com.lucas.horas.data.AppDatabase
 import com.lucas.horas.data.AvisosPrefs
@@ -17,11 +16,11 @@ import com.lucas.horas.data.PunchEntity
 import com.lucas.horas.data.PunchType
 import com.lucas.horas.data.WifiPrefs
 import com.lucas.horas.databinding.ActivityMainBinding
+import com.lucas.horas.databinding.ItemPunchBinding
 import com.lucas.horas.domain.HoursCalculator
 import com.lucas.horas.domain.MessageBuilder
 import com.lucas.horas.history.DayDetailActivity
 import com.lucas.horas.history.HistoryActivity
-import com.lucas.horas.history.PunchAdapter
 import com.lucas.horas.history.PunchEditor
 import com.lucas.horas.service.WifiPresenceService
 import com.lucas.horas.theme.ThemePainter
@@ -37,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val dao by lazy { AppDatabase.getInstance(this).punchDao() }
-    private val adapterHoje = PunchAdapter { punch -> PunchEditor.open(this, punch, dao) { carregarHoje() } }
+    private var punchesHojeAtuais: List<PunchEntity> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,10 +44,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.txtRelogio.text = TimeUtils.formatTime(System.currentTimeMillis())
-
-        binding.recyclerHoje.layoutManager = LinearLayoutManager(this)
-        binding.recyclerHoje.adapter = adapterHoje
-        binding.recyclerHoje.itemAnimator = null
 
         binding.btnEntrada.setOnClickListener { registarPonto(PunchType.ENTRADA) }
         binding.btnSaida.setOnClickListener { tentarRegistarSaida() }
@@ -91,8 +86,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun aplicarTema() {
-        adapterHoje.tema = ThemeStore.getSelectedTheme(this)
-        adapterHoje.notifyDataSetChanged()
+        renderizarListaHoje()
 
         val tema = ThemeStore.getSelectedTheme(this) ?: return
         ThemePainter.paintRoot(binding.root, tema)
@@ -177,12 +171,52 @@ class MainActivity : AppCompatActivity() {
             val punches = dao.getBetween(inicio, fim)
             val resumo = HoursCalculator.summarizeDay(inicio, punches)
 
-            adapterHoje.submitList(punches)
-            binding.recyclerHoje.requestLayout()
+            punchesHojeAtuais = punches
+            renderizarListaHoje()
             binding.txtSemRegistosHoje.visibility = if (punches.isEmpty()) View.VISIBLE else View.GONE
 
             val sufixo = if (resumo.inProgress) " ${getString(R.string.em_curso)}" else ""
             binding.txtTotalHoje.text = "Total: ${TimeUtils.formatDuration(resumo.totalMillis)}$sufixo"
+        }
+    }
+
+    /** Desenha a lista de "Hoje" à mão (sem RecyclerView) — como fica embutida dentro do
+     * ScrollView do ecrã principal a lista é sempre pequena, e um LinearLayout normal
+     * redimensiona-se sempre corretamente, ao contrário de um RecyclerView com altura
+     * wrap_content nesta posição. */
+    private fun renderizarListaHoje() {
+        val tema = ThemeStore.getSelectedTheme(this)
+        binding.listaHoje.removeAllViews()
+
+        for (punch in punchesHojeAtuais) {
+            val itemBinding = ItemPunchBinding.inflate(layoutInflater, binding.listaHoje, false)
+            val isEntrada = punch.type == PunchType.ENTRADA
+
+            itemBinding.txtTipo.text = if (isEntrada) getString(R.string.btn_entrada) else getString(R.string.btn_saida)
+            itemBinding.txtHora.text = TimeUtils.formatTime(punch.timestamp)
+
+            if (!punch.note.isNullOrBlank()) {
+                itemBinding.txtNota.text = punch.note
+                itemBinding.txtNota.visibility = View.VISIBLE
+            } else {
+                itemBinding.txtNota.visibility = View.GONE
+            }
+
+            if (tema != null) {
+                itemBinding.txtTipo.setTextColor(if (isEntrada) tema.accentColor else tema.borderColor)
+                itemBinding.txtHora.setTextColor(tema.textMainColor)
+                itemBinding.txtNota.setTextColor(tema.textSecColor)
+            } else {
+                itemBinding.txtTipo.setTextColor(
+                    getColor(if (isEntrada) R.color.entrada_green else R.color.saida_red)
+                )
+            }
+
+            itemBinding.root.setOnClickListener {
+                PunchEditor.open(this, punch, dao) { carregarHoje() }
+            }
+
+            binding.listaHoje.addView(itemBinding.root)
         }
     }
 
