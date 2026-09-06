@@ -12,5 +12,6 @@ class BootReceiver : BroadcastReceiver() {
         if (!WifiPrefs.isEnabled(context)) return
 
         ContextCompat.startForegroundService(context, Intent(context, WifiPresenceService::class.java))
+        WifiWatchdog.agendar(context)
     }
 }

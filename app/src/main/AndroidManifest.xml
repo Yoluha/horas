@@ -50,6 +50,10 @@
         </receiver>
 
         <receiver
+            android:name=".service.WifiWatchdogReceiver"
+            android:exported="false" />
+
+        <receiver
             android:name=".widget.HorasWidgetProvider"
             android:exported="true">
             <intent-filter>

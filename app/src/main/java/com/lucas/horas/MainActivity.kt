@@ -23,6 +23,7 @@ import com.lucas.horas.history.DayDetailActivity
 import com.lucas.horas.history.HistoryActivity
 import com.lucas.horas.history.PunchEditor
 import com.lucas.horas.service.WifiPresenceService
+import com.lucas.horas.service.WifiWatchdog
 import com.lucas.horas.theme.ThemePainter
 import com.lucas.horas.theme.ThemeStore
 import com.lucas.horas.util.ShareUtils
@@ -82,6 +83,7 @@ class MainActivity : AppCompatActivity() {
     private fun garantirServicoWifiAtivo() {
         if (WifiPrefs.isEnabled(this)) {
             ContextCompat.startForegroundService(this, Intent(this, WifiPresenceService::class.java))
+            WifiWatchdog.agendar(this)
         }
     }
 

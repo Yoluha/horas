@@ -95,12 +95,12 @@ class WifiPresenceService : Service() {
         val ssidAtual = wifiManager.connectionInfo?.ssid?.trim('"').orEmpty()
         val ligadoAgora = ssidAtual.equals(alvo, ignoreCase = true)
 
-        if (ligadoAgora == conectadoAoAlvo) return // sem mudança de estado, ignora
-        conectadoAoAlvo = ligadoAgora
+        if (ligadoAgora == conectadoAoAlvo) return // sem mudança face ao último estado REGISTADO, ignora
 
         val agora = System.currentTimeMillis()
-        if (agora - lastAutoEventMillis < DEBOUNCE_MILLIS) return
+        if (agora - lastAutoEventMillis < DEBOUNCE_MILLIS) return // ruído (ligação a oscilar) — não confirmamos o novo estado, para voltarmos a tentar depois
         lastAutoEventMillis = agora
+        conectadoAoAlvo = ligadoAgora
 
         val tipo = if (ligadoAgora) PunchType.ENTRADA else PunchType.SAIDA
         scope.launch {

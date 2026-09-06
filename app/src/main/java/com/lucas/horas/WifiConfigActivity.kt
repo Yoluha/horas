@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import com.lucas.horas.data.WifiPrefs
 import com.lucas.horas.databinding.ActivityWifiConfigBinding
 import com.lucas.horas.service.WifiPresenceService
+import com.lucas.horas.service.WifiWatchdog
 import com.lucas.horas.theme.ThemePainter
 import com.lucas.horas.theme.ThemeStore
 
@@ -88,8 +89,10 @@ class WifiConfigActivity : AppCompatActivity() {
         val intentServico = Intent(this, WifiPresenceService::class.java)
         if (ativar) {
             ContextCompat.startForegroundService(this, intentServico)
+            WifiWatchdog.agendar(this)
         } else {
             stopService(intentServico)
+            WifiWatchdog.cancelar(this)
         }
 
         Toast.makeText(this, R.string.horario_guardado, Toast.LENGTH_SHORT).show()
