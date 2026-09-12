@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">ARRIVÉE</string>
     <string name="btn_saida">DÉPART</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">Android exige l\'autorisation de localisation pour lire le nom du réseau WiFi connecté</string>
     <string name="nota_auto_wifi">Automatique (WiFi) — peut varier de quelques minutes</string>
     <string name="notif_canal_nome">Détection du WiFi du travail</string>
-    <string name="notif_titulo">Horas — surveillance du réseau du travail</string>
+    <string name="notif_titulo">Ponto — surveillance du réseau du travail</string>
     <string name="notif_texto">Pointe l\'arrivée/le départ automatiquement à la connexion/déconnexion de ce réseau</string>
-    <string name="aviso_bateria">Sur certains téléphones (Xiaomi/POCO, Huawei, etc.), le système ferme les applications en arrière-plan pour économiser la batterie. Si la détection s\'arrête toute seule, allez dans Paramètres du téléphone → Batterie → sélectionnez Horas → désactivez l\'économie de batterie pour cette application, et activez \"Démarrage automatique\" si cette option existe.</string>
+    <string name="aviso_bateria">Sur certains téléphones (Xiaomi/POCO, Huawei, etc.), le système ferme les applications en arrière-plan pour économiser la batterie. Si la détection s\'arrête toute seule, allez dans Paramètres du téléphone → Batterie → sélectionnez Ponto → désactivez l\'économie de batterie pour cette application, et activez \"Démarrage automatique\" si cette option existe.</string>
     <string name="switch_aviso_desconexao">Me prévenir en quittant le réseau du travail</string>
     <string name="notif_canal_aviso_nome">Alerte en quittant le réseau du travail</string>
     <string name="notif_aviso_titulo">Vous avez quitté le réseau du travail</string>

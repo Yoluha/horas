@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">KOMMEN</string>
     <string name="btn_saida">GEHEN</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">Android verlangt die Standortberechtigung, um den Namen des verbundenen WLAN-Netzwerks zu lesen</string>
     <string name="nota_auto_wifi">Automatisch (WLAN) — kann um einige Minuten abweichen</string>
     <string name="notif_canal_nome">Erkennung des Arbeits-WLANs</string>
-    <string name="notif_titulo">Horas — überwacht Arbeitsnetzwerk</string>
+    <string name="notif_titulo">Ponto — überwacht Arbeitsnetzwerk</string>
     <string name="notif_texto">Erfasst automatisch Kommen/Gehen beim Verbinden/Trennen dieses Netzwerks</string>
-    <string name="aviso_bateria">Auf manchen Handys (Xiaomi/POCO, Huawei usw.) schließt das System Hintergrund-Apps, um Akku zu sparen. Falls die Erkennung von selbst aufhört zu funktionieren, gehe zu Telefoneinstellungen → Akku → wähle Horas → deaktiviere den Akkusparmodus für diese App und aktiviere \"Autostart\", falls diese Option vorhanden ist.</string>
+    <string name="aviso_bateria">Auf manchen Handys (Xiaomi/POCO, Huawei usw.) schließt das System Hintergrund-Apps, um Akku zu sparen. Falls die Erkennung von selbst aufhört zu funktionieren, gehe zu Telefoneinstellungen → Akku → wähle Ponto → deaktiviere den Akkusparmodus für diese App und aktiviere \"Autostart\", falls diese Option vorhanden ist.</string>
     <string name="switch_aviso_desconexao">Benachrichtigen, wenn ich das Arbeitsnetzwerk verlasse</string>
     <string name="notif_canal_aviso_nome">Hinweis beim Verlassen des Arbeitsnetzwerks</string>
     <string name="notif_aviso_titulo">Du hast das Arbeitsnetzwerk verlassen</string>

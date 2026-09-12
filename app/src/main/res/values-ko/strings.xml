@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">출근</string>
     <string name="btn_saida">퇴근</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">연결된 WiFi 네트워크 이름을 읽으려면 Android 위치 권한이 필요합니다</string>
     <string name="nota_auto_wifi">자동 (WiFi) — 몇 분 정도 차이가 날 수 있습니다</string>
     <string name="notif_canal_nome">직장 WiFi 감지</string>
-    <string name="notif_titulo">Horas — 직장 네트워크 모니터링 중</string>
+    <string name="notif_titulo">Ponto — 직장 네트워크 모니터링 중</string>
     <string name="notif_texto">이 네트워크에 연결/해제되면 자동으로 출퇴근을 기록합니다</string>
-    <string name="aviso_bateria">일부 휴대폰(Xiaomi/POCO, Huawei 등)에서는 배터리를 절약하기 위해 시스템이 백그라운드 앱을 종료합니다. 자동 감지가 스스로 작동을 멈추면 휴대폰 설정 → 배터리 → Horas 선택 → 이 앱의 배터리 절약 기능을 끄고, \"자동 시작\" 옵션이 있으면 활성화하세요.</string>
+    <string name="aviso_bateria">일부 휴대폰(Xiaomi/POCO, Huawei 등)에서는 배터리를 절약하기 위해 시스템이 백그라운드 앱을 종료합니다. 자동 감지가 스스로 작동을 멈추면 휴대폰 설정 → 배터리 → Ponto 선택 → 이 앱의 배터리 절약 기능을 끄고, \"자동 시작\" 옵션이 있으면 활성화하세요.</string>
     <string name="switch_aviso_desconexao">직장 네트워크에서 나가면 알림</string>
     <string name="notif_canal_aviso_nome">직장 네트워크 이탈 알림</string>
     <string name="notif_aviso_titulo">직장 네트워크에서 나갔습니다</string>

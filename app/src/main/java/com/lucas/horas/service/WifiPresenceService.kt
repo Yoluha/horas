@@ -61,14 +61,29 @@ class WifiPresenceService : Service() {
         connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         startForeground(NOTIFICATION_ID, buildNotification())
 
-        val request = NetworkRequest.Builder()
-            .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-            .build()
-        connectivityManager.registerNetworkCallback(request, networkCallback)
+        scope.launch {
+            sincronizarEstadoInicial()
 
-        // Sincroniza o estado inicial — se já estiveres ligado à rede-alvo ao ativar
-        // esta funcionalidade, isto conta logo como entrada em vez de esperar por um evento.
-        reavaliarLigacao()
+            val request = NetworkRequest.Builder()
+                .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+                .build()
+            connectivityManager.registerNetworkCallback(request, networkCallback)
+
+            // Reavalia contra o estado já sincronizado — se já estiveres ligado à rede-alvo
+            // e ainda não houver entrada aberta, conta como entrada; caso contrário, não
+            // duplica nada (é isto que evita a entrada fantasma quando o Android mata e
+            // reinicia o serviço enquanto ainda estás ligado à rede do trabalho).
+            reavaliarLigacao()
+        }
+    }
+
+    /** Ao (re)arrancar o serviço — por exemplo depois de o Android o matar por poupança de
+     * bateria — sincroniza o estado a partir do último registo real na base de dados, em vez
+     * de assumir "desligado". Sem isto, reiniciar o serviço enquanto ainda estás ligado à
+     * rede do trabalho é interpretado como uma chegada nova e duplica a entrada. */
+    private suspend fun sincronizarEstadoInicial() {
+        val ultimo = AppDatabase.getInstance(applicationContext).punchDao().getLast()
+        conectadoAoAlvo = ultimo?.type == PunchType.ENTRADA
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {

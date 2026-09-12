@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">ENTRADA</string>
     <string name="btn_saida">SAÍDA</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">O Android exige permissão de localização para ler o nome da rede WiFi ligada</string>
     <string name="nota_auto_wifi">Automático (WiFi) — pode variar alguns minutos</string>
     <string name="notif_canal_nome">Deteção de WiFi do trabalho</string>
-    <string name="notif_titulo">Horas — a monitorizar rede do trabalho</string>
+    <string name="notif_titulo">Ponto — a monitorizar rede do trabalho</string>
     <string name="notif_texto">Regista entrada/saída sozinho quando ligares/desligares desta rede</string>
-    <string name="aviso_bateria">Em alguns telemóveis (Xiaomi/POCO, Huawei, etc.) o sistema fecha apps em segundo plano para poupar bateria. Se a deteção parar de funcionar sozinha, vai a Definições do telemóvel → Bateria → escolhe o Horas → desativa a poupança de bateria para este app, e ativa \"Arranque automático\" se existir essa opção.</string>
+    <string name="aviso_bateria">Em alguns telemóveis (Xiaomi/POCO, Huawei, etc.) o sistema fecha apps em segundo plano para poupar bateria. Se a deteção parar de funcionar sozinha, vai a Definições do telemóvel → Bateria → escolhe o Ponto → desativa a poupança de bateria para este app, e ativa \"Arranque automático\" se existir essa opção.</string>
     <string name="switch_aviso_desconexao">Avisar quando sair da rede do trabalho</string>
     <string name="notif_canal_aviso_nome">Aviso ao sair da rede do trabalho</string>
     <string name="notif_aviso_titulo">Saíste da rede do trabalho</string>

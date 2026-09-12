@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">PŘÍCHOD</string>
     <string name="btn_saida">ODCHOD</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">Android vyžaduje oprávnění k poloze pro čtení názvu připojené sítě WiFi</string>
     <string name="nota_auto_wifi">Automaticky (WiFi) — může se lišit o pár minut</string>
     <string name="notif_canal_nome">Detekce pracovní WiFi</string>
-    <string name="notif_titulo">Horas — sledování pracovní sítě</string>
+    <string name="notif_titulo">Ponto — sledování pracovní sítě</string>
     <string name="notif_texto">Automaticky zaznamená příchod/odchod při připojení/odpojení od této sítě</string>
-    <string name="aviso_bateria">Na některých telefonech (Xiaomi/POCO, Huawei atd.) systém zavírá aplikace na pozadí, aby šetřil baterii. Pokud detekce sama přestane fungovat, přejděte do Nastavení telefonu → Baterie → vyberte Horas → vypněte šetření baterie pro tuto aplikaci a povolte „Automatické spuštění“, pokud tato možnost existuje.</string>
+    <string name="aviso_bateria">Na některých telefonech (Xiaomi/POCO, Huawei atd.) systém zavírá aplikace na pozadí, aby šetřil baterii. Pokud detekce sama přestane fungovat, přejděte do Nastavení telefonu → Baterie → vyberte Ponto → vypněte šetření baterie pro tuto aplikaci a povolte „Automatické spuštění“, pokud tato možnost existuje.</string>
     <string name="switch_aviso_desconexao">Upozornit mě při opuštění pracovní sítě</string>
     <string name="notif_canal_aviso_nome">Upozornění při opuštění pracovní sítě</string>
     <string name="notif_aviso_titulo">Opustil jsi pracovní síť</string>

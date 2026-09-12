@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">上班打卡</string>
     <string name="btn_saida">下班打卡</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">Android需要位置权限才能读取已连接WiFi网络的名称</string>
     <string name="nota_auto_wifi">自动（WiFi）— 可能有几分钟误差</string>
     <string name="notif_canal_nome">工作WiFi检测</string>
-    <string name="notif_titulo">Horas — 正在监控工作网络</string>
+    <string name="notif_titulo">Ponto — 正在监控工作网络</string>
     <string name="notif_texto">连接/离开此网络时自动记录上下班打卡</string>
-    <string name="aviso_bateria">在某些手机上（小米/POCO、华为等），系统会关闭后台应用以节省电量。如果自动检测自行停止工作，请前往手机设置 → 电池 → 选择Horas → 关闭此应用的省电功能，如果有"自启动"选项，请启用它。</string>
+    <string name="aviso_bateria">在某些手机上（小米/POCO、华为等），系统会关闭后台应用以节省电量。如果自动检测自行停止工作，请前往手机设置 → 电池 → 选择Ponto → 关闭此应用的省电功能，如果有"自启动"选项，请启用它。</string>
     <string name="switch_aviso_desconexao">离开工作网络时提醒我</string>
     <string name="notif_canal_aviso_nome">离开工作网络提醒</string>
     <string name="notif_aviso_titulo">你已离开工作网络</string>

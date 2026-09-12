@@ -12,7 +12,8 @@ import com.lucas.horas.theme.AppTheme
 import com.lucas.horas.util.TimeUtils
 
 class PunchAdapter(
-    private val onClick: (PunchEntity) -> Unit
+    private val onClick: (PunchEntity) -> Unit,
+    private val onDelete: (PunchEntity) -> Unit
 ) : RecyclerView.Adapter<PunchAdapter.ViewHolder>() {
 
     private var punches: List<PunchEntity> = emptyList()
@@ -60,6 +61,7 @@ class PunchAdapter(
             }
 
             binding.root.setOnClickListener { onClick(punch) }
+            binding.btnDeletePunch.setOnClickListener { onDelete(punch) }
         }
     }
 }

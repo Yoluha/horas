@@ -25,7 +25,10 @@ class DayDetailActivity : AppCompatActivity() {
     private val dao by lazy { AppDatabase.getInstance(this).punchDao() }
     private var dayStart: Long = 0
 
-    private val adapter = PunchAdapter { punch -> PunchEditor.open(this, punch, dao) { carregarDia() } }
+    private val adapter = PunchAdapter(
+        onClick = { punch -> PunchEditor.open(this, punch, dao) { carregarDia() } },
+        onDelete = { punch -> PunchEditor.confirmarApagar(this, punch, dao) { carregarDia() } }
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

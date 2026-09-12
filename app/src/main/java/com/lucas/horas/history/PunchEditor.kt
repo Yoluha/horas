@@ -2,12 +2,14 @@ package com.lucas.horas.history
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.app.TimePickerDialog
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
 import com.lucas.horas.R
 import com.lucas.horas.data.PunchDao
 import com.lucas.horas.data.PunchEntity
@@ -19,7 +21,7 @@ import java.util.Calendar
 /** Diálogo partilhado para editar/apagar um registo — usado no ecrã "Hoje" e no detalhe de qualquer dia. */
 object PunchEditor {
 
-    fun open(activity: androidx.appcompat.app.AppCompatActivity, punch: PunchEntity, dao: PunchDao, onDone: () -> Unit) {
+    fun open(activity: AppCompatActivity, punch: PunchEntity, dao: PunchDao, onDone: () -> Unit) {
         val container = LinearLayout(activity).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(60, 20, 60, 20)
@@ -34,19 +36,21 @@ object PunchEditor {
             isClickable = true
             setOnClickListener {
                 val cal = Calendar.getInstance().apply { timeInMillis = novaHora }
-                TimePickerDialog(
-                    activity,
-                    { _, hora, minuto ->
-                        val novoCal = Calendar.getInstance().apply { timeInMillis = novaHora }
-                        novoCal.set(Calendar.HOUR_OF_DAY, hora)
-                        novoCal.set(Calendar.MINUTE, minuto)
-                        novaHora = novoCal.timeInMillis
-                        text = "${activity.getString(R.string.btn_alterar_hora)}: ${TimeUtils.formatTime(novaHora)}"
-                    },
-                    cal.get(Calendar.HOUR_OF_DAY),
-                    cal.get(Calendar.MINUTE),
-                    true
-                ).show()
+                val picker = MaterialTimePicker.Builder()
+                    .setTimeFormat(TimeFormat.CLOCK_24H)
+                    .setHour(cal.get(Calendar.HOUR_OF_DAY))
+                    .setMinute(cal.get(Calendar.MINUTE))
+                    .setInputMode(MaterialTimePicker.INPUT_MODE_KEYBOARD)
+                    .setTitleText(activity.getString(R.string.btn_alterar_hora))
+                    .build()
+                picker.addOnPositiveButtonClickListener {
+                    val novoCal = Calendar.getInstance().apply { timeInMillis = novaHora }
+                    novoCal.set(Calendar.HOUR_OF_DAY, picker.hour)
+                    novoCal.set(Calendar.MINUTE, picker.minute)
+                    novaHora = novoCal.timeInMillis
+                    text = "${activity.getString(R.string.btn_alterar_hora)}: ${TimeUtils.formatTime(novaHora)}"
+                }
+                picker.show(activity.supportFragmentManager, "time_picker")
             }
         }
 
@@ -75,11 +79,11 @@ object PunchEditor {
             .show()
     }
 
-    private fun confirmarApagar(activity: Activity, punch: PunchEntity, dao: PunchDao, onDone: () -> Unit) {
+    fun confirmarApagar(activity: Activity, punch: PunchEntity, dao: PunchDao, onDone: () -> Unit) {
         AlertDialog.Builder(activity)
             .setMessage(R.string.confirmar_apagar)
             .setPositiveButton(R.string.btn_apagar) { _, _ ->
-                (activity as androidx.appcompat.app.AppCompatActivity).lifecycleScope.launch {
+                (activity as AppCompatActivity).lifecycleScope.launch {
                     dao.delete(punch)
                     Toast.makeText(activity, R.string.registo_apagado, Toast.LENGTH_SHORT).show()
                     WidgetUpdater.updateAll(activity)

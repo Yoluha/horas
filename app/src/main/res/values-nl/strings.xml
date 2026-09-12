@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">INKLOKKEN</string>
     <string name="btn_saida">UITKLOKKEN</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">Android vereist locatietoestemming om de naam van het verbonden WiFi-netwerk te lezen</string>
     <string name="nota_auto_wifi">Automatisch (WiFi) — kan een paar minuten afwijken</string>
     <string name="notif_canal_nome">Detectie van werk-WiFi</string>
-    <string name="notif_titulo">Horas — werknetwerk wordt gecontroleerd</string>
+    <string name="notif_titulo">Ponto — werknetwerk wordt gecontroleerd</string>
     <string name="notif_texto">Klokt je automatisch in/uit wanneer je dit netwerk betreedt/verlaat</string>
-    <string name="aviso_bateria">Op sommige telefoons (Xiaomi/POCO, Huawei, enz.) sluit het systeem apps op de achtergrond om batterij te besparen. Als de detectie vanzelf stopt met werken, ga dan naar Telefooninstellingen → Batterij → selecteer Horas → schakel batterijbesparing voor deze app uit, en schakel \"Automatisch starten\" in als die optie bestaat.</string>
+    <string name="aviso_bateria">Op sommige telefoons (Xiaomi/POCO, Huawei, enz.) sluit het systeem apps op de achtergrond om batterij te besparen. Als de detectie vanzelf stopt met werken, ga dan naar Telefooninstellingen → Batterij → selecteer Ponto → schakel batterijbesparing voor deze app uit, en schakel \"Automatisch starten\" in als die optie bestaat.</string>
     <string name="switch_aviso_desconexao">Waarschuw me als ik het werknetwerk verlaat</string>
     <string name="notif_canal_aviso_nome">Melding bij verlaten werknetwerk</string>
     <string name="notif_aviso_titulo">Je hebt het werknetwerk verlaten</string>

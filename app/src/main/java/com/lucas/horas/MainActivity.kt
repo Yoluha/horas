@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
-import com.lucas.horas.ads.AdsProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.core.content.ContextCompat
 import com.lucas.horas.data.AppDatabase
@@ -63,8 +62,6 @@ class MainActivity : AppCompatActivity() {
         binding.btnIdioma.setOnClickListener {
             startActivity(Intent(this, LanguageActivity::class.java))
         }
-
-        AdsProvider.prepareAndShowBanner(this, binding.adContainer)
     }
 
     override fun onResume() {
@@ -216,6 +213,9 @@ class MainActivity : AppCompatActivity() {
 
             itemBinding.root.setOnClickListener {
                 PunchEditor.open(this, punch, dao) { carregarHoje() }
+            }
+            itemBinding.btnDeletePunch.setOnClickListener {
+                PunchEditor.confirmarApagar(this, punch, dao) { carregarHoje() }
             }
 
             binding.listaHoje.addView(itemBinding.root)

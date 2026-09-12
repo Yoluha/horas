@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">CLOCK IN</string>
     <string name="btn_saida">CLOCK OUT</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">Android requires location permission to read the connected WiFi network\'s name</string>
     <string name="nota_auto_wifi">Automatic (WiFi) — may be off by a few minutes</string>
     <string name="notif_canal_nome">Work WiFi detection</string>
-    <string name="notif_titulo">Horas — monitoring work network</string>
+    <string name="notif_titulo">Ponto — monitoring work network</string>
     <string name="notif_texto">Clocks you in/out automatically when you join/leave this network</string>
-    <string name="aviso_bateria">On some phones (Xiaomi/POCO, Huawei, etc.) the system closes background apps to save battery. If automatic detection stops working on its own, go to Phone Settings → Battery → select Horas → turn off battery saving for this app, and enable \"Autostart\" if that option exists.</string>
+    <string name="aviso_bateria">On some phones (Xiaomi/POCO, Huawei, etc.) the system closes background apps to save battery. If automatic detection stops working on its own, go to Phone Settings → Battery → select Ponto → turn off battery saving for this app, and enable \"Autostart\" if that option exists.</string>
     <string name="switch_aviso_desconexao">Notify me when I leave the work network</string>
     <string name="notif_canal_aviso_nome">Alert when leaving work network</string>
     <string name="notif_aviso_titulo">You left the work network</string>

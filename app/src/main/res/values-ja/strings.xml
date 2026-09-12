@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">出勤</string>
     <string name="btn_saida">退勤</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">接続中のWiFiネットワーク名を読み取るには、Androidの位置情報の権限が必要です</string>
     <string name="nota_auto_wifi">自動（WiFi）— 数分ずれる場合があります</string>
     <string name="notif_canal_nome">職場WiFiの検出</string>
-    <string name="notif_titulo">Horas — 職場のネットワークを監視中</string>
+    <string name="notif_titulo">Ponto — 職場のネットワークを監視中</string>
     <string name="notif_texto">このネットワークに接続/切断すると自動的に出勤/退勤を記録します</string>
-    <string name="aviso_bateria">一部のスマートフォン（Xiaomi/POCO、Huaweiなど）では、バッテリー節約のためシステムがバックグラウンドアプリを終了させます。自動検出が勝手に止まる場合は、スマートフォンの設定 → バッテリー → Horasを選択 → このアプリのバッテリー節約をオフにし、「自動起動」があれば有効にしてください。</string>
+    <string name="aviso_bateria">一部のスマートフォン（Xiaomi/POCO、Huaweiなど）では、バッテリー節約のためシステムがバックグラウンドアプリを終了させます。自動検出が勝手に止まる場合は、スマートフォンの設定 → バッテリー → Pontoを選択 → このアプリのバッテリー節約をオフにし、「自動起動」があれば有効にしてください。</string>
     <string name="switch_aviso_desconexao">職場のネットワークから離れたら通知する</string>
     <string name="notif_canal_aviso_nome">職場ネットワーク退出時の通知</string>
     <string name="notif_aviso_titulo">職場のネットワークから離れました</string>

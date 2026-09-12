@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Horas</string>
+    <string name="app_name">Ponto</string>
 
     <string name="btn_entrada">ПРИХОД</string>
     <string name="btn_saida">УХОД</string>
@@ -33,9 +33,9 @@
     <string name="erro_permissao_localizacao">Android требует разрешение на геолокацию для чтения имени подключённой сети WiFi</string>
     <string name="nota_auto_wifi">Автоматически (WiFi) — может отличаться на несколько минут</string>
     <string name="notif_canal_nome">Определение рабочей сети WiFi</string>
-    <string name="notif_titulo">Horas — отслеживание рабочей сети</string>
+    <string name="notif_titulo">Ponto — отслеживание рабочей сети</string>
     <string name="notif_texto">Автоматически регистрирует приход/уход при подключении/отключении от этой сети</string>
-    <string name="aviso_bateria">На некоторых телефонах (Xiaomi/POCO, Huawei и др.) система закрывает фоновые приложения для экономии батареи. Если автоматическое определение перестаёт работать само по себе, зайдите в Настройки телефона → Батарея → выберите Horas → отключите экономию батареи для этого приложения и включите «Автозапуск», если такая опция есть.</string>
+    <string name="aviso_bateria">На некоторых телефонах (Xiaomi/POCO, Huawei и др.) система закрывает фоновые приложения для экономии батареи. Если автоматическое определение перестаёт работать само по себе, зайдите в Настройки телефона → Батарея → выберите Ponto → отключите экономию батареи для этого приложения и включите «Автозапуск», если такая опция есть.</string>
     <string name="switch_aviso_desconexao">Уведомлять при выходе из рабочей сети</string>
     <string name="notif_canal_aviso_nome">Уведомление при выходе из рабочей сети</string>
     <string name="notif_aviso_titulo">Вы вышли из рабочей сети</string>
